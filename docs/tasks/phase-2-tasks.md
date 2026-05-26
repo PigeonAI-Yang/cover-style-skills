@@ -1,7 +1,7 @@
 # TASKS: Phase 2
 
 ## Task 1: First Real Article Run
-Status: waiting for approval 2026-05-26
+Status: prompt ready 2026-05-26
 
 - Use a real title, summary, Markdown draft, or draft path.
 - Create a private cover project.
@@ -12,9 +12,10 @@ Status: waiting for approval 2026-05-26
 Current project:
 `J:\PigeonYang\cover-style-distiller\cover-projects\20260526-ai-flywheel-builder-cover`
 
-Progress: real article source has been saved and three differentiated WeChat
-cover directions have been produced. Waiting for direction and exact cover-copy
-approval before final prompt writing or image generation.
+Progress: real article source has been saved, three differentiated WeChat cover
+directions have been produced, Direction 2 has been approved, exact cover copy is
+`这是内容飞轮`, execution packet and final prompt have been written, and prompt
+firewall has passed.
 
 ## Task 2: Output Verification
 Status: blocked 2026-05-26
@@ -23,7 +24,7 @@ Status: blocked 2026-05-26
 - Check the PigeonYang anime identity against the private reference.
 - Record accepted and rejected outputs under the private project.
 
-Blocker: no approved real-article direction and no generated output image exist.
+Blocker: no generated output image exists yet.
 
 ## Task 3: Metrics Capture
 Status: blocked 2026-05-26

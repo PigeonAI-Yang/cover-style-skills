@@ -20,20 +20,20 @@ acceptance criteria.
 
 | Task | Status | Why |
 |---|---|---|
-| Task 1 | Waiting for approval | Real article source is saved and three directions are ready. |
-| Task 2 | Blocked | Needs an approved direction, final prompt, and generated output image. |
+| Task 1 | Prompt ready | Direction 2 and exact copy `这是内容飞轮` are approved; prompt firewall passed. |
+| Task 2 | Blocked | Needs generated output image and dimension verification. |
 | Task 3 | Blocked | Needs post-publish metrics from a real WeChat article. |
 | Task 4 | Blocked | Needs a real output and iteration notes. |
 | Task 5 | Not ready | Requires repeated or high-cost friction from 3-5 real runs. |
 | Task 6 | Not ready | Requires enough run evidence to support a retrospective. |
 
-## Next Executable Decision
+## Next Executable Step
 
-Approve one direction and exact on-cover copy from:
+Generate from the final prompt:
 
 ```text
-J:\PigeonYang\cover-style-distiller\cover-projects\20260526-ai-flywheel-builder-cover\directions.md
+J:\PigeonYang\cover-style-distiller\cover-projects\20260526-ai-flywheel-builder-cover\prompt-final.txt
 ```
 
-After approval, the Agent should write `execution-packet.md`, write
-`prompt-final.txt`, run the prompt firewall, and only then generate.
+After generation, save the output under `outputs\`, verify dimensions against
+`wechat-article-main`, and review identity/readability.
