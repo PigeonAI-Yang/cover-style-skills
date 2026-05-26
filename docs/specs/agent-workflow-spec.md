@@ -25,18 +25,21 @@ When input is weak, the Agent should still produce directions, but must mark ass
 2. Save the raw input as project source material.
 3. Extract article promise, reader pain, contradiction, stakes, and strongest open-rate hook.
 4. Generate three differentiated cover directions.
-5. Ask Yang to approve one direction and final cover copy.
-6. Build an execution design packet.
-7. Write the final GPT Image 2 prompt.
-8. Run prompt firewall checks.
-9. Generate the image through Codex's native GPT Image 2 path.
-10. Verify image dimensions and obvious identity drift.
-11. Save output, selected prompt, and generation notes.
-12. After publishing, record metrics with `scripts/manage_cover_project.py update-metrics`.
+5. Generate three visual direction references or low-fidelity direction previews.
+6. Ask Yang to approve one direction and final cover copy after viewing the visual references.
+7. Build an execution design packet.
+8. Write the final GPT Image 2 prompt.
+9. Run prompt firewall checks.
+10. Generate the image through Codex's native GPT Image 2 path.
+11. Verify image dimensions and obvious identity drift.
+12. Save output, selected prompt, and generation notes.
+13. After publishing, record metrics with `scripts/manage_cover_project.py update-metrics`.
 
 ## Direction Packet
 Each of the three direction options must include:
 
+- Visual reference image path
+- Target canvas and preset
 - Hook angle
 - Proposed cover copy
 - Visual premise
@@ -46,9 +49,36 @@ Each of the three direction options must include:
 - Why it may improve open rate
 - Risk or possible misread
 
+Text-only directions are not enough for approval. The direction gate is a visual
+decision gate: Yang must be able to compare three rough cover directions by
+looking at images, not by imagining from prose.
+
+Direction references must not rely on model memory for size. Every direction
+reference prompt must include the platform, aspect ratio, target canvas, and
+safe-area rules explicitly:
+
+- `WeChat public account article main cover`
+- `2.35:1`
+- `target canvas 2350x1000 pixels`
+- central square-safe zone `x=675..1675`
+
+Visual references should be saved under:
+
+```text
+outputs/direction-references/
+```
+
+They are not final covers. They are low-cost decision artifacts for composition,
+visual metaphor, text treatment, and overall taste.
+
+After generation, direction references should be checked with
+`scripts/verify_image_dimensions.py --preset wechat-article-main --ratio-only`.
+Exact canvas failures are acceptable for reference images only if recorded; final
+accepted covers must pass exact target canvas verification.
+
 ## Approval Gates
 - Copy Approval Gate: final on-cover text requires Yang's approval.
-- Direction Approval Gate: generation only happens after Yang chooses one direction.
+- Direction Approval Gate: final prompt generation only happens after Yang sees three visual references and chooses one direction.
 - Identity Gate: final prompt must require the fixed PigeonYang character identity.
 - Style Gate: final prompt must keep anime / refined illustration style and forbid photorealistic person replacement.
 - Privacy Gate: project artifacts must not be written inside the product repo.
@@ -62,6 +92,7 @@ cover-projects/
     brief.json
     source.md
     directions.md
+    direction-reference-prompts.md
     approved-direction.md
     execution-packet.md
     prompt-final.txt

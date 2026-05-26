@@ -18,13 +18,19 @@ directions have been produced, Direction 2 has been approved, exact cover copy i
 firewall has passed.
 
 ## Task 2: Output Verification
-Status: blocked 2026-05-26
+Status: iteration needed 2026-05-27
 
 - Verify generated output dimensions with `scripts/verify_image_dimensions.py`.
 - Check the PigeonYang anime identity against the private reference.
 - Record accepted and rejected outputs under the private project.
 
-Blocker: no generated output image exists yet.
+Progress: `cover-v001-rejected.png` was generated and copied to the private
+project. Ratio verification passed, exact target canvas failed (`1923x818` vs
+`2350x1000`). User rejected the cover aesthetics.
+
+Next: generate three visual direction references with explicit target canvas and
+safe-area requirements before revising v002. The previous text-only direction
+approval is insufficient.
 
 ## Task 3: Metrics Capture
 Status: blocked 2026-05-26
@@ -36,23 +42,25 @@ Status: blocked 2026-05-26
 Blocker: no real cover has been generated or published.
 
 ## Task 4: Review Notes
-Status: blocked 2026-05-26
+Status: started 2026-05-27
 
 - Fill `review.md` for each real project.
 - Separate design taste issues from workflow/tooling friction.
 - Identify repeated failure modes.
 
-Blocker: no real project output or post-generation iteration exists yet.
+Progress: review notes for rejected v001 were written in the private project.
 
 ## Task 5: Product Patch Batch
-Status: not ready 2026-05-26
+Status: started 2026-05-27
 
 - After 3-5 runs, patch only repeated or high-cost friction.
 - Prefer mechanical guardrails over prompt-only reminders.
 - Update skill docs, schemas, scripts, or MCP tools only when evidence supports it.
 
-Reason: Phase 2 explicitly requires observed friction from real projects. No
-patch should be made from speculation.
+Observed friction: text-only direction approval caused a bad visual choice, and
+direction prompts did not explicitly carry canvas requirements. Patch direction
+workflow so approval requires three visual references with explicit platform,
+ratio, target canvas, and safe-area rules.
 
 ## Task 6: Phase 2 Retrospective
 Status: not ready 2026-05-26

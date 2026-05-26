@@ -46,7 +46,9 @@ For PigeonYang's own WeChat public account article covers, do not force a creato
 - For PigeonYang WeChat article covers, the first-generation target is open rate, not style mimicry. Use high-click knowledge-media cover logic with medium brand consistency.
 - For PigeonYang WeChat article covers, always use the private identity reference unless the user explicitly overrides it: `J:\PigeonYang\cover-style-distiller\cover-projects\_identity\pigeonyang-character-reference.png`.
 - For PigeonYang WeChat article covers, production project files must be written under `J:\PigeonYang\cover-style-distiller\cover-projects`, never under the product repo.
-- For PigeonYang WeChat article covers, produce three differentiated directions before final prompt writing. Each direction must vary hook, copy, and visual strategy.
+- For PigeonYang WeChat article covers, produce three differentiated directions and three visual direction references before final prompt writing. Each direction must vary hook, copy, visual strategy, and visible composition.
+- Do not ask Yang to choose from text-only directions. Text is only an explanation layer; the approval gate must be based on visual references or low-fidelity direction previews.
+- Do not rely on the model remembering dimensions. Every direction reference prompt and every final prompt must explicitly state `WeChat public account article main cover`, `2.35:1`, `target canvas 2350x1000 pixels`, and central square-safe zone `x=675..1675`.
 - For PigeonYang WeChat article covers, do not generate until the user approves one direction and the exact on-cover text.
 
 ## Workflow
@@ -295,10 +297,12 @@ Use this structure when possible:
 brief.json
 source.md
 directions.md
+direction-reference-prompts.md
 approved-direction.md
 execution-packet.md
 prompt-final.txt
 outputs\
+  direction-references\
 metrics.json
 review.md
 ```
@@ -323,8 +327,9 @@ python J:\PigeonYang\cover-style-distiller\product\scripts\manage_cover_project.
 
 #### 6.5 Direction Generation
 
-Before final prompt writing, produce three candidate directions. Each direction must include:
+Before final prompt writing, produce three candidate directions and three visual reference images. Each direction must include:
 
+- visual reference image path
 - hook angle
 - proposed on-cover copy
 - visual premise
@@ -335,6 +340,36 @@ Before final prompt writing, produce three candidate directions. Each direction 
 - risk or possible misread
 
 The three options should not be minor style variants. They should differ in hook, copy, and visual strategy.
+
+The three visual references are decision artifacts, not final covers. They can be
+low-fidelity, but they must make composition, visual metaphor, text treatment,
+and overall taste visible enough for Yang to choose. Save them under:
+
+```text
+outputs\direction-references\
+```
+
+Do not proceed to approval from prose alone. If only text directions exist,
+generate direction references first.
+
+Every visual reference prompt must explicitly include:
+
+- `WeChat public account article main cover`
+- `2.35:1`
+- `target canvas 2350x1000 pixels`
+- central square-safe zone `x=675..1675`
+
+After generation, verify each reference image with:
+
+```powershell
+python J:\PigeonYang\cover-style-distiller\product\scripts\verify_image_dimensions.py <reference-image.png> `
+  --preset wechat-article-main `
+  --ratio-only
+```
+
+If a reference image fails exact `2350x1000`, keep it only as a direction
+reference and record the failure. Final accepted covers must pass exact canvas
+verification.
 
 Recommended hook families:
 
@@ -357,7 +392,9 @@ For WeChat main covers:
 - keep first-read Chinese text short, preferably 4-10 characters and no more than 14 characters across 1-2 lines
 - avoid more than two independent text blocks
 
-If the user has not approved exact text, stop at the direction packet and ask for approval.
+If the user has not seen visual direction references, stop and generate the
+references before asking for approval. If the user has not approved exact text,
+stop at the visual direction packet and ask for approval.
 
 #### 6.7 Execution Packet
 

@@ -21,19 +21,20 @@ acceptance criteria.
 | Task | Status | Why |
 |---|---|---|
 | Task 1 | Prompt ready | Direction 2 and exact copy `这是内容飞轮` are approved; prompt firewall passed. |
-| Task 2 | Blocked | Needs generated output image and dimension verification. |
+| Task 2 | Iteration needed | v001 generated; ratio passed, exact canvas failed, aesthetics rejected; v002 must restart from visual references. |
 | Task 3 | Blocked | Needs post-publish metrics from a real WeChat article. |
-| Task 4 | Blocked | Needs a real output and iteration notes. |
-| Task 5 | Not ready | Requires repeated or high-cost friction from 3-5 real runs. |
+| Task 4 | Started | v001 rejection notes written in the private project review. |
+| Task 5 | Started | First high-cost friction found: text-only approval and missing canvas in direction prompts. |
 | Task 6 | Not ready | Requires enough run evidence to support a retrospective. |
 
 ## Next Executable Step
 
-Generate from the final prompt:
+Revise from the rejected output:
 
 ```text
-J:\PigeonYang\cover-style-distiller\cover-projects\20260526-ai-flywheel-builder-cover\prompt-final.txt
+J:\PigeonYang\cover-style-distiller\cover-projects\20260526-ai-flywheel-builder-cover\outputs\cover-v001-rejected.png
 ```
 
-After generation, save the output under `outputs\`, verify dimensions against
-`wechat-article-main`, and review identity/readability.
+The next step is not a direct prompt tweak. Generate three visual direction
+references first, each explicitly carrying `2.35:1`, `2350x1000`, and square-safe
+zone requirements, then ask Yang to choose from images.

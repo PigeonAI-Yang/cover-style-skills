@@ -45,6 +45,7 @@ COVER_MODES = {
 ARTIFACT_FILES = {
     "source": "source.md",
     "directions": "directions.md",
+    "direction-reference-prompts": "direction-reference-prompts.md",
     "approved-direction": "approved-direction.md",
     "execution-packet": "execution-packet.md",
     "prompt-final": "prompt-final.txt",
@@ -253,6 +254,7 @@ def command_create(args: argparse.Namespace) -> int:
 
     project_path.mkdir(parents=True, exist_ok=False)
     (project_path / "outputs").mkdir()
+    (project_path / "outputs" / "direction-references").mkdir()
 
     brief = {
         "schema_version": 1,
@@ -300,6 +302,10 @@ def command_create(args: argparse.Namespace) -> int:
     atomic_write_json(project_path / "metrics.json", metrics)
     atomic_write_text(project_path / "source.md", render_template("source.md", context))
     atomic_write_text(project_path / "directions.md", render_template("directions.md", context))
+    atomic_write_text(
+        project_path / "direction-reference-prompts.md",
+        render_template("direction-reference-prompts.md", context),
+    )
     atomic_write_text(
         project_path / "approved-direction.md",
         render_template("approved-direction.md", context),
