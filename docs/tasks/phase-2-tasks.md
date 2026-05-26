@@ -62,6 +62,10 @@ direction prompts did not explicitly carry canvas requirements. Patch direction
 workflow so approval requires three visual references with explicit platform,
 ratio, target canvas, and safe-area rules.
 
+Additional friction: generic PigeonYang product workflow bypassed the distilled
+child-skill visual engines. Patch workflow so direction references use child
+skills as internal design engines while keeping final prompts firewall-safe.
+
 ## Task 6: Phase 2 Retrospective
 Status: not ready 2026-05-26
 

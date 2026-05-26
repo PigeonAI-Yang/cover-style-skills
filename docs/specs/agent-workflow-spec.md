@@ -24,20 +24,23 @@ When input is weak, the Agent should still produce directions, but must mark ass
 1. Create or select a private cover project under `cover-projects` with `scripts/manage_cover_project.py create`.
 2. Save the raw input as project source material.
 3. Extract article promise, reader pain, contradiction, stakes, and strongest open-rate hook.
-4. Generate three differentiated cover directions.
-5. Generate three visual direction references or low-fidelity direction previews.
-6. Ask Yang to approve one direction and final cover copy after viewing the visual references.
-7. Build an execution design packet.
-8. Write the final GPT Image 2 prompt.
-9. Run prompt firewall checks.
-10. Generate the image through Codex's native GPT Image 2 path.
-11. Verify image dimensions and obvious identity drift.
-12. Save output, selected prompt, and generation notes.
-13. After publishing, record metrics with `scripts/manage_cover_project.py update-metrics`.
+4. Select three internal design engines. Prefer existing child skills when their
+   cover generation engine fits the article.
+5. Generate three differentiated cover directions.
+6. Generate three visual direction references or low-fidelity direction previews.
+7. Ask Yang to approve one direction and final cover copy after viewing the visual references.
+8. Build an execution design packet.
+9. Write the final GPT Image 2 prompt.
+10. Run prompt firewall checks.
+11. Generate the image through Codex's native GPT Image 2 path.
+12. Verify image dimensions and obvious identity drift.
+13. Save output, selected prompt, and generation notes.
+14. After publishing, record metrics with `scripts/manage_cover_project.py update-metrics`.
 
 ## Direction Packet
 Each of the three direction options must include:
 
+- Internal design engine used
 - Visual reference image path
 - Target canvas and preset
 - Hook angle
@@ -75,6 +78,22 @@ After generation, direction references should be checked with
 `scripts/verify_image_dimensions.py --preset wechat-article-main --ratio-only`.
 Exact canvas failures are acceptable for reference images only if recorded; final
 accepted covers must pass exact target canvas verification.
+
+## Internal Design Engines
+
+PigeonYang WeChat covers should not bypass the distilled child skills. Use child
+skills as internal visual engines, then translate the chosen engine into original
+PigeonYang-branded design rules.
+
+Suggested routing:
+
+- `pigeonyang-cover-style-dan-koe`: thesis/warning/identity-reframe article.
+- `pigeonyang-cover-style-he-tongxue`: AI tool, workflow, prototype, proof object.
+- `pigeonyang-cover-style-yingshijufeng`: documentary proof, hidden mechanism, real scene.
+- `pigeonyang-cover-style-mrbeast`: high-stakes physicalized premise, output scale, challenge.
+
+Creator names are allowed in internal project notes but forbidden in generated
+image prompts. Final prompts must pass the prompt firewall.
 
 ## Approval Gates
 - Copy Approval Gate: final on-cover text requires Yang's approval.

@@ -14,6 +14,10 @@ every final detail, but they must be close enough for Yang to judge which visual
 direction is worth developing.
 
 ## Rules
+- Select one internal child-skill design engine for each direction.
+- Record the internal engine name in `directions.md`, but do not put public
+  creator names, `inspired by`, or `in the style of` wording in generated image
+  prompts.
 - Every prompt must explicitly say: `WeChat public account article main cover,
   2.35:1, target canvas 2350x1000 pixels`.
 - Every prompt must include the central square-safe zone: `x=675..1675`.

@@ -13,6 +13,11 @@ Do not write a one-off imitation prompt from memory. First research real cover s
 
 For PigeonYang's own WeChat public account article covers, do not force a creator-style imitation workflow. Use the product workflow in `PigeonYang WeChat Article Cover Workflow`: extract the article hook, propose three differentiated cover directions, get copy and direction approval, preserve the fixed PigeonYang anime identity, and save production artifacts outside the product git repo.
 
+Do not confuse "not imitating a creator" with "not using child skills." The
+child skills contain distilled visual decision engines. For PigeonYang WeChat
+covers, use child skills as internal design engines when producing visual
+directions, while keeping the final output PigeonYang-branded and firewall-safe.
+
 ## Non-Negotiables
 
 - Initialize a user-chosen managed research workspace before collecting covers. Do not save downloaded covers into random project folders, Downloads, Desktop, the skill folder, or any implicit C drive default.
@@ -47,8 +52,10 @@ For PigeonYang's own WeChat public account article covers, do not force a creato
 - For PigeonYang WeChat article covers, always use the private identity reference unless the user explicitly overrides it: `J:\PigeonYang\cover-style-distiller\cover-projects\_identity\pigeonyang-character-reference.png`.
 - For PigeonYang WeChat article covers, production project files must be written under `J:\PigeonYang\cover-style-distiller\cover-projects`, never under the product repo.
 - For PigeonYang WeChat article covers, produce three differentiated directions and three visual direction references before final prompt writing. Each direction must vary hook, copy, visual strategy, and visible composition.
+- For PigeonYang WeChat article covers, route each visual direction through an explicit internal design engine. Prefer existing child skills such as `pigeonyang-cover-style-dan-koe`, `pigeonyang-cover-style-he-tongxue`, `pigeonyang-cover-style-yingshijufeng`, or `pigeonyang-cover-style-mrbeast` when their cover generation engine fits the article.
 - Do not ask Yang to choose from text-only directions. Text is only an explanation layer; the approval gate must be based on visual references or low-fidelity direction previews.
 - Do not rely on the model remembering dimensions. Every direction reference prompt and every final prompt must explicitly state `WeChat public account article main cover`, `2.35:1`, `target canvas 2350x1000 pixels`, and central square-safe zone `x=675..1675`.
+- Child skill names are internal routing labels only. Do not put public creator names, `inspired by`, or `in the style of` wording in generated image prompts. Translate each child skill engine into concrete visual rules.
 - For PigeonYang WeChat article covers, do not generate until the user approves one direction and the exact on-cover text.
 
 ## Workflow
@@ -329,6 +336,7 @@ python J:\PigeonYang\cover-style-distiller\product\scripts\manage_cover_project.
 
 Before final prompt writing, produce three candidate directions and three visual reference images. Each direction must include:
 
+- internal design engine used
 - visual reference image path
 - hook angle
 - proposed on-cover copy
@@ -340,6 +348,17 @@ Before final prompt writing, produce three candidate directions and three visual
 - risk or possible misread
 
 The three options should not be minor style variants. They should differ in hook, copy, and visual strategy.
+
+Use child skills as the default source of visual strategy:
+
+- `pigeonyang-cover-style-dan-koe`: best for thesis, warning, identity reframe, high-authority text+face covers.
+- `pigeonyang-cover-style-he-tongxue`: best for AI tools, workflows, prototypes, proof objects, maker-demonstrator covers.
+- `pigeonyang-cover-style-yingshijufeng`: best for documentary proof, hidden mechanism, real scene, serious tech/social investigation covers.
+- `pigeonyang-cover-style-mrbeast`: use sparingly for extreme stakes, visible output, challenge, scale, or absurd physicalized premise.
+
+Pick the engines by article need, not by creator popularity. The same article can
+produce three visual references from three engines. This is a direction-selection
+tool, not a style-copying instruction.
 
 The three visual references are decision artifacts, not final covers. They can be
 low-fidelity, but they must make composition, visual metaphor, text treatment,

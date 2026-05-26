@@ -12,6 +12,11 @@ Each direction must have a visual reference image or low-fidelity direction
 preview saved under `outputs/direction-references/`. The text below only explains
 what the image is trying to test.
 
+Each direction must also state the internal design engine used. Prefer existing
+child skills. The engine name is internal project metadata; generated image
+prompts must translate it into concrete visual rules and must not contain public
+creator names or style-copy wording.
+
 Every direction reference prompt must explicitly include:
 
 - `WeChat public account article main cover`
@@ -25,6 +30,7 @@ If the exact canvas is not `2350x1000`, mark it as a reference only, not a final
 cover candidate.
 
 ## Direction 1
+- Internal design engine:
 - Visual reference:
 - Target canvas:
 - Hook angle:
@@ -37,6 +43,7 @@ cover candidate.
 - Risk or possible misread:
 
 ## Direction 2
+- Internal design engine:
 - Visual reference:
 - Target canvas:
 - Hook angle:
@@ -49,6 +56,7 @@ cover candidate.
 - Risk or possible misread:
 
 ## Direction 3
+- Internal design engine:
 - Visual reference:
 - Target canvas:
 - Hook angle:
