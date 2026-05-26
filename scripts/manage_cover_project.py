@@ -44,6 +44,7 @@ COVER_MODES = {
 
 ARTIFACT_FILES = {
     "source": "source.md",
+    "engine-routing": "engine-routing.md",
     "directions": "directions.md",
     "direction-reference-prompts": "direction-reference-prompts.md",
     "approved-direction": "approved-direction.md",
@@ -301,6 +302,10 @@ def command_create(args: argparse.Namespace) -> int:
     atomic_write_json(project_path / "brief.json", brief)
     atomic_write_json(project_path / "metrics.json", metrics)
     atomic_write_text(project_path / "source.md", render_template("source.md", context))
+    atomic_write_text(
+        project_path / "engine-routing.md",
+        render_template("engine-routing.md", context),
+    )
     atomic_write_text(project_path / "directions.md", render_template("directions.md", context))
     atomic_write_text(
         project_path / "direction-reference-prompts.md",

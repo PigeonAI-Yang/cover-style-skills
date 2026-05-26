@@ -9,6 +9,7 @@ Deterministic project operations are implemented in:
 - `schemas/cover-project/brief.schema.json`
 - `schemas/cover-project/metrics.schema.json`
 - `templates/cover-project/`
+- `docs/specs/skill-router-spec.md`
 
 ## Inputs
 The Agent accepts any of:
@@ -24,18 +25,20 @@ When input is weak, the Agent should still produce directions, but must mark ass
 1. Create or select a private cover project under `cover-projects` with `scripts/manage_cover_project.py create`.
 2. Save the raw input as project source material.
 3. Extract article promise, reader pain, contradiction, stakes, and strongest open-rate hook.
-4. Select three internal design engines. Prefer existing child skills when their
+4. Write `engine-routing.md`: diagnose the article and recommend suitable
+   child-skill design engines.
+5. Select three internal design engines. Prefer existing child skills when their
    cover generation engine fits the article.
-5. Generate three differentiated cover directions.
-6. Generate three visual direction references or low-fidelity direction previews.
-7. Ask Yang to approve one direction and final cover copy after viewing the visual references.
-8. Build an execution design packet.
-9. Write the final GPT Image 2 prompt.
-10. Run prompt firewall checks.
-11. Generate the image through Codex's native GPT Image 2 path.
-12. Verify image dimensions and obvious identity drift.
-13. Save output, selected prompt, and generation notes.
-14. After publishing, record metrics with `scripts/manage_cover_project.py update-metrics`.
+6. Generate three differentiated cover directions.
+7. Generate three visual direction references or low-fidelity direction previews.
+8. Ask Yang to approve one direction and final cover copy after viewing the visual references.
+9. Build an execution design packet.
+10. Write the final GPT Image 2 prompt.
+11. Run prompt firewall checks.
+12. Generate the image through Codex's native GPT Image 2 path.
+13. Verify image dimensions and obvious identity drift.
+14. Save output, selected prompt, and generation notes.
+15. After publishing, record metrics with `scripts/manage_cover_project.py update-metrics`.
 
 ## Direction Packet
 Each of the three direction options must include:
@@ -85,6 +88,9 @@ PigeonYang WeChat covers should not bypass the distilled child skills. Use child
 skills as internal visual engines, then translate the chosen engine into original
 PigeonYang-branded design rules.
 
+Routing is recorded in `engine-routing.md`. This file is the bridge between the
+user's draft and the child-skill library.
+
 Suggested routing:
 
 - `pigeonyang-cover-style-dan-koe`: thesis/warning/identity-reframe article.
@@ -110,6 +116,7 @@ cover-projects/
   YYYYMMDD-slug/
     brief.json
     source.md
+    engine-routing.md
     directions.md
     direction-reference-prompts.md
     approved-direction.md

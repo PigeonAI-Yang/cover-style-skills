@@ -66,6 +66,11 @@ Additional friction: generic PigeonYang product workflow bypassed the distilled
 child-skill visual engines. Patch workflow so direction references use child
 skills as internal design engines while keeping final prompts firewall-safe.
 
+Product clarification: the target product is a router over a growing library of
+distilled excellent-blogger cover skills. Given a user's draft, the system should
+recommend suitable specific skills, generate visual schemes from those engines,
+and use the selected skill to produce the final image.
+
 ## Task 6: Phase 2 Retrospective
 Status: not ready 2026-05-26
 

@@ -6,7 +6,8 @@ Target: `{{TARGET_CANVAS}}`
 Preset: `{{COVER_MODE}}`
 
 ## Purpose
-Generate three rough visual direction references before asking for approval.
+Generate three rough visual direction references from routed child-skill design
+engines before asking for approval.
 
 These are decision images, not final covers. They should test composition,
 visual metaphor, title treatment, and overall taste. They do not need to preserve
@@ -32,7 +33,10 @@ direction is worth developing.
   pass ratio-only, but exact size failures must be recorded.
 
 ## Direction 1 Prompt
+- Internal design engine:
 
 ## Direction 2 Prompt
+- Internal design engine:
 
 ## Direction 3 Prompt
+- Internal design engine:

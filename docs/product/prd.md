@@ -1,10 +1,18 @@
-# PRD: PigeonYang Agent-Native Cover System
+# PRD: PigeonYang Agent-Native Cover Skill Router
 
 ## Problem
-Yang needs a repeatable way to turn article ideas into high-open-rate WeChat covers. Current cover generation through ad hoc prompts is not stable enough: strategy, copy, identity, platform sizing, and output records can drift between runs.
+Yang needs a repeatable way to turn article ideas into high-open-rate covers by
+using the design intelligence already distilled from excellent creators. Current
+cover generation through ad hoc prompts or generic "good-looking cover" logic is
+not stable enough: it bypasses proven creator-specific visual engines, and the
+user cannot judge direction quality from prose alone.
 
 ## Product Promise
-Given an article title, summary, draft, or full Markdown article, the system helps Codex produce three differentiated WeChat cover directions, get Yang's copy and direction approval, generate a GPT Image 2-ready prompt, create the cover, verify the output, and save a private project record for later open-rate review.
+Given an article title, summary, draft, or full Markdown article, the system
+analyzes the article, recommends suitable distilled creator-cover skills as
+internal design engines, produces visual direction references from those engines,
+lets Yang choose the best direction, then generates a GPT Image 2-ready cover
+while preserving PigeonYang identity, platform sizing, and prompt-firewall safety.
 
 ## Primary User
 Yang, working inside Codex.
@@ -12,8 +20,12 @@ Yang, working inside Codex.
 ## MVP Scope
 - WeChat public account cover first.
 - Input can be title-only, title plus summary, or full article Markdown.
-- System proposes three cover directions with different hooks, copy, and visual strategies.
-- Yang approves one direction and final cover copy before generation.
+- System routes the article to 3 suitable internal design engines from the
+  distilled child-skill library.
+- System explains why each engine fits or does not fit the article.
+- System produces three visual direction references, not text-only directions.
+- Yang approves one visual direction and final cover copy before final prompt
+  writing and generation.
 - Generated covers must preserve the fixed PigeonYang character identity.
 - Project records are saved outside the product repo.
 - Metrics are manually recorded after publishing.
@@ -27,10 +39,20 @@ Yang, working inside Codex.
 
 ## Success Criteria
 - Yang can produce a usable WeChat cover from an article draft inside Codex.
-- The first response gives useful strategic choices, not only image prompts.
+- The first response recommends suitable distilled creator skills with concrete
+  rationale.
+- Direction choice is based on visual references, not prose imagination.
 - Final cover feels like PigeonYang: refined anime identity, knowledge-media click clarity, and medium brand consistency.
+- Final cover benefits from a specific distilled creator-cover engine without
+  naming or copying that creator in the final prompt.
 - Each project stores enough context to reconstruct decisions later.
 - Published articles can be manually annotated with open-rate metrics.
+
+## Design Engine Library
+The product is expected to grow by adding more high-quality creator-cover child
+skills. Each child skill is a reusable design engine, not a public style label.
+The router should choose engines based on the article's content type, hook,
+proof object, emotional promise, platform, and PigeonYang identity constraints.
 
 ## Private Project Location
 Private cover projects live under:

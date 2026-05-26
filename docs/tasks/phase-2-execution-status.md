@@ -24,7 +24,7 @@ acceptance criteria.
 | Task 2 | Iteration needed | v001 generated; ratio passed, exact canvas failed, aesthetics rejected; v002 must restart from visual references. |
 | Task 3 | Blocked | Needs post-publish metrics from a real WeChat article. |
 | Task 4 | Started | v001 rejection notes written in the private project review. |
-| Task 5 | Started | First high-cost friction found: text-only approval, missing canvas in direction prompts, and bypassing child-skill visual engines. |
+| Task 5 | Started | Product clarified as a distilled-skill router; generic cover workflow is the wrong center of gravity. |
 | Task 6 | Not ready | Requires enough run evidence to support a retrospective. |
 
 ## Next Executable Step
@@ -39,3 +39,6 @@ The next step is not a direct prompt tweak. Generate three visual direction
 references first, each explicitly carrying `2.35:1`, `2350x1000`, and square-safe
 zone requirements. Each reference should use a child skill as its internal visual
 engine, then ask Yang to choose from images.
+
+Before generating again, write `engine-routing.md` for the current article and
+route it to specific child skills.
