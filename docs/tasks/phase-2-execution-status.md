@@ -4,42 +4,36 @@ Date: 2026-05-26
 
 ## Current State
 
-Phase 2 cannot be truthfully executed yet because the current workspace does not
-contain a real WeChat article draft, title, or publish data. The only existing
-private project is:
+Phase 2 has started with the first real article supplied in conversation. The
+active private project is:
 
 ```text
-J:\PigeonYang\cover-style-distiller\cover-projects\20260526-agent-native-cover-skill
+J:\PigeonYang\cover-style-distiller\cover-projects\20260526-ai-flywheel-builder-cover
 ```
 
-That project is a Phase 1 dry run and should not be counted toward Phase 2's
-real-article acceptance criteria.
+The previous project
+`J:\PigeonYang\cover-style-distiller\cover-projects\20260526-agent-native-cover-skill`
+is still a Phase 1 dry run and should not be counted toward Phase 2's real-article
+acceptance criteria.
 
 ## Task Status
 
 | Task | Status | Why |
 |---|---|---|
-| Task 1 | Blocked | Needs a real article title, summary, Markdown draft, or draft path. |
-| Task 2 | Blocked | Needs a generated output image from an approved real-article direction. |
+| Task 1 | Waiting for approval | Real article source is saved and three directions are ready. |
+| Task 2 | Blocked | Needs an approved direction, final prompt, and generated output image. |
 | Task 3 | Blocked | Needs post-publish metrics from a real WeChat article. |
 | Task 4 | Blocked | Needs a real output and iteration notes. |
 | Task 5 | Not ready | Requires repeated or high-cost friction from 3-5 real runs. |
 | Task 6 | Not ready | Requires enough run evidence to support a retrospective. |
 
-## Next Executable Input
+## Next Executable Decision
 
-Provide one of:
+Approve one direction and exact on-cover copy from:
 
-- a real WeChat article title,
-- a title plus summary,
-- a Markdown draft path,
-- a full Markdown draft.
-
-Then the next command is:
-
-```powershell
-python scripts\manage_cover_project.py create --title "<real article title>" --cover-mode wechat-article-main
+```text
+J:\PigeonYang\cover-style-distiller\cover-projects\20260526-ai-flywheel-builder-cover\directions.md
 ```
 
-The Agent should then write three directions, stop for exact direction/copy
-approval, and only generate after the prompt firewall passes.
+After approval, the Agent should write `execution-packet.md`, write
+`prompt-final.txt`, run the prompt firewall, and only then generate.

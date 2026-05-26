@@ -1,7 +1,7 @@
 # TASKS: Phase 2
 
 ## Task 1: First Real Article Run
-Status: blocked 2026-05-26
+Status: waiting for approval 2026-05-26
 
 - Use a real title, summary, Markdown draft, or draft path.
 - Create a private cover project.
@@ -9,9 +9,12 @@ Status: blocked 2026-05-26
 - Stop for direction and exact copy approval.
 - Generate only after prompt firewall passes.
 
-Blocker: no real article title, summary, Markdown draft, or draft path is
-available in the current workspace. The only existing private project is the
-Phase 1 dry run, which must not be counted as a real article run.
+Current project:
+`J:\PigeonYang\cover-style-distiller\cover-projects\20260526-ai-flywheel-builder-cover`
+
+Progress: real article source has been saved and three differentiated WeChat
+cover directions have been produced. Waiting for direction and exact cover-copy
+approval before final prompt writing or image generation.
 
 ## Task 2: Output Verification
 Status: blocked 2026-05-26
