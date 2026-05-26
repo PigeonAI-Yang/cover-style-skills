@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "creator_id": "mrbeast",
+  "creator_name": "MrBeast",
+  "run_id": "20260524-180147",
+  "created_at": "2026-05-24T18:01:47+08:00",
+  "retention": {
+    "covers_delete_after_days": 30,
+    "sources_delete_after_days": 90,
+    "distillation": "keep",
+    "prompts": "keep",
+    "generated": "keep"
+  },
+  "covers": [
+    {
+      "index": 1,
+      "video_title": "$456,000 Squid Game In Real Life!",
+      "video_url": "https://www.youtube.com/watch?v=0e3GPea1Tyg",
+      "thumbnail_url": "https://i.ytimg.com/vi/0e3GPea1Tyg/maxresdefault.jpg",
+      "local_path": "covers/001-000-squid-game-in-real-life.jpg",
+      "selected_reason": "most-viewed flagship long-form sample",
+      "captured_at": "2026-05-24T18:09:48+08:00"
+    },
+    {
+      "index": 3,
+      "video_title": "$1 vs $100,000,000 Car!",
+      "video_url": "https://www.youtube.com/watch?v=KrLj6nc516A",
+      "thumbnail_url": "https://i.ytimg.com/vi/KrLj6nc516A/maxresdefault.jpg",
+      "local_path": "covers/003-vs-000-000-car.jpg",
+      "selected_reason": "top-performing price ladder format",
+      "captured_at": "2026-05-24T18:09:48+08:00"
+    },
+    {
+      "index": 4,
+      "video_title": "$1 vs $500,000 Plane Ticket!",
+      "video_url": "https://www.youtube.com/watch?v=1WEAJ-DFkHE",
+      "thumbnail_url": "https://i.ytimg.com/vi/1WEAJ-DFkHE/maxresdefault.jpg",
+      "local_path": "covers/004-vs-000-plane-ticket.jpg",
+      "selected_reason": "top-performing price ladder travel format",
+      "captured_at": "2026-05-24T18:09:48+08:00"
+    },
+    {
+      "index": 2,
+      "video_title": "$1 vs $1,000,000,000 Yacht!",
+      "video_url": "https://www.youtube.com/watch?v=48h57PspBec",
+      "thumbnail_url": "https://i.ytimg.com/vi/48h57PspBec/maxresdefault.jpg",
+      "local_path": "covers/002-vs-000-000-000-yacht.jpg",
+      "selected_reason": "top-performing luxury comparison format",
+      "captured_at": "2026-05-24T18:09:48+08:00"
+    },
+    {
+      "index": 5,
+      "video_title": "Ages 1 - 100 Fight For $500,000",
+      "video_url": "https://www.youtube.com/watch?v=FM7Z-Xq8Drc",
+      "thumbnail_url": "https://i.ytimg.com/vi/FM7Z-Xq8Drc/maxresdefault.jpg",
+      "local_path": "covers/005-ages-1-100-fight-for-000.jpg",
+      "selected_reason": "top-performing age bracket challenge format",
+      "captured_at": "2026-05-24T18:10:06+08:00"
+    },
+    {
+      "index": 6,
+      "video_title": "7 Days Stranded At Sea",
+      "video_url": "https://www.youtube.com/watch?v=yhB3BgJyGl8",
+      "thumbnail_url": "https://i.ytimg.com/vi/yhB3BgJyGl8/maxresdefault.jpg",
+      "local_path": "covers/006-7-days-stranded-at-sea.jpg",
+      "selected_reason": "top-performing survival scenario",
+      "captured_at": "2026-05-24T18:10:06+08:00"
+    },
+    {
+      "index": 7,
+      "video_title": "Survive 100 Days In Nuclear Bunker, Win $500,000",
+      "video_url": "https://www.youtube.com/watch?v=UPrkC1LdlLY",
+      "thumbnail_url": "https://i.ytimg.com/vi/UPrkC1LdlLY/maxresdefault.jpg",
+      "local_path": "covers/007-survive-100-days-in-nuclear-bunker-win-000.jpg",
+      "selected_reason": "recent high-performing survival/prize sample",
+      "captured_at": "2026-05-24T18:10:06+08:00"
+    },
+    {
+      "index": 8,
+      "video_title": "Survive 100 Days In Circle, Win $500,000",
+      "video_url": "https://www.youtube.com/watch?v=gHzuabZUd6c",
+      "thumbnail_url": "https://i.ytimg.com/vi/gHzuabZUd6c/maxresdefault.jpg",
+      "local_path": "covers/008-survive-100-days-in-circle-win-000.jpg",
+      "selected_reason": "classic endurance challenge with clear stakes",
+      "captured_at": "2026-05-24T18:10:08+08:00"
+    },
+    {
+      "index": 9,
+      "video_title": "$1 vs $1,000,000 Hotel Room!",
+      "video_url": "https://www.youtube.com/watch?v=iogcY_4xGjo",
+      "thumbnail_url": "https://i.ytimg.com/vi/iogcY_4xGjo/maxresdefault.jpg",
+      "local_path": "covers/009-vs-000-000-hotel-room.jpg",
+      "selected_reason": "price ladder travel/luxury format",
+      "captured_at": "2026-05-24T18:10:25+08:00"
+    },
+    {
+      "index": 10,
+      "video_title": "$1 vs $250,000,000 Private Island!",
+      "video_url": "https://www.youtube.com/watch?v=krsBRQbOPQ4",
+      "thumbnail_url": "https://i.ytimg.com/vi/krsBRQbOPQ4/maxresdefault.jpg",
+      "local_path": "covers/010-vs-000-000-private-island.jpg",
+      "selected_reason": "recent high-performing price ladder spectacle",
+      "captured_at": "2026-05-24T18:10:25+08:00"
+    },
+    {
+      "index": 11,
+      "video_title": "100 Kids Fight Parents For $500,000",
+      "video_url": "https://www.youtube.com/watch?v=0CTp1a-aCUM",
+      "thumbnail_url": "https://i.ytimg.com/vi/0CTp1a-aCUM/maxresdefault.jpg",
+      "local_path": "covers/011-100-kids-fight-parents-for-000.jpg",
+      "selected_reason": "team-vs-team competition format",
+      "captured_at": "2026-05-24T18:10:25+08:00"
+    },
+    {
+      "index": 12,
+      "video_title": "100 People Fight For A Private Island",
+      "video_url": "https://www.youtube.com/watch?v=2isYuQZMbdU",
+      "thumbnail_url": "https://i.ytimg.com/vi/2isYuQZMbdU/maxresdefault.jpg",
+      "local_path": "covers/012-100-people-fight-for-a-private-island.jpg",
+      "selected_reason": "subscriber competition and prize object format",
+      "captured_at": "2026-05-24T18:10:25+08:00"
+    }
+  ],
+  "process_sources": [
+    {
+      "title": "Lex Fridman Podcast #351 With MrBeast",
+      "url": "https://www.youtube.com/watch?v=Z3_PwvvfxIU",
+      "local_path": "sources/interviews/lex-fridman-podcast-351-with-mrbeast.md",
+      "source_type": "interview",
+      "captured_at": "2026-05-24T18:16:53+08:00"
+    },
+    {
+      "title": "Colin and Samir The Full Story of MrBeast",
+      "url": "https://www.youtube.com/watch?v=c8VcUnz3nVc",
+      "local_path": "sources/interviews/colin-and-samir-the-full-story-of-mrbeast.md",
+      "source_type": "interview",
+      "captured_at": "2026-05-24T18:16:53+08:00"
+    },
+    {
+      "title": "A Brutally Honest Conversation With MrBeast",
+      "url": "https://www.youtube.com/watch?v=9IQ_ldV9z_A",
+      "local_path": "sources/interviews/a-brutally-honest-conversation-with-mrbeast.md",
+      "source_type": "interview",
+      "captured_at": "2026-05-24T18:16:53+08:00"
+    },
+    {
+      "title": "CNBC YouTube Advisors And MrBeast Strategy",
+      "url": "https://www.cnbc.com/2026/05/10/youtube-advisors-mrbeast-top-creators-platform-viewership.html",
+      "local_path": "sources/articles/cnbc-youtube-advisors-and-mrbeast-strategy.md",
+      "source_type": "article",
+      "captured_at": "2026-05-24T18:17:13+08:00"
+    },
+    {
+      "title": "Deseret News MrBeast Formula For Going Viral",
+      "url": "https://www.deseret.com/2022/3/3/22890229/highest-paid-youtuber-mrbeast-shares-the-formula-for-going-viral/",
+      "local_path": "sources/articles/deseret-news-mrbeast-formula-for-going-viral.md",
+      "source_type": "article",
+      "captured_at": "2026-05-24T18:17:13+08:00"
+    },
+    {
+      "title": "TIME Yacht Video Record Analysis",
+      "url": "https://time.com/6287028/mrbeast-youtube-views-record/",
+      "local_path": "sources/articles/time-yacht-video-record-analysis.md",
+      "source_type": "article",
+      "captured_at": "2026-05-24T18:17:13+08:00"
+    }
+  ],
+  "artifacts": {
+    "research_md": "distillation/research.md",
+    "child_skill": "J:\\PigeonYang\\cover-style-distiller\\product\\child-skills\\pigeonyang-cover-style-mrbeast",
+    "design_standard_md": "distillation/design-standard.md"
+  }
+}

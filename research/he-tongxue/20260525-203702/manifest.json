@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "creator_id": "he-tongxue",
+  "creator_name": "何同学",
+  "run_id": "20260525-203702",
+  "created_at": "2026-05-25T20:37:02+08:00",
+  "retention": {
+    "covers_delete_after_days": 30,
+    "sources_delete_after_days": 90,
+    "distillation": "keep",
+    "prompts": "keep",
+    "generated": "keep"
+  },
+  "covers": [
+    {
+      "index": 1,
+      "video_title": "【何同学】有多快？5G在日常使用中的真实体验",
+      "video_url": "https://www.bilibili.com/video/BV1f4411M7QC/",
+      "thumbnail_url": "https://i1.hdslb.com/bfs/archive/14945c3f6893e7489e15d731aa3032716e00ebea.jpg",
+      "local_path": "covers/001-5g.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 33740644",
+      "captured_at": "2026-05-25T20:42:42+08:00"
+    },
+    {
+      "index": 2,
+      "video_title": "【何同学】我做了一个自己打字的键盘...",
+      "video_url": "https://www.bilibili.com/video/BV1W14y1b7Mq/",
+      "thumbnail_url": "https://i2.hdslb.com/bfs/archive/3dad5aa893bc4af47a2456dd60978e92708cee3a.jpg",
+      "local_path": "covers/002-cover-002.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 28319909",
+      "captured_at": "2026-05-25T20:42:43+08:00"
+    },
+    {
+      "index": 3,
+      "video_title": "【何同学】我做了苹果放弃的产品...",
+      "video_url": "https://www.bilibili.com/video/BV19v411M7Rs/",
+      "thumbnail_url": "https://i2.hdslb.com/bfs/archive/c4e1d8d57de5d340e885bcf1a4114aa9c9ca2414.jpg",
+      "local_path": "covers/003-cover-003.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 26064926",
+      "captured_at": "2026-05-25T20:42:44+08:00"
+    },
+    {
+      "index": 4,
+      "video_title": "【何同学】我们做了一台中文打字机...",
+      "video_url": "https://www.bilibili.com/video/BV1Sk4y1471G/",
+      "thumbnail_url": "https://i1.hdslb.com/bfs/archive/4bd03046c52434bbe9c1290de804d4417b52e0da.jpg",
+      "local_path": "covers/004-cover-004.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 16970552",
+      "captured_at": "2026-05-25T20:42:44+08:00"
+    },
+    {
+      "index": 5,
+      "video_title": "【何同学】我们做了条流水线…",
+      "video_url": "https://www.bilibili.com/video/BV1qw41177Da/",
+      "thumbnail_url": "https://i0.hdslb.com/bfs/archive/0fffea0caa60eb495da82c0fa22c06364df37204.jpg",
+      "local_path": "covers/005-cover-005.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 17738359",
+      "captured_at": "2026-05-25T20:42:45+08:00"
+    },
+    {
+      "index": 6,
+      "video_title": "为了让大家多喝水，我做了这个…",
+      "video_url": "https://www.bilibili.com/video/BV1N1421b7NL/",
+      "thumbnail_url": "https://i1.hdslb.com/bfs/archive/37ee9fee2363174b6ca4b03d07cf2f9de9187677.jpg",
+      "local_path": "covers/006-cover-006.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 16173657",
+      "captured_at": "2026-05-25T20:42:45+08:00"
+    },
+    {
+      "index": 7,
+      "video_title": "【何同学】快充伤电池？40部手机两年实验，告诉你最佳充电方式",
+      "video_url": "https://www.bilibili.com/video/BV1X8411e7EJ/",
+      "thumbnail_url": "https://i2.hdslb.com/bfs/archive/8868a3bddaa031870067f7dc44f21d626d8c91a3.jpg",
+      "local_path": "covers/007-40.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 15373989",
+      "captured_at": "2026-05-25T20:42:46+08:00"
+    },
+    {
+      "index": 8,
+      "video_title": "【何同学】这视频能让你戒手机",
+      "video_url": "https://www.bilibili.com/video/BV1ev411x7en/",
+      "thumbnail_url": "https://i0.hdslb.com/bfs/archive/f79332c45ef4fa4387f3e333a704a4ace3c9919f.jpg",
+      "local_path": "covers/008-cover-008.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 14174188",
+      "captured_at": "2026-05-25T20:42:47+08:00"
+    },
+    {
+      "index": 9,
+      "video_title": "【何同学】我找到了我最喜欢的数码产品，但是...",
+      "video_url": "https://www.bilibili.com/video/BV1ir4y1H74w/",
+      "thumbnail_url": "https://i0.hdslb.com/bfs/archive/bc232c2e1886d965d762979d01de4cea7d738150.jpg",
+      "local_path": "covers/009-cover-009.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 15385873",
+      "captured_at": "2026-05-25T20:42:47+08:00"
+    },
+    {
+      "index": 10,
+      "video_title": "【何同学】为了找到流量密码，我们做了个假B站...",
+      "video_url": "https://www.bilibili.com/video/BV1AP411d7Qa/",
+      "thumbnail_url": "https://i0.hdslb.com/bfs/archive/2456f7d01c09d33285ffa3de7fc0f42166a6a06f.jpg",
+      "local_path": "covers/010-b.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 10412563",
+      "captured_at": "2026-05-25T20:42:48+08:00"
+    },
+    {
+      "index": 11,
+      "video_title": "【何同学】我原本只是想开个灯…",
+      "video_url": "https://www.bilibili.com/video/BV1244y1p7kt/",
+      "thumbnail_url": "https://i0.hdslb.com/bfs/archive/0fb59e2971747beabee7e1871e8d00b5da7663fc.jpg",
+      "local_path": "covers/011-cover-011.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 14074846",
+      "captured_at": "2026-05-25T20:42:49+08:00"
+    },
+    {
+      "index": 12,
+      "video_title": "【何同学】我们做了个特别的键盘…",
+      "video_url": "https://www.bilibili.com/video/BV1DtjAzUEb9/",
+      "thumbnail_url": "https://i2.hdslb.com/bfs/archive/00f0f24f5ca6d5ea0ad5198f69533efd573f8397.jpg",
+      "local_path": "covers/012-cover-012.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 10548203",
+      "captured_at": "2026-05-25T20:42:49+08:00"
+    },
+    {
+      "index": 13,
+      "video_title": "【何同学】为了随地大小坐，我们做了这个…",
+      "video_url": "https://www.bilibili.com/video/BV1YydJBJEuF/",
+      "thumbnail_url": "https://i2.hdslb.com/bfs/archive/ad0860c2e3a4178c0f19a6c6bf8823262264c9a7.jpg",
+      "local_path": "covers/013-cover-013.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 6574699",
+      "captured_at": "2026-05-25T20:42:50+08:00"
+    },
+    {
+      "index": 14,
+      "video_title": "为了帮粉丝放牛，我们做了这个...",
+      "video_url": "https://www.bilibili.com/video/BV17PygBiETq/",
+      "thumbnail_url": "https://i1.hdslb.com/bfs/archive/11e4063752c192b4b0ecd538e8f5500a95426f51.jpg",
+      "local_path": "covers/014-cover-014.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 2432300",
+      "captured_at": "2026-05-25T20:42:50+08:00"
+    },
+    {
+      "index": 15,
+      "video_title": "【何同学】“看不见”的未来 小米透明电视使用体验",
+      "video_url": "https://www.bilibili.com/video/BV1TV411S7pw/",
+      "thumbnail_url": "https://i2.hdslb.com/bfs/archive/cf4dbe6189b8d706007aa77d54c91fa2e28f226c.jpg",
+      "local_path": "covers/015-cover-015.jpg",
+      "selected_reason": "representative public Bilibili sample; API view count 8986026",
+      "captured_at": "2026-05-25T20:42:51+08:00"
+    }
+  ],
+  "process_sources": [
+    {
+      "title": "Bilibili selected He Tongxue video API data",
+      "url": "https://api.bilibili.com/x/web-interface/view",
+      "local_path": "sources/datas/bilibili-selected-he-tongxue-video-api-data.json",
+      "source_type": "data",
+      "captured_at": "2026-05-25T20:51:13+08:00"
+    },
+    {
+      "title": "Feishu article: He Tongxue Studio second brain",
+      "url": "https://www.feishu.cn/content/article/7595522152070335693",
+      "local_path": "sources/articles/feishu-article-he-tongxue-studio-second-brain.html",
+      "source_type": "article",
+      "captured_at": "2026-05-25T20:51:19+08:00"
+    },
+    {
+      "title": "Southern Metropolis profile of He Tongxue",
+      "url": "https://m.mp.oeeee.com/a/BAAFRD000020210805529530.html",
+      "local_path": "sources/articles/southern-metropolis-profile-of-he-tongxue.html",
+      "source_type": "article",
+      "captured_at": "2026-05-25T20:51:24+08:00"
+    },
+    {
+      "title": "36Kr article about He Tongxue and AirDesk",
+      "url": "https://36kr.com/p/1446676658415488",
+      "local_path": "sources/articles/36kr-article-about-he-tongxue-and-airdesk.html",
+      "source_type": "article",
+      "captured_at": "2026-05-25T20:51:29+08:00"
+    },
+    {
+      "title": "TMTPost article about He Tongxue creator influence",
+      "url": "https://www.tmtpost.com/5783955.html",
+      "local_path": "sources/articles/tmtpost-article-about-he-tongxue-creator-influence.html",
+      "source_type": "article",
+      "captured_at": "2026-05-25T20:51:34+08:00"
+    }
+  ],
+  "artifacts": {
+    "research_md": "distillation/research.md",
+    "child_skill": "J:\\PigeonYang\\cover-style-distiller\\product\\child-skills\\pigeonyang-cover-style-he-tongxue"
+  }
+}

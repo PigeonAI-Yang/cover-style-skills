@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+
+.env
+.env.*
+!.env.example
+
+.venv/
+venv/
+env/
+
+.DS_Store
+Thumbs.db
+
+*.tmp
+*.temp
+*.log
+
+# Keep private production runs outside the product repo.
+/projects/
+/cover-projects/
+/private/
+/local/

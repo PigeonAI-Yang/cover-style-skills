@@ -1,0 +1,9 @@
+Project: {{PROJECT_ID}}
+Platform: WeChat public account article cover
+Cover mode: {{COVER_MODE}}
+Target canvas: {{TARGET_CANVAS}}
+Identity reference: {{IDENTITY_REFERENCE}}
+
+This is a placeholder. Do not generate from this file until one direction and
+the exact on-cover copy are approved, the execution packet is complete, and the
+final prompt has passed scripts/verify_prompt_firewall.py.

@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pigeonyang.local/schemas/cover-project/brief.schema.json",
+  "title": "PigeonYang Cover Project Brief",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_id",
+    "created_at",
+    "platform",
+    "cover_mode",
+    "article_title",
+    "source_input",
+    "target_canvas",
+    "identity_reference",
+    "status",
+    "approval"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "enum": ["wechat"]
+    },
+    "cover_mode": {
+      "type": "string",
+      "enum": ["wechat-article-main", "wechat-article-square"]
+    },
+    "article_title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": ["string", "null"]
+    },
+    "source_input": {
+      "type": "object",
+      "properties": {
+        "input_type": {
+          "type": "string",
+          "enum": ["title", "title_summary", "file", "manual"]
+        },
+        "source_file": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": ["input_type", "source_file"],
+      "additionalProperties": false
+    },
+    "target_canvas": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "ratio": {
+          "type": "string",
+          "minLength": 1
+        },
+        "preset": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": ["width", "height", "ratio", "preset"],
+      "additionalProperties": false
+    },
+    "identity_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "brief_created",
+        "directions_ready",
+        "direction_approved",
+        "prompt_ready",
+        "generated",
+        "published",
+        "reviewed"
+      ]
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "direction_id": {
+          "type": ["string", "null"]
+        },
+        "approved_copy": {
+          "type": ["string", "null"]
+        },
+        "approved_at": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": ["direction_id", "approved_copy", "approved_at"],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

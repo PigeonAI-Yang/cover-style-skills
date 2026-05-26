@@ -1,0 +1,4 @@
+display_name: "PigeonYang Cover Style Distiller"
+short_description: "Distill creator cover patterns into skills."
+default_prompt: "Distill a creator's video thumbnail style into a reusable PigeonYang child skill, then write a GPT Image 2 cover prompt."
+

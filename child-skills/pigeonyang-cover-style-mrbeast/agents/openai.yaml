@@ -1,0 +1,4 @@
+display_name: "PigeonYang MrBeast Cover Style"
+short_description: "GPT Image 2 cover prompts in this creator pattern."
+default_prompt: "Write a GPT Image 2 video cover prompt using this distilled cover pattern. Do not include the creator name or inspired-by wording in the final generation prompt."
+

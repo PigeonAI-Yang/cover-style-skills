@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pigeonyang.local/schemas/cover-project/metrics.schema.json",
+  "title": "PigeonYang Cover Project Metrics",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_id",
+    "platform",
+    "cover_mode",
+    "created_at",
+    "published_at",
+    "article_url",
+    "selected_output",
+    "open_rate",
+    "reads",
+    "shares",
+    "subjective_score",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "enum": ["wechat"]
+    },
+    "cover_mode": {
+      "type": "string",
+      "enum": ["wechat-article-main", "wechat-article-square"]
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "published_at": {
+      "type": ["string", "null"]
+    },
+    "article_url": {
+      "type": ["string", "null"]
+    },
+    "selected_output": {
+      "type": ["string", "null"]
+    },
+    "open_rate": {
+      "type": ["number", "null"],
+      "minimum": 0
+    },
+    "reads": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "shares": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "subjective_score": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 5
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  },
+  "additionalProperties": false
+}
