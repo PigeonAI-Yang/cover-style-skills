@@ -15,7 +15,7 @@ Do not copy existing 何同学 thumbnails. Apply the transferable design strateg
 
 The distilled creator name is an internal routing and analysis label only.
 
-Never put `何同学`, `He Tongxue`, `何同学-inspired`, `He Tongxue-inspired`, `in the style of 何同学`, `like 何同学`, or equivalent creator-name shortcuts in the final GPT Image 2 generation prompt. Rewrite the pattern into concrete design rules: subject role, story moment, proof object, composition, typography, color, lighting, and negative constraints.
+Never put `何同学`, `何同学-inspired`, `in the style of 何同学`, `like 何同学`, or equivalent creator-name shortcuts in the final GPT Image 2 generation prompt. Rewrite the pattern into concrete design rules: subject role, story moment, proof object, composition, typography, color, lighting, and negative constraints.
 
 If the user supplies a portrait/reference image, that reference controls identity. Preserve the user's face, hair, glasses, clothing cues, body type, and other supplied identity traits. Redesign only the pose/action for the thumbnail hook unless the user explicitly asks to preserve the original pose. The final generation prompt must say the subject must not resemble any public creator, without naming 何同学.
 
@@ -63,7 +63,7 @@ Missing fields:
 10. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
 11. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the engine.
 12. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
-13. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `何同学`, `He Tongxue`, and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
+13. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `何同学` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
 14. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
 15. Register any generated output, verify dimensions, and mark final only through the workflow gate.
 
@@ -126,8 +126,8 @@ post_generation_check:
 ## Iteration Plan
 <2-3 likely improvements after first image>
 
-Generation gate:
-<generate directly if preflight passes; otherwise prompt_only with blocker>
+## Generation Gate
+<generate directly if preflight passes; otherwise output prompt_only with blocker>
 ```
 
 ## Design Standard
@@ -135,167 +135,298 @@ Generation gate:
 # PigeonYang Cover Design Standard: 何同学
 
 ## Scope
-Use this standard to create original video covers that apply 何同学's transferable cover logic: make an abstract technology or creator-workflow topic feel like a real built object, prototype, experiment, or visible device state. It is best for topics about technology products, AI workflows, maker projects, experiments, productivity systems, strange utility tools, and "I built this" stories.
+Use this standard for covers where the user's topic already has, or can honestly
+show, a real object, product, interface, experiment, prototype, device state,
+physical action, or hand-built artifact.
 
-Do not copy 何同学's likeness, channel identity, logos, exact thumbnails, or private studio assets. Use the user's own portrait, product, interface, or a neutral subject.
+Best-fit topics:
+
+- built products, prototypes, tools, rigs, keyboards, desks, devices, apps, or
+  visible interfaces
+- real experiments with phones, screens, measurements, prices, quantities, or
+  comparison states
+- product reviews where one physical product detail or price creates curiosity
+- absurd utility actions where a real object is being used, ridden, held, tested,
+  opened, or compared
+
+Do not use this standard for abstract essays, broad methodology, conceptual
+systems, personal opinions, pure AI workflow explanations, or article-first
+knowledge covers unless the user can provide a real object/interface/result that
+truthfully proves the claim. Do not invent a fake concept machine just to make an
+abstract topic look tangible.
+
+Do not copy 何同学's likeness, channel identity, logos, exact thumbnails, or
+private studio assets. Use the user's own portrait, product, interface, or a
+neutral subject.
 
 ## Evidence Summary
-- Cover samples: 15 public Bilibili covers from `老师好我叫何同学`, archived in the managed research run under `covers/`.
-- Process sources: 5 archived sources, including Bilibili selected video API data, a Feishu article about 何同学工作室's production system, and media profiles/articles about 何同学, 5G, and AirDesk.
-- Research run: `he-tongxue/20260525-203702` in the user's configured research workspace.
-- Confidence: High for the "physical proof object / maker demonstrator" engine; medium for exact current studio process because public process sources describe workflow broadly, not a dedicated cover-design manual.
+- Cover samples: 15 public Bilibili covers from `老师好我叫何同学`, re-audited in
+  `research-runs/he-tongxue/20260527-redistill`.
+- Process sources: 5 archived sources reused from the managed research workspace,
+  including selected Bilibili API data, a Feishu article about the studio system,
+  and media profiles around 5G, AirDesk, and creator influence.
+- Research run: `he-tongxue/20260527-redistill`.
+- Confidence: high for object-first, experiment-first, and comparison covers;
+  medium for broad studio-process inference; low for applying this engine to
+  abstract article concepts without real visible evidence.
 
 ## Core Design DNA
-1. Turn the topic into a visible object before designing style: invention, prototype, device, experiment, data screen, product, sketch, or mechanical system.
-2. Make the proof object the first read. The viewer should see "there is a real thing here" before reading any title.
-3. Use the person as maker, demonstrator, witness, or scale reference; the face supports the object instead of replacing it.
-4. Bind text to the object: screen label, product name, comparison tag, price, number, or function word. Avoid long floating titles.
-5. Use real-camera studio/product photography: macro detail, wide-angle machine depth, overhead workbench, clean black/white lab backgrounds, and tactile parts.
-6. Keep the tone curious, clever, and maker-like. It should feel engineered and slightly romantic, not loud challenge spectacle or pure lecture authority.
+1. The cover is a one-frame proof, not a conceptual poster.
+2. One real object, screen, product, experiment state, sketch, or action must
+   dominate the viewer's first read.
+3. The frame should make the viewer ask: "What is this real thing, and what did
+   they do with it?"
+4. The subject supports the proof as operator, holder, scale reference, tester,
+   or demonstrator. The subject is not the whole hook.
+5. Text is usually embedded in the object world: screen UI, product name, price,
+   binary labels, huge object-bound words, or natural writing on a sketch.
+6. Strong covers often use one of four devices: extreme close-up, oversized
+   physical object, binary comparison, or absurd action.
+7. The image can be clean, but it should not be tasteful emptiness. It needs one
+   tactile, specific, slightly strange proof detail.
+8. If the picture needs a long title to explain why it matters, the visual proof
+   is not strong enough for this engine.
 
 ## Cover Generation Engine
-- Engine type: Hybrid `Utility Clarity Engine` + `Narrative Suspense Engine` + `Aesthetic Identity Engine`.
-- Viewer decision compressed: "Is there a real, clever, visually interesting thing here that solves or tests a problem I recognize?"
-- Topic-to-cover mechanism: Convert the raw topic into a physical proof object first, then choose the strongest reveal moment: finished prototype, open internals, comparison test, strange action, visible data, hand-drawn plan, or product close-up.
-- Subject role: Maker-demonstrator-witness. The subject points, holds, operates, rides, opens, or stands beside the object to prove ownership and scale.
-- Pre-visual decision: Decide the one physical proof the viewer can understand in one second. If no object, experiment state, or "we made this" moment exists, redesign the concept before prompting.
-- Drift risk: MrBeast extreme stakes, Dan Koe text authority, 影视飓风 cinematic documentary stills, generic AI dashboards, product-ad beauty shots with no maker proof, or abstract icons.
+- Engine type: `One-Frame Proof Engine` with `Utility Clarity` and `Curiosity
+  Gap` support.
+- Viewer decision compressed: "There is a real thing here. What is it, why did
+  they build/test it, and what happens if I click?"
+- Topic-to-cover mechanism: identify the single visible proof unit first, then
+  choose the sharpest evidence frame: macro device state, hand interaction,
+  product internals, binary test, price reveal, impossible-looking object, or
+  motion/action use.
+- Subject role: operator, holder, tester, rider, witness, or scale marker. The
+  subject's face should validate that the object/action is real, not replace the
+  object.
+- Pre-visual decision: decide what real proof can be photographed or simulated
+  honestly. If the answer is only "a metaphorical machine" or "a workflow
+  diagram", reject this engine.
+- Drift risk: fake concept machines, generic AI dashboards, architecture diagrams,
+  SaaS launch posters, Dan Koe text-first claims, MrBeast stakes, or cinematic
+  documentary stills.
 
 ## Topic Translation Rules
-- Abstract topics: translate into a buildable or observable thing: a machine, workflow desk, prototype device, robotic rig, physical dashboard, screen array, experiment table, sketch, or before/after data object.
-- Concrete topics: make the real object closer, bigger, more interactive, or more mechanically legible through internals, hands, scale, comparison, or screen data.
-- Required translation variables: viewer problem, invented solution, proof object, physical form, subject action, one-second mystery, optional object-bound label.
-- Forbidden translation moves: floating AI icons, holographic dashboards, cyberpunk robots, PPT diagrams, generic app screenshots, long slogan beside a portrait, or pure aesthetic tech background.
-- Example translation: Raw topic "I built a skill that distills any creator's video cover style" becomes "a workbench machine that eats a wall of creator covers and outputs a new approved cover prompt, with the subject operating the machine."
+- Abstract topics: use this engine only if they can be grounded in a real
+  artifact: a working interface, an actual generated output, a physical prototype,
+  a measurement screen, a before/after comparison, a real document pile, or a
+  visible test. If not, route to another child skill.
+- Concrete topics: push the real object closer, larger, stranger, more readable,
+  or more testable. Show hand, face, scale, screen state, price, internals, or
+  motion.
+- Required translation variables: real proof unit, why it is surprising, subject
+  interaction, one-second viewer question, object-bound text if needed, and what
+  must stay out of frame.
+- Forbidden translation moves: inventing a decorative machine for an abstract
+  system, floating icons, holograms, AI robots, dashboard collages, PPT diagrams,
+  product-ad beauty shots without use, and large detached thesis titles.
+- Example translation: "I built a keyboard that types itself" becomes a huge
+  keyboard close to the camera, a finger pressing one key, and the subject's face
+  behind it. "AI content flywheel" is rejected unless there is a real interface,
+  printed output, or physical workflow artifact to show.
 
 ## Cover Storyboard Rules
-- Story moment: show the instant the maker reveals, tests, operates, opens, or uses the built thing.
-- Visible conflict: everyday problem vs over-engineered solution; real vs fake; slow vs fast; hidden internal mechanism vs polished product; messy input vs clean output.
-- Subject task/action: point to the machine, hold two comparison objects, press a button, operate a rig, open internals, ride/use the prototype, or look through/behind the object.
-- Proof object: invention, close-up component, experiment array, phone screen, sketch, product name, price label, output sample, or object-bound comparison tags.
-- Viewer question: "What is that thing, and why did they build it?"
-- Forbidden static compositions: ordinary portrait with pasted title, floating UI collage, text-first poster, beautiful but nonfunctional tech scene, diagram-only frame, or metaphor with no real object.
-- Example storyboard: The user's portrait appears at the right edge, one hand operating a white desktop machine; the machine pulls in messy thumbnail cards on the left and ejects one polished cover on the right; a small object-bound label reads `封面机器`.
+- Story moment: freeze the instant of proof: the button is being pressed, the
+  screen shows the result, the product is held up, the machine is opened, two
+  objects are compared, or the strange invention is being used.
+- Visible conflict: real vs fake, fast vs slow, hidden internals vs polished
+  product, absurd solution vs ordinary problem, expensive number vs object,
+  invisible function vs visible proof.
+- Subject task/action: hold two objects toward the camera, point at an oversized
+  device, operate a control, ride/use the invention, stand above a product, or
+  present a screen close to the lens.
+- Proof object: phone status bar, huge keyboard, AirDesk internals, typewriter
+  keys, assembly line, phone comparison, screen-time UI, fake app, light device,
+  sketch plan, powered chair, cow service device, transparent TV, price tag.
+- Viewer question: "What exactly am I seeing, and why did they do this?"
+- Forbidden static compositions: balanced concept workbench, central portrait
+  with title, abstract workflow diagram, decorative prototype, UI-card collage,
+  clean metaphor object, or a machine that exists only as visual symbolism.
+- Example storyboard: a real screen/result is pushed near the camera; the subject
+  is slightly behind it, focused on the proof, with one short label on the screen
+  or beside the object.
 
 ## Design Layout Brief Rules
-- First read: the proof object or the object-bound label.
-- Second read: the subject's action, face, or the comparison state.
-- Third read: a small clue such as screen data, price, number, product name, sketch detail, or color polarity.
-- Layout zones: give 55-75% visual weight to the proof object; place the subject at an edge, behind, above, or between objects as scale/ownership proof.
-- Visual weight: object dominates, subject supports, text labels stay short and attached.
-- Reading path: object first, action/face second, label/detail third.
-- Negative space: use black void, clean workbench, white machine surface, phone-screen area, or simple studio wall to isolate object and labels.
-- Forbidden layouts: central portrait plus title, three unrelated props, floating slogan, dashboard collage, decorative icon field, or object so small that it becomes background decoration.
+- First read: the proof object, screen state, comparison label, product name, or
+  price.
+- Second read: the subject's action or face confirming use/scale.
+- Third read: one clue such as a number, internal mechanism, small sketch mark,
+  cable, reflection, hand, motion blur, or object label.
+- Layout zones: use one dominant foreground proof zone. Put the subject behind,
+  beside, above, or partially obscured by the object.
+- Visual weight: proof object 60-85%; subject 10-35%; background mostly
+  isolation. Avoid equal-weight panels.
+- Reading path: object first, action/face second, clue third.
+- Negative space: black studio void, clean wall, blurred background, product
+  surface, or empty screen area used to isolate the proof.
+- Forbidden layouts: symmetrical article-header diagram, many input/output cards,
+  three-column process explanation, decorative flywheel, detached title block,
+  and "productivity system" collage.
 
 ## Copy Hierarchy Rules
-- Main title: usually no full sentence. If text is needed, use one product name, function word, number, price, or binary state label.
-- Subtitle: usually none. Let the video title outside the image carry nuance.
-- State labels: only when the image truly compares states or objects, such as `快充/慢充`, `真的/假的`, `自动开灯`, `¥49999`, `输入/输出`.
-- Object/zone binding: every label must attach to a screen, product surface, side of a comparison, or clean label plate near the object.
-- Isolation rules: keep each label visually connected to its object with distance, color, screen placement, or backing plate.
-- Forbidden adjacency: never place object labels near a main title where they read as one accidental sentence.
-- Removal rule: if text competes with the proof object, remove the lower-priority text and make the object/action carry the meaning.
+- Main title: usually none. If needed, use one object-bound phrase, price, number,
+  product name, binary label, or function label.
+- Subtitle: avoid.
+- State labels: use only for visible comparison states, such as `快 / 慢`, `真的 /
+  假的`, `自动开灯`, `5G`, `¥49999`, or a product name.
+- Object/zone binding: text must sit on the screen, product, label plate, or
+  directly above the corresponding object/side.
+- Isolation rules: labels must be visually fused to their object through distance,
+  color, plate, screen placement, or perspective.
+- Forbidden adjacency: never combine a detached main title with object labels so
+  the viewer reads a confusing sentence.
+- Removal rule: if text explains a concept rather than naming visible proof,
+  remove it or route away from this engine.
 
 ## Platform Adaptation
 | Platform/mode | Ratio | Composition rule |
 |---|---:|---|
-| YouTube long video | 16:9 | Use native wide product-proof composition: large object across 55-75%, subject at edge or behind object. |
-| Bilibili native upload | 1146:717, approx 16:10 | Keep the proof object and subject inside a center-safe wide frame; avoid edge-critical labels. |
-| Bilibili cross-platform | 16:9 | Use clean wide composition; keep object label readable at feed size. |
-| Bilibili 4:3-safe | 4:3 | Move subject closer to object, reduce side spread, and keep labels central. |
-| Douyin horizontal | 4:3 | Compress wide machinery into a tighter workbench or two-object comparison; avoid tiny side details. |
-| Douyin vertical | 3:4 | Stack object and face vertically; keep the proof object large in the center or lower center, with one short label. |
-| Xiaohongshu | 3:4 | Use a cleaner maker-product card: object hero, subject edge, minimal label. |
-| Xiaohongshu square | 1:1 | Use one central object plus face/hand as scale; remove secondary details. |
-| TikTok / Reels / Shorts | 9:16 | Use vertical poster logic only if the user asks for a short-video frame; keep object and label central. |
+| YouTube long video | 16:9 | Use wide product-proof composition; one oversized foreground object and subject behind/side. |
+| Bilibili native upload | 1146:717 | Native fit. Keep proof object and key text in center-safe area. |
+| Bilibili cross-platform | 16:9 | Keep the object large enough for both Bilibili and YouTube feed sizes. |
+| Bilibili 4:3-safe | 4:3 | Crop toward proof object and subject face; remove side labels. |
+| Douyin horizontal | 4:3 | Use tighter foreground proof; avoid tiny edge details. |
+| Douyin vertical | 3:4 | Stack proof object and subject action; keep one central label. |
+| Xiaohongshu | 3:4 | Use clean product proof or comparison object, not a wide machine scene. |
+| Xiaohongshu square | 1:1 | One central object plus hand/face scale; no secondary narrative. |
+| TikTok / Reels / Shorts | 9:16 | Use a vertical action moment or screen proof; avoid wide workbench logic. |
+| WeChat article main | 2.35:1 | Use only when a single proof object can remain large in the central square-safe zone. Do not turn this into a process diagram. |
 
 ## Layout Patterns
-### Pattern 1: Built Thing Reveal
-- Use when: the title says "I built/made a tool, machine, product, or workflow."
-- Composition: large device or prototype in foreground/middle, subject at right/behind/above, hand operating or pointing.
-- Text: optional product name or function label attached to the device.
-- Avoid: portrait plus slogan, icon metaphor, clean app mockup with no physical proof.
+### Pattern 1: Macro Proof State
+- Use when: one screen, button, key, UI metric, price, or product detail proves
+  the hook.
+- Composition: extreme close-up; hand or device edge visible; subject optional
+  and secondary.
+- Text: native screen/object text or one attached label.
+- Avoid: explaining the detail with a large floating title.
 
-### Pattern 2: Experiment Comparison
-- Use when: the topic tests two states, methods, products, or outcomes.
-- Composition: subject centered or slightly behind two objects; labels sit on each object or side.
-- Text: two short object-bound labels, balanced in size and color.
-- Avoid: floating before/after labels detached from the proof objects.
+### Pattern 2: Oversized Object Demonstration
+- Use when: a real prototype or product has a visually strange scale or form.
+- Composition: object fills most of the frame; subject behind or beside it as
+  operator/scale.
+- Text: product name, price, or function word attached to object.
+- Avoid: balanced workbench layouts and tiny object proof.
 
-### Pattern 3: Macro Proof Detail
-- Use when: one detail proves the whole topic, such as a screen, status, mechanical part, sketch, keyboard, or UI metric.
-- Composition: extreme close-up, hands or finger for interaction, shallow depth.
-- Text: none unless it appears naturally on the screen/object.
-- Avoid: explaining the detail with long overlay text.
+### Pattern 3: Binary Test
+- Use when: the story is real/fake, fast/slow, old/new, charged/dead, expensive/
+  cheap, visible/invisible.
+- Composition: subject holds two objects/screens toward the camera, or the frame
+  splits around two real states.
+- Text: one short label per object/side.
+- Avoid: abstract before/after diagrams with no objects.
 
 ### Pattern 4: Absurd Utility Action
-- Use when: the topic solves an everyday pain in a playful or over-engineered way.
-- Composition: subject actively uses the prototype; motion or awkward physicality proves the function.
-- Text: optional short function label.
-- Avoid: static product shot that hides the absurd action.
+- Use when: the object solves an everyday problem in a playful or overbuilt way.
+- Composition: action is already happening: riding, launching, drinking, opening,
+  testing, pressing, holding, or chasing.
+- Text: optional short function label if the action is not self-evident.
+- Avoid: static beauty shot of the invention.
+
+### Pattern 5: Internal Reveal
+- Use when: internals, wiring, sketches, assembly, or transparent structure are
+  the surprising proof.
+- Composition: overhead or oblique view; internal parts are readable; subject is
+  witness or scale.
+- Text: product name or one large label can overlay the object if it behaves like
+  product typography.
+- Avoid: generic exploded-view diagram.
 
 ## Subject Rules
-Preserve the user's identity from reference images, but redesign pose and expression around the prototype. Preferred expressions are focused curiosity, maker confidence, subtle smile, or calm seriousness. Preferred actions are presenting, pointing, holding, operating, opening internals, using, riding, or comparing. Avoid default thinking poses, influencer poses, crossed-arm authority, or exaggerated shock without a proof object.
+Preserve the user's identity from reference images, but redesign pose and
+expression around the proof action. Good subject roles: holder, operator, tester,
+rider, watcher, scale reference. Good expressions: focused curiosity, calm proof,
+slight mischievous smile, or serious comparison. Avoid arms-crossed authority,
+default thinking pose, detached presenter, and exaggerated shock without object
+evidence.
 
 ## Reference Image Handling
-Reference images lock identity traits, face traits, hairstyle, clothing preference, product/interface appearance, or brand assets. They do not lock pose, expression, crop, lighting, or background unless the user explicitly says so. For this pattern, convert a static portrait into an active maker-demonstrator moment. The final image subject must resemble the user's supplied reference and must not resemble any public creator.
+Reference images lock identity, face traits, hair, glasses, clothing cues,
+product appearance, interface appearance, or brand assets. They do not lock pose,
+crop, lighting, or background unless the user explicitly says so. For this
+engine, convert static portraits into an active object interaction. If the user
+only supplies a portrait and no real proof object/interface/result, ask for proof
+or route to another engine.
 
 ## Identity And Final Prompt Firewall
-
-- Internal skill routing may name 何同学, but the final GPT Image 2 prompt must not contain `何同学`, `He Tongxue`, `何同学-inspired`, `He Tongxue-inspired`, `in the style of 何同学`, `like 何同学`, or any equivalent creator-name shortcut.
-- Express the pattern through concrete cover mechanics: real physical proof object, maker-demonstrator subject role, object-bound short label, product/studio photography, visible mechanism, and clean black/white lab environment.
-- If a portrait reference is supplied, identity preservation outranks all creator-pattern rules. The subject must preserve the user's face, hair, glasses, clothing cues, body type, and supplied identity traits.
-- Add a negative constraint that the generated subject must not resemble any public creator, without naming 何同学 in the final prompt.
+- Internal routing may name 何同学, but the final GPT Image 2 prompt must not
+  contain `何同学`, `He Tongxue`, `何同学-inspired`, `He Tongxue-inspired`, `in
+  the style of 何同学`, `like 何同学`, or equivalent creator-name shortcuts.
+- Express the pattern through concrete mechanics: one-frame proof, oversized
+  object or screen, subject-as-operator, object-bound labels, realistic product
+  lighting, and specific interaction.
+- If a portrait reference is supplied, identity preservation outranks all
+  creator-pattern rules. The subject must preserve the user's identity traits and
+  must not resemble any public creator.
+- Add a final negative constraint that the generated subject must not resemble
+  any public creator, without naming 何同学.
 
 ## Text Rules
-Use clean, heavy sans-serif Chinese or Latin text only when it behaves like product typography, screen UI, price, number, or comparison label. Keep text short and object-bound. A good label is usually 1-4 Chinese characters or one product name. Do not use long title blocks unless the visual proof cannot be understood without one.
+Use text as proof, not explanation. Good text is a visible screen state, product
+name, price, short binary label, or function word. Keep Chinese labels short and
+bold. Avoid article headlines, slogans, thesis claims, and multi-label process
+maps. If the text could be removed without weakening the real object, remove it.
 
 ## Typography Layout System
-Protected text zones are object-bound zones: phone screens, device surface, label plate above an object, white machine surface, or clean negative space next to the proof object. Use thick white text for product names on dark machinery, red/blue for binary tests, pink/white outlines for playful real/fake app comparisons, and price/number labels only when they are part of the hook. If background is busy, move the label onto the screen/object or create a clean plate.
+Protected text zones are object-bound: phone screens, device surfaces, giant
+product-name overlays on the object, price labels on a product, or labels above
+two compared objects. Use bold, high-contrast, feed-readable type. Backing shapes
+are allowed only when they behave like stickers, screens, or label plates.
+When the frame is cluttered, either move text onto the object/screen or remove it.
 
 ## Color And Lighting Rules
-Use clean black, white, graphite, lab gray, metal, glass, phone-screen glow, and product-specific accents. Good accent colors: cyan/blue, red, yellow, pink, or one strong object color. Use realistic studio/product lighting, crisp highlights, high local contrast, controlled shadows, and real-camera depth. Avoid generic neon AI purple-blue, cyberpunk glow, flat vector art, or cartoon saturation.
+Use real-camera product or studio lighting. Common palettes: black/white product
+contrast, phone-screen blue, red/blue test polarity, yellow utility object,
+graphite machinery, transparent product glow. Saturation can be strong when it
+belongs to the product or comparison state. Avoid generic AI purple, cyberpunk
+glow, fictional holograms, and soft editorial gradients.
 
 ## Hook Mechanics
-- "I/we made this": a real thing exists.
-- Everyday problem becomes an oddly specific device.
-- Product internals or prototype process reveal the hidden work.
-- Real vs fake, fast vs slow, or old vs new comparison.
-- Visible experiment proof: time, quantity, price, data, screen state, or repeated objects.
-- Absurd utility: the invention looks slightly unnecessary but undeniably tangible.
+- A real detail makes an invisible technology visible.
+- A physical object proves "we built this".
+- A comparison makes the result instantly judgeable.
+- A price or number creates a concrete curiosity gap.
+- A strange action proves the invention's function.
+- Internal structure shows hidden effort and credibility.
+- A screen state converts behavior or data into visible proof.
 
 ## GPT Image 2 Prompt Contract
 Every prompt must include:
 - target platform, aspect ratio, and exact pixel canvas
-- exact approved on-cover text, or "no text"
-- one-sentence topic translation into a physical proof object
-- proof object description with physical parts, materials, scale, and interaction
-- subject placement, action, and expression
-- object-bound typography location and hierarchy
-- camera perspective: macro, wide-angle, overhead, product hero, or comparison
-- real-camera studio/product lighting
+- the real proof object/interface/result to show
+- subject role and physical interaction with the proof
+- camera distance and perspective: macro close-up, held-to-camera, overhead,
+  oblique internal reveal, or action frame
+- exact on-cover text, or "no text"
+- where each text element is attached in the object world
+- realistic product/studio lighting and material detail
 - platform crop-safe zones
-- negative constraints against copied 何同学 likeness, generic AI visuals, text-first posters, weak object proof, and detached labels
+- explicit rejection of fake concept machines, abstract workflow diagrams,
+  detached titles, generic AI dashboards, and public creator likeness
 
 ## Negative Constraints
-No 何同学 likeness replication. No Bilibili logo imitation unless the user owns/provides it. No MrBeast challenge stakes, no Dan Koe text-first authority cover, no 影视飓风 cinematic documentary still as the main frame. No generic AI robot, hologram dashboard, floating icons, long slogan beside a portrait, unbuilt-looking fantasy machine, tiny unreadable labels, or labels detached from their objects.
+No 何同学 likeness replication. No channel logo imitation. No invented concept
+machine for abstract topics. No generic AI robot, hologram dashboard, floating
+icons, process diagram, article-title poster, text-first authority cover, dense
+architecture, or decorative workflow flywheel. No object so small that it only
+acts as background decoration. No labels detached from their objects. No public
+creator names in final prompts.
 
 ## User Intake Questions
 1. 你要发哪个平台？横版、竖版还是都要？
-2. 原始标题或视频主题是什么？
-3. 是否允许我把封面文字改短？如果允许，我会先给候选文案让你确认。
-4. 是否放你的真人形象、产品图、界面图或其他参考图？
-5. 这个主题要做成机器、实验、产品、工具、屏幕、对比，还是让我先翻译成一个可视化物件？
-6. 有哪些必须出现或必须避免的物件、品牌、文案、颜色？
+2. 这个主题里真实可展示的物件、界面、数据、实验结果是什么？
+3. 是否有产品图、界面图、样机图、截图、手稿、输出样例或实拍参考？
+4. 封面文字是否可以不用完整标题，只保留产品名、数字、价格或状态标签？
+5. 你希望画面是极近景、手持对比、产品内构、动作瞬间，还是屏幕证据？
+6. 如果没有真实证明物，是否改用更适合抽象观点/机制解释的 child skill？
 
 ## Quality Checklist
-- The raw topic has been translated into a physical proof object.
-- The proof object is the first read.
-- The subject has an active maker-demonstrator role, not a passive portrait pose.
-- Any text is short, approved, and object-bound.
-- No text block can be misread as part of another text block.
-- The frame looks like real product/studio photography, not illustration or cyberpunk AI art.
-- The object includes physical details that make it believable.
+- A real proof unit is named before style is chosen.
+- The first read is an object, screen, product, comparison, price, or action.
+- The subject is physically interacting with proof or acting as scale.
+- Text is short, object-bound, and not a detached thesis.
+- The frame is not a balanced workflow diagram or concept workbench.
+- The object/action creates a one-second viewer question.
 - Platform ratio and target canvas are explicit.
 - Reference image preserves identity but not weak source pose.
-- The concept avoids copying 何同学's likeness, logos, and exact existing covers.
+- Final prompt avoids creator-name shortcuts and public creator likeness.
