@@ -41,6 +41,13 @@ def normalize_video_url(bv: str) -> str:
     return f"https://www.bilibili.com/video/{bv}/"
 
 
+def build_space_url(mid: str) -> str:
+    return (
+        f"https://space.bilibili.com/{mid}/upload/video"
+        "?tid=0&pn=1&keyword=&order=pubdate"
+    )
+
+
 def parse_page_count(text: str) -> int | None:
     match = re.search(r"共\s*(\d+)\s*页", text)
     if not match:
@@ -541,7 +548,7 @@ def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
 
-    space_url = f"https://space.bilibili.com/{args.mid}/upload/video"
+    space_url = build_space_url(args.mid)
     run_dir = init_run(args)
     client = CdpClient(args.cdp_proxy)
     target_id: str | None = None

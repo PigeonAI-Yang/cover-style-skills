@@ -140,383 +140,463 @@ post_generation_check:
 # PigeonYang Cover Design Standard: 影视飓风
 
 ## Scope
+Use this standard when the user's topic can truthfully become a
+proof-rich documentary or knowledge-media cover: a real test, hidden system,
+rare capture, credible person, creator/company reveal, human experiment, or
+strange visual question.
 
-Use this standard for original covers that should feel like 影视飓风's public-facing cover logic: cinematic documentary access, hard-core topics wrapped in a clickable shell, real-world proof objects, restrained but bold Bilibili typography, and host-as-guide credibility.
+Best-fit topics:
 
-Do not use it to copy Tim's likeness, the 影视飓风 logo, exact covers, exact recurring layouts, or protected material. Do not use it when the user's content is pure entertainment challenge, SaaS feature marketing, course selling, or abstract business diagrams unless the topic can truthfully become a real-world proof scene.
+- technology and product tests where a device, screen, rig, camera, phone,
+  workflow, or measured result can be shown
+- hidden industries, backstage systems, unusual companies, logistics, jobs,
+  taboo spaces, production teams, or places ordinary viewers cannot enter
+- rare capture and expedition topics: rocket, satellite, eclipse, glacier,
+  mountain, port, studio, industrial site, or real geographic journey
+- interviews and authority encounters where the guest, expert, director,
+  creator, or public figure is the proof
+- creator/company meta stories: office, staff, backend data, milestones,
+  public response, brand process, creator business model, or publishing system
+- human experiments and public participation where real people, time, money,
+  body, dream, or behavior become the proof
+- strange visual phenomena or everyday mysteries that need a concrete object,
+  scene, or optical proof
+
+Do not use this standard for pure entertainment challenge, fake spectacle,
+cash-prize fantasy, SaaS dashboard, abstract AI poster, lecture slide, course
+sales page, or calm expert portrait unless the topic can honestly become one
+visible proof scene.
+
+Do not copy Tim's likeness, the 影视飓风 logo, exact covers, recurring channel
+layout, Bilibili UI, or protected material. Use the user's own portrait,
+neutral subjects, original scene elements, or legally usable references.
 
 ## Evidence Summary
-
-- Cover samples: 12 main-account Bilibili covers archived in `J:\PigeonYang\cover-style-distiller\research-runs\yingshijufeng\20260525-053030\covers`.
-- Process sources: 6 saved process/data sources archived in `J:\PigeonYang\cover-style-distiller\research-runs\yingshijufeng\20260525-053030\sources`.
-- Research run: `J:\PigeonYang\cover-style-distiller\research-runs\yingshijufeng\20260525-053030`.
-- Confidence: high for shell-first topic packaging, cinematic proof objects, short Bilibili text, host-as-guide role, and documentary/tech hybrid. Medium for exact top-video ranking because direct Bilibili space API was blocked and a public dashboard API was used.
+- Cover samples: 120 public Bilibili main-account video covers from 影视飓风.
+- Ranking basis: rendered Bilibili space upload page sorted by `最多播放`,
+  captured through Chrome CDP.
+- Source account: `space.bilibili.com/946974`, 900 uploaded videos visible at
+  capture time.
+- Research run: `yingshijufeng/20260528-bilibili-most-played-top120`.
+- Source artifact: `generated/bilibili-cdp-most-played-videos.json`.
+- Contact sheet: `distillation/sample-contact-sheet.jpg`.
+- Process sources: 8 saved sources in the run, including the current Bilibili
+  capture and prior Tim/影视飓风 process notes from `20260525-053030`.
+- Confidence: high for practical tech tests, hidden-system access, rare-capture
+  proof, creator/company meta reveal, authority encounters, short Bilibili text,
+  host-as-guide role, and shell-first topic packaging. Medium for non-Bilibili
+  platform adaptation because the evidence is Bilibili-native. Low for topics
+  with no real proof object, person, place, number, or test.
 
 ## Core Design DNA
-
-1. Start from a clickable public shell, not from the technical nucleus.
-2. Make the shell visible as a real person, place, object, number, taboo, famous name, strange question, or proof scene.
-3. Make the cover feel like a real frame from a documentary, experiment, interview, trip, or industry visit.
-4. Use the host as guide, witness, tester, presenter, or participant; not as a detached influencer face.
-5. Keep on-cover text short: one noun, number, name, question marker, or proof label.
-6. Combine cinematic realism with phone-readable Bilibili typography.
-7. Let image evidence carry the premise whenever possible.
+1. Start with the public shell, not the technical nucleus.
+2. The first read must be proof: device, person, place, number, question,
+   object, environment, or visible result.
+3. The cover should feel like a real documentary, experiment, interview,
+   journey, teardown, studio visit, or field report.
+4. The subject is a guide, witness, tester, participant, presenter, or access
+   credential. The subject is not a detached influencer face.
+5. Text is short and heavy: one phrase, noun, number, name, `VS`, question mark,
+   or result label.
+6. Typography is graphic and phone-readable, but it must be bound to the proof
+   object or placed on a clean protected zone.
+7. Use cinematic realism plus Bilibili feed clarity: real light, real place,
+   sharp faces/proof objects, strong cutout edges, and large text.
+8. If the cover promises a hidden truth, real test, rare access, or authority
+   reveal that the content cannot prove, it fails.
 
 ## Cover Generation Engine
-
-- Engine type: `Shell-Theory Documentary Engine`, a hybrid of `Narrative Suspense Engine`, `Utility Clarity Engine`, and `Authority/Proof Engine`.
-- Viewer decision compressed: "Is this real, unusual, useful, hidden, or credible enough that I want to see what they found?"
-- Topic-to-cover mechanism: convert the raw topic into a public-facing shell, then prove that shell with one visible object, person, place, number, or scene.
-- Subject role: host/witness/guide/tester/presenter; guest as authority proof; object/location as evidence.
-- Pre-visual decision: choose the shell and proof object before choosing composition or style.
-- Drift risk: if the cover becomes a MrBeast extreme challenge, SaaS dashboard, lecture slide, flowchart, generic tech poster, or clean product ad, it has left the 影视飓风 engine.
+- Engine type: `Shell-Proof Documentary Engine`, a hybrid of `Narrative
+  Suspense Engine`, `Utility Clarity Engine`, and `Authority/Proof Engine`.
+- Viewer decision compressed: "This looks real, hidden, useful, strange, or
+  credible. I want to know what they found, tested, saw, or got access to."
+- Topic-to-cover mechanism: choose the public shell first, then bind it to one
+  proof object, person, place, number, or test scene. Only after that choose the
+  layout pattern, text placement, and cinematic treatment.
+- Subject role: host, guide, witness, tester, interviewer, participant, company
+  insider, or documentary observer. Guest/authority can become the proof.
+- Pre-visual decision: define the hard-core nucleus, public shell, proof object,
+  selected internal paradigm, subject role, and exact short text before writing
+  image instructions.
+- Drift risk: fake MrBeast challenge, fake danger, fake cash, generic tech glow,
+  abstract diagram, corporate brochure, product ad, podcast two-head cover,
+  course-poster layout, and title-only background.
 
 ## Popular Paradigms
+### Paradigm 1: Practical Tech Verdict / Real Test
+- Evidence count: 27/120 primary assignments.
+- Representative samples: 2, 11, 12, 16, 22, 28, 33, 37, 39, 47, 55, 56, 61,
+  70, 71, 75, 77, 82, 86, 90, 91, 92, 101, 106, 109, 111, 112.
+- Best-fit topics: product reviews, camera/phone tests, AI workflows, editing
+  tools, visual effects, production gear, measurement, screen/device proof, and
+  practical tech explanations.
+- Click promise: what did this device, system, workflow, or test actually prove?
+- Topic translation: turn the topic into a physical test bench, device close-up,
+  studio rig, screen result, comparison object, or practical workflow scene.
+- One-frame story: the host is operating, comparing, reacting to, or exposing a
+  real device/system.
+- First read: device/result/test label.
+- Second read: host expression or hand action.
+- Text behavior: short verdict, number, `VS`, product name, or uneasy question.
+- Composition: device/proof and person in the same scene; no floating UI.
+- Failure mode: spec table, SaaS dashboard, neon AI poster, or product beauty ad.
+- Prompt contract: make the test physically witnessed before adding tech style.
 
-### Paradigm 1: Hidden World Proof
+### Paradigm 2: Cinematic Expedition / Rare Capture Proof
+- Evidence count: 21/120 primary assignments.
+- Representative samples: 3, 9, 14, 29, 30, 34, 41, 48, 50, 58, 66, 73, 76,
+  81, 85, 93, 100, 108, 114, 115, 117.
+- Best-fit topics: trips, field reports, natural events, space/rocket/satellite,
+  extreme weather, geography, scenic proof, special footage, and hard-to-capture
+  material.
+- Click promise: did they really get to this place or capture this rare moment?
+- Topic translation: make the location, sky, landscape, vehicle, camera setup,
+  or captured image the proof.
+- One-frame story: the subject stands inside the environment or the frame shows
+  the rare scene as proof of access.
+- First read: place/event/capture result.
+- Second read: host or camera crew scale cue.
+- Text behavior: one place name, short claim, or no text if the image is strong.
+- Composition: wide cinematic proof scene, with human or gear for scale.
+- Failure mode: postcard travel image with no question or proof of effort.
+- Prompt contract: show access and difficulty, not just scenery.
 
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: unusual place, hidden industry, taboo, or rare-access
-  covers.
-- Best-fit topics: investigations, behind-the-scenes systems, hidden mechanisms,
-  social/tech worlds ordinary viewers cannot enter.
-- Click promise: "What is inside this hidden world?"
-- Topic translation: wrap the hard-core topic in a public shell and visible
-  location/object.
-- One-frame story: host has entered or revealed the place.
-- First read: place, large shell word, or strange proof object.
-- Second read: host as guide/witness.
-- Text behavior: one noun, taboo label, or no text.
-- Composition: cinematic real location with protected short text.
-- Failure mode: generic background with pasted influencer face.
-- Prompt contract: prove access through a real scene before adding typography.
+### Paradigm 3: Hidden System / Industry Access
+- Evidence count: 20/120 primary assignments.
+- Representative samples: 5, 10, 17, 18, 19, 20, 23, 24, 26, 31, 35, 36, 42,
+  43, 72, 83, 87, 105, 110, 120.
+- Best-fit topics: taboo industries, logistics, companies, professional
+  workflows, unusual jobs, production pipelines, filmmaking craft, backstage
+  spaces, and social systems.
+- Click promise: what is really inside this system that outsiders do not see?
+- Topic translation: convert the topic into a place, worker, backstage object,
+  money trail, machine, or access moment.
+- One-frame story: the host has entered the system and reveals one concrete
+  clue.
+- First read: hidden place/object/person or taboo label.
+- Second read: guide/witness role.
+- Text behavior: one noun, industry label, question, or short reveal phrase.
+- Composition: real environment dominates; host validates access.
+- Failure mode: generic dark background, pasted face, or corporate brochure.
+- Prompt contract: prove access through environment and artifacts.
 
-### Paradigm 2: Test / Comparison With Real People
+### Paradigm 4: Creator Company / Meta Reveal
+- Evidence count: 20/120 primary assignments.
+- Representative samples: 6, 15, 32, 46, 49, 51, 52, 53, 54, 59, 67, 68, 69,
+  78, 94, 97, 102, 113, 116, 119.
+- Best-fit topics: creator milestones, company operations, offices, team life,
+  backend data, public response, business model, skill sharing, and channel
+  identity stories.
+- Click promise: what is behind this creator/company milestone or internal
+  system?
+- Topic translation: make the internal proof visible: staff, office, data,
+  workflow, milestone number, public claim, or training scene.
+- One-frame story: the creator opens an internal door, answers a public question,
+  or exposes a backstage artifact.
+- First read: milestone, claim, office, data, or staff scale.
+- Second read: host/company identity.
+- Text behavior: milestone number, Q&A label, one internal word, or short claim.
+- Composition: office/team/data environment plus guide subject.
+- Failure mode: self-congratulatory portrait or corporate slide.
+- Prompt contract: show the internal proof before celebrating the brand.
 
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: machine vs person, device test, human comparison, old
-  vs new result covers.
-- Best-fit topics: experiments, devices, AI vs human, tech result comparisons.
-- Click promise: "What happened when this was tested for real?"
-- Topic translation: convert the topic into a visible test with people, devices,
-  or result objects.
-- One-frame story: host/guest interacts with the test object.
-- First read: test scene or comparison object.
-- Second read: host/guest reaction.
-- Text behavior: short comparison phrase, number, or `VS`.
-- Composition: people and proof object in the same real scene.
-- Failure mode: sterile spec table or lab stock image.
-- Prompt contract: make the test feel witnessed, not diagrammed.
+### Paradigm 5: Authority Encounter / Famous Person Proof
+- Evidence count: 15/120 primary assignments.
+- Representative samples: 1, 13, 38, 44, 45, 62, 65, 80, 88, 89, 95, 98, 104,
+  107, 118.
+- Best-fit topics: interviews, experts, directors, public figures, creators,
+  guest-led explanations, and credible case studies.
+- Click promise: what did this credible person reveal or prove?
+- Topic translation: make the guest, name, profession, or shared action the
+  proof object.
+- One-frame story: host and authority are in a real encounter, test, interview,
+  or scene inspection.
+- First read: guest face/name or encounter action.
+- Second read: host relationship, question, or proof object.
+- Text behavior: name, one question, `VS`, or emotional phrase.
+- Composition: guest and host must have a clear relationship and reason to be
+  together.
+- Failure mode: generic podcast cover or two unrelated headshots.
+- Prompt contract: make the encounter itself carry the promise.
 
-### Paradigm 3: Money / Number As Proof
-
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: amount, age, price, output, view count, or scale
-  number covers.
-- Best-fit topics: price, cost, scale, age, result metrics, business or industry
+### Paradigm 6: Human Experiment / Public Participation
+- Evidence count: 10/120 primary assignments.
+- Representative samples: 7, 8, 21, 25, 27, 57, 60, 64, 79, 99.
+- Best-fit topics: audience participation, body/time tests, personal meaning,
+  spending experiment, dream/behavior collection, fan stories, and emotional
   proof.
-- Click promise: "Why is this number so high, low, or strange?"
-- Topic translation: attach the number to a real person, object, or place.
-- One-frame story: host reveals or reacts to the number as evidence.
-- First read: number.
-- Second read: attached proof object/person.
-- Text behavior: huge number with unit; no extra sentence.
-- Composition: number visually bound to proof.
-- Failure mode: floating statistic with no scene.
-- Prompt contract: bind every number to visible evidence.
+- Click promise: what happens when real people are placed inside this question?
+- Topic translation: use real people, action, body, emotion, time, money, or
+  personal consequence as proof.
+- One-frame story: a participant is doing, receiving, spending, enduring,
+  revealing, or being changed by the premise.
+- First read: human action/emotion or participation scale.
+- Second read: host as guide/witness.
+- Text behavior: one number, question, or emotional phrase.
+- Composition: people must be the evidence, not decoration.
+- Failure mode: staged motivational poster or fake challenge spectacle.
+- Prompt contract: make the human consequence visible and believable.
 
-### Paradigm 4: Tech Arrival / Controlled Room
-
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: AI, camera, software, lab, studio, control-room, or
-  future-tech covers.
-- Best-fit topics: emerging technology, AI workflows, camera gear, production
-  systems, controlled experiments.
-- Click promise: "This new technology is real and a little unsettling."
-- Topic translation: turn tech into a real room, device, screen, or controlled
-  setup.
-- One-frame story: host operates or witnesses the system.
-- First read: real controlled environment or machine.
-- Second read: host's guide role.
-- Text behavior: optional short factual or uneasy label.
-- Composition: cinematic control room, practical screens, real equipment.
-- Failure mode: cyberpunk hologram or SaaS poster.
-- Prompt contract: use practical tech evidence, not abstract neon.
-
-### Paradigm 5: Guest / Authority Encounter
-
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: guest, expert, famous person, creator, or authority
-  pair covers.
-- Best-fit topics: interviews, expert access, public figures, creator or company
-  stories.
-- Click promise: "What did this credible person reveal?"
-- Topic translation: make the person or name the proof object.
-- One-frame story: host and guest appear as a real encounter.
-- First read: guest/name.
-- Second read: host relationship or reaction.
-- Text behavior: guest name or one emotional phrase.
-- Composition: guest and host pair with a clear question.
-- Failure mode: generic podcast two-head cover.
-- Prompt contract: make the encounter itself the proof.
-
-### Paradigm 6: Brand / Place Reveal
-
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: company, studio, office, new building, production
-  base, or place reveal covers.
-- Best-fit topics: organization stories, studio/process reveals, company
-  infrastructure, place-based hooks.
-- Click promise: "What is inside this place or brand system?"
-- Topic translation: use the place as the public shell and proof.
-- One-frame story: host presents or enters the place.
-- First read: place/building/brand cue.
-- Second read: host action.
-- Text behavior: one reveal label or no text.
-- Composition: place dominates; host validates access.
-- Failure mode: corporate brochure or real-estate poster.
-- Prompt contract: frame the place as evidence of a story.
+### Paradigm 7: Strange Visual Question / Mystery Object
+- Evidence count: 7/120 primary assignments.
+- Representative samples: 4, 40, 63, 74, 84, 96, 103.
+- Best-fit topics: optical illusions, old objects, visual science, artifacts,
+  strange materials, money/object mysteries, and concrete "what is this"
+  questions.
+- Click promise: what is this thing, and why does it behave like that?
+- Topic translation: turn the abstract concept into one strange object, visual
+  phenomenon, magnified detail, or question-mark scene.
+- One-frame story: the viewer sees the oddity before knowing the explanation.
+- First read: mystery object or large question.
+- Second read: host/proof relation.
+- Text behavior: one question, object name, or large punctuation.
+- Composition: object or phenomenon dominates; host is secondary proof.
+- Failure mode: generic science poster or explanation before curiosity.
+- Prompt contract: show the mystery first, explanation later.
 
 ## Topic Translation Rules
-
-- Abstract topics: wrap them in a public shell and a visible proof scene. The shell can be a question, hidden world, person, object, number, location, or unsettling result.
-- Concrete topics: dramatize the real proof without faking spectacle. Show the device, place, guest, money amount, data object, animal/person, or physical test.
-- Technical topics: use real screens, machines, rooms, devices, tests, or controlled lab scenes; avoid generic neon AI.
-- Social topics: use documentary atmosphere, real environment, human silhouette, taboo/hidden-world text, or a serious proof object.
-- Interview/person topics: guest face or name is the proof object; host appears as companion/witness.
-- Required translation variables: raw topic, hard-core nucleus, public shell, proof object, host role, one-frame question, exact short on-cover text.
-- Forbidden translation moves: pure abstract metaphor, dense explanatory poster, fake luxury, random dramatic background, MrBeast-style cash spectacle, and full-title text pasted onto the image.
-- Example translation: "AI content flywheel" should not become a flowchart. It should become "AI正在改变内容生产" as the shell, with a real studio/lab, screens, machines, scripts/cards, and the host witnessing or operating the system.
+- First choose the public shell and internal paradigm.
+- Abstract topics must become concrete proof: test, person, place, screen,
+  device, object, data, field scene, interview, or visible result.
+- Technical topics should become practical evidence: a device in hand, a camera
+  rig, test setup, real screen, studio workflow, measured visual artifact, or
+  before/after output.
+- Social or industry topics should become access evidence: a place, job, worker,
+  taboo word, money trail, machine, backstage room, or real participant.
+- Creator/business topics should become internal proof: staff, office, backend
+  data, timeline, public response, production process, or milestone number.
+- Required translation variables: hard-core nucleus, public shell, selected
+  internal paradigm, proof object/person/place/number, subject role/action,
+  one-frame viewer question, exact short text, and what would be misleading if
+  dramatized.
+- Forbidden moves: pure metaphor, dense infographic, flowchart, product beauty
+  ad, fake challenge spectacle, fake danger, generic AI glow, corporate slide,
+  long title pasted onto the cover, and an unrelated smiling cutout.
 
 ## Cover Storyboard Rules
-
-- Story moment: show the second where the viewer can tell the creator really went there, tested it, met them, found it, or built it.
-- Visible conflict: hidden truth, strange rule, expensive object, industry secret, test result, surprising age/result, new technology, or impossible-looking place.
-- Subject task/action: the host points, holds proof, reacts, operates equipment, stands inside the place, presents the object, or compares with a guest.
-- Proof object: phone screen, location, guest, machine, money tag, room, building, animal, industrial site, data screen, or physical artifact.
-- Viewer question: "What did they see?", "How does this work?", "Is it real?", "Why is this place/person/object special?", "What is behind it?"
-- Forbidden static compositions: no calm presenter beside a large title, no pure PPT comparison, no diagram, no generic SaaS UI, no unrelated face pasted over a decorative background.
-- Example storyboard: the user stands in a real studio/control room, holding or pointing to a physical proof object while the background reveals the hidden system or strange result.
+- Story moment: freeze the second where the viewer can tell the subject really
+  tested it, entered it, met them, saw it, built it, captured it, or found it.
+- Visible conflict: hidden vs revealed, professional vs outsider, device vs
+  result, person vs question, place vs mystery, old belief vs proof, or rare
+  scene vs ordinary access.
+- Subject task/action: point, hold, test, compare, operate, interview, guide,
+  enter a place, inspect an object, react to a result, or stand inside the field
+  environment.
+- Proof object: device, phone, camera, screen, guest, machine, document, money,
+  office, studio, industry site, field location, rocket, satellite, natural
+  scene, visual artifact, or participant.
+- Viewer question: "What did they see?", "How does this work?", "Is it real?",
+  "Why is this person/place/object special?", "What is behind it?", or "What
+  happened when they tested it?"
+- Forbidden static compositions: calm presenter beside a big title, feature
+  matrix, dashboard screenshot, corporate brochure, podcast poster, abstract
+  tech wallpaper, and unrelated cinematic background.
 
 ## Design Layout Brief Rules
-
-- First read: the shell or proof object, often a large word, number, name, question marker, or visually shocking scene.
-- Second read: host/guest face or body action.
-- Third read: environment detail that proves the story.
-- Layout zones: one dominant proof zone; one host/guest zone; one protected text zone; one contextual environment zone.
-- Visual weight: proof object and host/guest face must read at phone size. Text is bold but sparse.
-- Reading path: shell/proof text -> host/guest action -> environment clue -> unresolved question.
-- Negative space: use sky, wall, screen, dark street, blurred background, or clean plate behind text.
-- Forbidden layouts: no three equal text blocks, no crowded labels, no accidental phrase joining, no tiny subtitle, no pure left/right comparison unless the content is truly a direct test.
+- First read: public shell or proof object, often a large word, number, person,
+  strange object, device, place, or question.
+- Second read: host/guest face, hand action, or body position.
+- Third read: environment detail, supporting object, small label, or result cue.
+- Layout zones: dominant proof zone, subject/guide zone, protected text zone,
+  and contextual environment zone.
+- Visual weight: proof 40-70%; subject/guest 20-45%; text 10-30% depending on
+  whether the shell is text-led or image-led.
+- Reading path: shell/proof -> subject/guest action -> environment/result clue.
+- Negative space: use sky, wall, screen, desk, dark background, blurred
+  environment, or a clean plate behind text.
+- Forbidden layouts: three equal text blocks, tiny subtitles, unbound labels,
+  long title paragraphs, crowded background behind text, and split comparisons
+  unless the content is truly a direct test.
 
 ## Copy Hierarchy Rules
-
-- Main title: one short shell phrase, noun, number, guest name, object label, or question marker.
-- Subtitle: usually none.
-- State labels: optional and lower priority; use only when bound to the object/person/zone they describe.
-- Object/zone binding: number labels attach to money/device/phone/result; name labels attach to guest; question marks attach to strange place/object.
-- Isolation rules: main text must have stroke, shadow, plate, or clean background. Secondary labels must be smaller and visually bound.
-- Forbidden adjacency: never place two unrelated short labels close enough that they read as one wrong sentence.
-- Removal rule: if the image clearly communicates the shell, remove secondary labels and keep only the strongest text.
+- Main title: one short shell phrase, noun, number, person name, object label,
+  `VS`, or question.
+- Subtitle: avoid unless the platform requires it; prefer deleting secondary
+  text before shrinking it.
+- State labels: optional and lower priority. Use only when bound to the object,
+  person, screen, place, or comparison zone they describe.
+- Object/zone binding: numbers attach to money/device/result; names attach to
+  guests; place labels attach to environment; question marks attach to strange
+  objects; `VS` sits between two tested subjects.
+- Isolation rules: main text needs stroke, shadow, backing plate, or clean
+  background. Secondary labels must be visually separated and smaller.
+- Forbidden adjacency: do not put unrelated labels close enough to become a
+  wrong sentence.
+- Removal rule: if the image clearly carries the shell, keep no text or only one
+  strongest label.
 
 ## Platform Adaptation
-
-| Platform/mode | Ratio | Composition rule |
-|---|---:|---|
-| Bilibili cross-platform | 16:9 | Native fit. Use cinematic wide frame, large proof object, face/host in center-safe area, short text away from edges. |
-| Bilibili native upload | 1146:717, approx 16:10 | Slightly taller master; keep text, face, and proof in 16:9/4:3 safe center. |
-| Bilibili 4:3-safe | 4:3 | Compress to host + proof object + one short shell label. Avoid wide environment-only clues. |
-| Douyin horizontal | 4:3 | Use one close proof object and one host action. Reduce background subtlety. |
-| Douyin vertical | 3:4 | Stack shell text, host, and proof object vertically; keep documentary environment but simplify labels. |
-| Xiaohongshu | 3:4 | More portrait-card friendly: host/object large, short text, clean background, less dark cinematic space. |
-| TikTok/Reels/Shorts | 9:16 | Use vertical poster logic; do not force wide documentary frame unless cropping is safe. |
-| YouTube long video | 16:9 | Use the same wide cinematic proof frame; reduce Bilibili-specific large Chinese text if title already carries meaning. |
+| Platform/mode | Ratio | Target canvas | Composition rule |
+|---|---:|---:|---|
+| Bilibili native upload | 1146:717 | 1146x717 | Native fit: cinematic proof frame, large subject/proof, heavy Chinese text protected from edge crop. |
+| Bilibili cross-platform | 16:9 | 1920x1080 | Keep face, text, and proof in the center-safe area for Bilibili and YouTube reuse. |
+| Bilibili 4:3-safe | 4:3 | 1440x1080 | Compress to one subject plus one proof object and one short shell label. |
+| YouTube long video | 16:9 | 1280x720 | Reduce Bilibili-specific text density; keep proof/person relation clear. |
+| Douyin horizontal | 4:3 | 1440x1080 | Use one close proof object and one host action; reduce subtle background clues. |
+| Douyin vertical | 3:4 | 1080x1440 | Stack shell text, subject, and proof object vertically. |
+| Xiaohongshu | 3:4 | 1080x1440 | Make the object/host larger and reduce dark cinematic space. |
+| Xiaohongshu square | 1:1 | 1080x1080 | Center subject and proof; use one short label only. |
+| TikTok/Reels/Shorts | 9:16 | 1080x1920 | Use vertical documentary poster logic; do not force wide environment-only frames. |
+| WeChat article main | 2.35:1 | 2350x1000 | Use only when the proof, face, and text remain clear inside the central square-safe zone. |
 
 ## Layout Patterns
+### Pattern 1: Witnessed Test Bench
+- Use when: product, camera, phone, AI workflow, screen result, or production
+  gear is the hook.
+- Composition: device/result foreground, host hand/face beside it, practical
+  room or rig behind.
+- Text: short verdict, number, product name, or `VS`.
+- Avoid: spec table, floating UI, or glossy product ad.
 
-### Pattern 1: Hidden World Proof
+### Pattern 2: Accessed Hidden Place
+- Use when: industry, taboo, company, backstage, job, or logistics system is the
+  hook.
+- Composition: real place/object dominates, host enters or points as guide.
+- Text: one reveal word, industry noun, place label, or question.
+- Avoid: generic dark mood with no access proof.
 
-- Use when: the topic is an investigation, unusual place, taboo, secret industry, or rare access.
-- Composition: cinematic location dominates; host may be small or absent; one huge word/name or no text.
-- Text: one noun, one taboo label, or no text.
-- Avoid: smiling host cutout that weakens seriousness.
+### Pattern 3: Rare Capture Frame
+- Use when: field trip, rocket, satellite, eclipse, natural scene, or special
+  footage is the hook.
+- Composition: wide cinematic scene plus human/gear scale cue.
+- Text: place name, short claim, or no text.
+- Avoid: postcard scenery with no viewer question.
 
-### Pattern 2: Test / Comparison With Real People
+### Pattern 4: Authority Encounter Pair
+- Use when: credible person, director, expert, creator, or public figure is the
+  hook.
+- Composition: guest and host/action in one scene; name or question bound to
+  guest.
+- Text: guest name, `VS`, or one question.
+- Avoid: generic podcast two-head cover.
 
-- Use when: device vs person, old vs new, human vs machine, result comparison.
-- Composition: host and guest/subject foreground, action or test object behind/center.
-- Text: short comparison phrase, number, or `VS`.
-- Avoid: sterile spec-table comparison.
+### Pattern 5: Internal Reveal
+- Use when: creator/company backend, office, staff, milestone, or response is
+  the hook.
+- Composition: internal artifact, staff, data screen, office, or milestone
+  number as proof.
+- Text: Q&A, milestone, one internal word, or short claim.
+- Avoid: self-congratulatory corporate portrait.
 
-### Pattern 3: Money / Number As Proof
+### Pattern 6: Human Proof Scene
+- Use when: people, body, dream, behavior, fan story, spending, or emotional
+  consequence is the proof.
+- Composition: participant action/emotion first, host as witness second.
+- Text: one number, question, or emotional phrase.
+- Avoid: fake challenge or motivational poster.
 
-- Use when: amount, age, view count, price, output, or scale is the hook.
-- Composition: number label attached to money, phone, product, person, or object.
-- Text: huge number with unit.
-- Avoid: floating number that is not physically tied to proof.
-
-### Pattern 4: Tech Arrival / Controlled Room
-
-- Use when: AI, camera gear, software, workflow, future tech.
-- Composition: real room, devices, screens, lab/studio, host inside the system.
-- Text: optional; keep it short and uneasy or factual.
-- Avoid: neon hologram, abstract blue grid, sci-fi tunnel.
-
-### Pattern 5: Guest / Authority Encounter
-
-- Use when: famous person, expert, creator, artist, or guest is the hook.
-- Composition: guest and host as cutouts or realistic portrait pair; label/name/arrow binds to guest.
-- Text: guest name or one emotional phrase.
-- Avoid: generic podcast cover or two heads without a visual question.
-
-### Pattern 6: Brand / Place Reveal
-
-- Use when: office, studio, company, base, new building, internal process.
-- Composition: place/building as proof object; host presents or reacts.
-- Text: one reveal label such as `新的`.
-- Avoid: real-estate brochure or corporate slide.
+### Pattern 7: Mystery Object Close-Up
+- Use when: optical illusion, artifact, material, money, chip, or visual science
+  is the hook.
+- Composition: object/phenomenon large, question/punctuation protected, host
+  secondary.
+- Text: one question, object name, or large punctuation.
+- Avoid: explanation-first science poster.
 
 ## Subject Rules
-
-- Use the user's portrait if provided; preserve identity, clothing, face traits, and recognizable accessories.
-- Do not preserve a calm reference pose by default. Redesign pose as guide, witness, tester, presenter, or participant.
-- Expression should be curious, focused, surprised, amused, or quietly unsettled; avoid MrBeast-level exaggerated yelling unless the topic is comedic.
-- If the proof object is stronger than the person, let the object or location dominate.
+Preserve the user's identity from reference images, but redesign pose and
+expression around the proof. Good roles: guide, witness, tester, interviewer,
+participant, builder, studio operator, field reporter, or company insider. Good
+expressions: curious, focused, surprised, amused, unsettled, impressed, or
+quietly serious. Avoid exaggerated yelling, detached expert poses, and face-only
+covers with no proof.
 
 ## Reference Image Handling
-
-- Preserve identity traits from the reference image: face structure, hair, glasses, clothing, silhouette, brand colors, recognizable accessories.
-- Do not copy the reference pose unless the user explicitly asks.
-- Use a new hook-driven action: pointing to proof, holding device/phone/card, standing inside real scene, reacting to result, guiding viewer through place, or operating equipment.
-- If the user provides a product/device/location reference, keep its key shape and visible function but adapt lighting and composition to the shell.
+Reference images lock identity traits, clothing cues, product appearance, place
+features, or brand assets. They do not lock pose, expression, camera angle, or
+background unless explicitly requested. Convert static portraits into guide,
+witness, tester, or field-reporter action. If no real proof object exists, ask
+for one or route away from this child skill.
 
 ## Identity And Final Prompt Firewall
-
 - Internal routing may name 影视飓风, Tim, or the source channel for analysis, but
-  the final GPT Image 2 prompt must not contain `影视飓风`, `Tim`, `影视飓风-inspired`,
-  `in the style of 影视飓风`, `like 影视飓风`, or equivalent creator-name shortcuts.
-- Express the pattern through concrete mechanics: public-facing shell, real proof
-  object/person/place/number, documentary frame, host-as-guide action, short
-  protected Bilibili text, and cinematic realism.
+  the final GPT Image 2 prompt must not contain `影视飓风`, `Tim`,
+  `影视飓风-inspired`, `Tim-inspired`, `in the style of 影视飓风`, `like
+  影视飓风`, or equivalent creator-name shortcuts.
+- Express the pattern through concrete mechanics: public shell, real proof
+  object/person/place/number, documentary test frame, host-as-guide action,
+  short protected Chinese text, practical lighting, and cinematic realism.
 - If a portrait reference is supplied, identity preservation outranks all
-  creator-pattern rules. The subject must preserve the user's identity traits and
-  must not resemble any public creator.
-- Add a final negative constraint that the generated subject must not resemble
-  any public creator, without naming 影视飓风 or Tim.
+  creator-pattern rules. The subject must preserve the user's identity traits
+  and must not resemble any public creator.
 
 ## Text Rules
-
-- Prefer 0-5 Chinese characters, one number, one name, or one question mark.
-- Strong text types: object noun, guest name, amount, age, result number, short reveal word, direct question marker.
-- Avoid full titles, explanatory subtitles, marketing slogans, and abstract labels like `效率系统` unless embodied by a proof scene.
-- Use Chinese text only when it is short, dominant, and protected.
+Use text as shell or proof, not explanation. Good text is a short Chinese noun,
+name, number, amount, device label, place label, `VS`, question, or one result
+phrase. Keep it large, high-contrast, and isolated. Avoid full titles, dense
+subtitles, marketing slogans, feature lists, and abstract labels unless the
+scene already embodies them.
 
 ## Typography Layout System
-
-- Treat text as a protected design layer.
-- Use heavy Chinese display type, white fill, black stroke/shadow; use yellow/orange for emphasis or proof numbers.
-- Every text block needs clean space, a backing plate, or a simple background area.
-- Labels must visually attach to their proof object with proximity, arrow, outline, or shared plate.
-- For paired labels, match size and visual weight; otherwise remove the weaker label.
-- Keep all text, face, and proof object in platform safe area.
+Protected text zones: top-left or side block for shell words, object-bound label
+near a device/result, person-name badge near a guest, big number near proof, or
+large punctuation beside a mystery object. Use heavy Chinese display type,
+usually white/yellow/orange with black stroke, shadow, or plate. Keep text away
+from faces, hands, dense machinery, and bright clutter. If background is noisy,
+add a plate, simplify the background, or delete secondary text.
 
 ## Color And Lighting Rules
-
-- Use cinematic realism before graphic decoration.
-- Investigation/taboo: muted green/gray/black, orange or red emphasis, environmental haze.
-- Money/industry: warm gold/yellow light, real reflective surfaces.
-- Tech/AI: white/green control room, screens, data panels, practical light; not cyberpunk.
-- Outdoor/industrial: blue sky, sunlight, shipping/metal/yellow-orange accents.
-- Interview/guest: warm soft light, clean face cutout, background blur.
-- Faces and proof objects must be bright, sharp, and separated from background.
+Use cinematic realism before decoration. Common color roles: cool blue/gray for
+technology and field environments, warm yellow/orange for industry and proof
+objects, red for warning or taboo, green/white screen light for control rooms,
+clean daylight for trips and place proof, and soft warm light for interviews.
+Avoid cyberpunk neon, generic AI purple, all-dark backgrounds that hide proof,
+one-note corporate blue, and overly polished product-ad lighting.
 
 ## Hook Mechanics
-
-- Shell theory: wrap the hard-core nucleus in something public and clickable.
-- Hidden world: show access to a place/viewer normally cannot enter.
-- Proof number: use money, age, views, price, time, or scale as evidence.
-- Real test: show machine/person/device under comparison.
-- Tech anxiety: "coming soon but a little scary" through controlled physical setting.
-- Authority encounter: guest/person as the proof.
-- Place reveal: new building/studio/company/location as the story object.
+- Public shell makes a hard-core topic clickable.
+- Real test turns abstract quality into witnessed proof.
+- Hidden system creates access curiosity.
+- Rare capture proves effort and exclusivity.
+- Authority encounter borrows credibility from a person.
+- Creator/company meta reveal turns internal artifacts into story proof.
+- Human experiment makes consequence visible.
+- Strange visual question delays explanation until after curiosity is triggered.
+- Numbers work as cross-paradigm proof only when attached to a visible object,
+  person, place, or result.
 
 ## GPT Image 2 Prompt Contract
-
-Every prompt must specify:
-
-- final artifact: finished video cover/thumbnail
-- platform and ratio
-- target canvas in pixels
-- creator engine: Shell-Theory Documentary Engine
-- raw topic and hard-core nucleus
-- public shell chosen for ordinary viewers
-- proof object/person/place/number
-- one-frame storyboard
-- host/user subject role and action
-- exact on-image text or `no text`
-- copy hierarchy and protected text zones
-- layout pattern
-- cinematic environment and lighting
-- typography rules
-- platform-safe area
-- reference image handling
-- negative constraints
-- post-generation dimension verification
-
-Do not prompt "in 影视飓风's exact style." Prompt the transferable shell/proof/cinematic documentary rules.
+Every prompt must include:
+- target platform, aspect ratio, and exact pixel canvas
+- selected internal paradigm
+- hard-core nucleus and public shell
+- proof object/person/place/number/test
+- subject role/action inside the proof scene
+- one-frame cover storyboard
+- design layout brief and copy hierarchy
+- exact text labels or "no text"
+- where each label attaches and how it is protected
+- cinematic realism and practical lighting rules
+- platform crop-safe zones
+- explicit rejection of creator names, public creator likeness, logos, Bilibili
+  UI imitation, fake proof, and abstract poster drift
 
 ## Negative Constraints
-
-- no Tim likeness
-- no 影视飓风 logo
-- no copied existing thumbnail
-- no copied Bilibili UI or protected marks
-- no generic AI/cyberpunk background
-- no abstract flowchart
-- no SaaS dashboard
-- no course-poster layout
-- no fake MrBeast challenge spectacle
-- no long sentence on cover
-- no tiny text
-- no text over clutter without backing
-- no unbound labels
-- no wrong text grouping
-- no edge-critical text outside safe area
-- no copying reference pose unless requested
+No Tim likeness replication. No 影视飓风 logo. No exact thumbnail recreation. No
+Bilibili UI imitation. No copied protected marks. No fake challenge, fake danger,
+fake cash, fake access, or fake authority. No SaaS dashboard, flowchart, course
+poster, generic AI glow, cyberpunk background, podcast two-head poster, product
+beauty ad, corporate brochure, long sentence text, tiny text, unbound labels, or
+text over clutter.
 
 ## User Intake Questions
-
-Ask in this order:
-
-1. Which platform will this cover be published on?
-2. Which mode or orientation is needed?
-3. What is the raw video topic/title?
-4. What is the hard-core nucleus: what is the real knowledge, story, product, or result?
-5. What public-facing shell can ordinary viewers care about immediately?
-6. What proof object, person, location, number, or scene can appear?
-7. What exact on-cover text should appear? If none, say no text.
-8. Should the user's face appear? If yes, request a reference image.
-9. Should the reference pose be preserved, or redesigned as host/witness/guide?
-10. What must appear?
-11. What must not appear?
-12. Are there brand, legal, or platform constraints?
+1. 这个选题的硬核内核是什么：技术、人物、地点、行业、公司、实验、还是视觉谜题？
+2. 普通观众会先点击哪个外壳：问题、人物、地点、数字、物体、异常结果、还是隐藏系统？
+3. 哪个真实物体、人物、地点、数字、屏幕、设备或测试能证明这个外壳？
+4. 主体在画面里是什么角色：向导、见证者、测试者、采访者、参与者、操作者、还是内部人？
+5. 封面文字是否能压缩成一个短词、数字、名字、`VS`、问号，或 no text？
+6. 哪些戏剧化会误导观众，必须禁止？
 
 ## Quality Checklist
-
-- Did the prompt choose a public-facing shell before visual style?
-- Does the shell wrap the hard-core nucleus without lying?
-- Is there one visible proof object/person/place/number?
-- Does the frame feel like a real documentary/experiment/interview/trip moment?
-- Is the host acting as guide/witness/tester/presenter instead of posing generically?
-- Is on-cover text short, readable, protected, and object-bound?
-- Can the viewer understand the curiosity hook in under one second?
-- Does the layout avoid accidental text grouping?
-- Does the palette match the topic category instead of default AI neon?
-- Does the selected ratio match the platform and keep face/text/proof in safe area?
-- Does it avoid copying 影视飓风, Tim, logos, or specific existing thumbnails?
+- One internal paradigm is selected before visual style.
+- The hard-core nucleus has been translated into a public shell.
+- One real proof object/person/place/number/test is visible before decoration.
+- The subject acts as guide, witness, tester, participant, or interviewer.
+- Text is short, protected, and bound to proof.
+- The frame feels like a real documentary, test, trip, interview, or field
+  report, not a generic poster.
+- The viewer can understand the curiosity hook in one second.
+- Platform ratio and target canvas are explicit.
+- Reference image identity is preserved.
+- Final prompt avoids creator-name shortcuts, public creator likeness, logos,
+  Bilibili UI, and exact thumbnail copying.

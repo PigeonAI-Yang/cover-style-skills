@@ -15,6 +15,12 @@ spec.loader.exec_module(capture_bilibili_space)
 
 
 class CaptureBilibiliSpaceTest(unittest.TestCase):
+    def test_build_space_url_uses_stable_upload_query(self) -> None:
+        self.assertEqual(
+            capture_bilibili_space.build_space_url("946974"),
+            "https://space.bilibili.com/946974/upload/video?tid=0&pn=1&keyword=&order=pubdate",
+        )
+
     def test_parse_page_count(self) -> None:
         self.assertEqual(
             capture_bilibili_space.parse_page_count("1\n2\n3\n下一页\n共 3 页 / 93 个，跳至\n页"),

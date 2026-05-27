@@ -140,246 +140,548 @@ post_generation_check:
 # PigeonYang Cover Design Standard: Dan Koe
 
 ## Scope
-Use this standard to create original video covers that apply Dan Koe's transferable cover logic: serious creator authority, a blunt intellectual claim, minimal studio composition, and strong typography. It is best for topics about personal transformation, creator economy, writing, focus, AI workflows, one-person business, thinking, and future-of-work arguments.
 
-Do not copy Dan Koe's likeness, exact recurring cover, channel identity, or private brand assets. Use the user's own portrait or a neutral subject.
+Use this standard when the user's topic can become a quiet but forceful
+belief-level claim: one-person business, personal reinvention, deep work,
+high-income skills, thinking, writing/content systems, future-of-work shifts,
+or society-trap diagnosis.
+
+Best-fit topics:
+
+- solo creator business, knowledge products, micro education, productized
+  expertise, niche-of-one positioning, and value creation
+- life reset, identity rebuild, getting ahead, twenties, comeback, self-directed
+  work, and hard personal standards
+- deep work, focus, dopamine detox, routine design, discipline, walking,
+  minimalist productivity, and attention control
+- high-income skills, AI skill use, generalist careers, networking, fast
+  learning, and future-proof skill stacks
+- mental models, intelligence, reading, articulation, strategic thinking, and
+  reprogramming the mind
+- writing, essays, audience growth, content systems, personal brand, and
+  creator economy shifts
+- category death, future of work, AI-first careers, new economy paths, and the
+  decline of old work models
+- wage slavery, matrix/autopilot framing, NPC behavior, social conformity, and
+  escape from modern traps
+
+Do not use this standard for topics that need spectacle, documentary field
+proof, huge objects, fake danger, crowd competition, cash-prize fantasy, product
+beauty shots, or dense software dashboards. Do not copy Dan Koe's likeness,
+exact thumbnails, channel identity, recurring private brand assets, or protected
+marks. Use the user's own portrait, a neutral subject, or legally supplied
+references.
 
 ## Evidence Summary
-- Cover samples: 12 public YouTube thumbnails from Dan Koe's channel, archived in the managed research run under `covers/`.
-- Process sources: 5 archived sources, including Dan Koe's YouTube RSS feed, Dan Koe's own content-system writing, and third-party content-system breakdowns.
-- Research run: `dan-koe/20260525-181547` in the user's configured research workspace.
-- Confidence: High for 2025-2026 talking-head authority thumbnails; medium for older visual-explainer variants because the current sample set favors text-left/face-right covers.
+
+- Cover samples: 120 popular public YouTube video cards from Dan Koe's channel.
+- Capture method: YouTube channel HTML plus `youtubei/v1/browse` continuation
+  pages for the `Popular` chip.
+- Source channel id: `UCWXYDYv5STLk-zoxMP2I1Lw`.
+- Research run: `dan-koe/20260528-youtube-popular-top120`.
+- Source artifact: `generated/youtube-popular-top120.json`.
+- Contact sheet: `distillation/sample-contact-sheet.jpg`.
+- Process sources: 6 saved sources in the run, including the current YouTube
+  Popular capture, channel RSS feed, Dan Koe's own content/business writing,
+  and two third-party content-system breakdowns.
+- Prior baseline: the old standard used 12 samples and grouped the style into 4
+  generic paradigms. The expanded 120-sample audit shows a more specific system:
+  one stable authority-text surface and 8 recurring topic-lane paradigms.
+- Confidence: high for YouTube-native covers about one-person business,
+  reinvention, focus, skills, thinking, creator systems, future work, and
+  society-trap framing. Medium for vertical/mobile platform adaptation because
+  the evidence is YouTube-native. Low for topics with no belief-level claim or
+  no credible human authority.
 
 ## Core Design DNA
-1. Turn the topic into one blunt belief-level claim before designing the image.
-2. Make the person the authority proof: close face, direct eye contact, serious expression, restrained gesture.
-3. Let typography carry the story: huge bold sans-serif text, clean line breaks, one emphasized hinge phrase.
-4. Keep the visual world quiet: gray/black/white studio background, shallow depth, no decorative clutter.
-5. Use contrast in meaning, not spectacle: wrong belief vs better belief, current self vs future self, outdated skill vs new skill.
-6. Use one accent at most: white plate, pale yellow word, or red underline.
+
+1. Start from a belief-level claim, not a scene idea.
+2. The first read is the claim: short, blunt, high-contrast typography.
+3. The second read is the authority portrait: close face, direct or near-direct
+   eye contact, serious expression, restrained gesture.
+4. The third read is one accent or proof cue: teal/yellow phrase, red underline,
+   white plate, book, laptop, diagram, or muted screen glow.
+5. The background stays quiet: black, charcoal, gray, muted studio, desk blur,
+   or soft abstract texture.
+6. The cover promises a sharper rule, not spectacle.
+7. Topic lane controls the promise. Business, reinvention, focus, skill,
+   thinking, content, future work, and trap diagnosis should not collapse into
+   one generic diagnosis template.
 
 ## Cover Generation Engine
-- Engine type: Hybrid `Authority Engine` + `Transformation Engine` + `Utility Clarity Engine`.
-- Viewer decision compressed: "Does this creator understand the hidden rule behind my stalled growth, thinking, work, or identity?"
-- Topic-to-cover mechanism: Convert the raw topic into a hard claim, warning, command, paradox, identity reframe, or shortcut. The claim must feel like a diagnosis.
-- Subject role: Expert and witness. The subject looks like they have seen the pattern and are telling the viewer directly.
-- Pre-visual decision: Decide the one sentence the viewer must believe after seeing the cover. If this sentence is weak, fix the sentence before designing.
-- Drift risk: Giant props, money, shock faces, colorful AI visuals, busy screenshots, dashboard collages, or comparison boards move the cover away from Dan Koe.
+
+- Engine type: `Belief-Level Authority Engine`, a hybrid of `Authority Engine`,
+  `Transformation Engine`, and `Utility Clarity Engine`.
+- Viewer decision compressed: "Does this person understand the hidden rule that
+  explains my stalled life, work, thinking, skill path, or creator business?"
+- Topic-to-cover mechanism: first route the topic to one internal paradigm, then
+  compress it into a blunt claim, warning, command, paradox, identity reframe,
+  or protocol.
+- Subject role: expert, guide, witness, challenger, or lived proof. The subject
+  is credible because they seem to have used the rule, not because the image is
+  loud.
+- Pre-visual decision: define the topic lane, one-sentence belief claim,
+  subject role, proof cue, first read, second read, and forbidden drift before
+  choosing pose, color, or typography.
+- Drift risk: quote-card portraits, motivational posters, course ads, product
+  dashboards, neon AI scenes, social-logo collages, MrBeast-style stakes, or
+  Yingshijufeng-style documentary proof scenes.
 
 ## Popular Paradigms
-### Paradigm 1: Diagnosis Claim
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: covers where the text names a mistake, false belief,
-  or hidden blocker.
-- Best-fit topics: creator identity, learning, work, focus, business mistakes,
-  AI-workflow diagnosis.
-- Click promise: "I may be doing this wrong, and this person can name the rule."
-- Topic translation: convert the topic into one blunt viewer mistake or belief
-  correction.
-- One-frame story: serious authority figure catches the viewer in a mistaken
-  assumption.
-- First read: huge diagnosis claim.
-- Second read: calm direct face.
-- Text behavior: one sentence with one hinge phrase isolated.
-- Composition: left protected text zone, right close portrait, quiet background.
-- Failure mode: becomes a generic quote card or multi-point lesson.
-- Prompt contract: write one approved diagnosis claim before choosing pose,
-  background, or typography.
 
-### Paradigm 2: Transformation Promise
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: covers that promise a future self, skill shift, or
-  life/work transformation.
-- Best-fit topics: habit systems, skill building, one-person business, writing,
-  self-directed work.
-- Click promise: "This practice changes who I become."
-- Topic translation: convert utility into an identity or future-state shift.
-- One-frame story: expert shows the rule that creates the change.
-- First read: transformation claim.
-- Second read: controlled face and gesture.
-- Text behavior: short sentence with one emotionally loaded phrase.
-- Composition: text and face share dominance; optional blurred proof cue.
-- Failure mode: motivational poster or before/after spectacle.
-- Prompt contract: keep the transformation intellectual and restrained.
+### Paradigm 1: One-Person Business / Productized Self
 
-### Paradigm 3: Tactical Shortcut
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: covers around prompts, systems, routines, workflows,
-  or tools.
-- Best-fit topics: AI prompts, content systems, productivity workflows, creator
-  operating systems.
-- Click promise: "There is a simpler tactic I can use now."
-- Topic translation: convert the topic into a command, shortcut, or number-backed
-  utility phrase.
-- One-frame story: authority figure gives the viewer the actionable rule.
-- First read: command or numbered shortcut.
+- Evidence count: 28/120 primary assignments.
+- Representative samples: 3, 9, 24, 26, 29, 30, 34, 36, 42, 43, 44, 45, 46,
+  55, 57, 59, 65, 66, 69, 71, 84, 85, 87, 97, 99, 101, 102, 120.
+- Best-fit topics: solo business, creator business, knowledge products, niche,
+  digital writing, micro education, productized expertise, consulting,
+  monetizing solved problems.
+- Click promise: "My knowledge, taste, experience, or solved problem can become
+  a business."
+- Topic translation: turn the topic into productized self, productized
+  knowledge, value creation, niche-of-one, or solo-business path.
+- One-frame story: a calm authority figure points the viewer from their mind,
+  skill, or problem into a credible business path.
+- First read: business claim or productization phrase.
+- Second read: serious creator portrait as proof that the model is lived.
+- Text behavior: large white text with one teal/yellow emphasis phrase, a white
+  plate, or a boxed imperative such as "productize yourself".
+- Composition: text block and portrait dominate; diagrams or screens stay
+  background proof.
+- Failure mode: money-flex entrepreneur poster, SaaS dashboard, hustle quote,
+  generic startup pitch, or fake luxury outcome.
+- Prompt contract: show authority plus a clean productization claim; do not add
+  fake cash, cars, luxury, or business-collage clutter.
+
+### Paradigm 2: Life Reinvention / Identity Rebuild
+
+- Evidence count: 22/120 primary assignments.
+- Representative samples: 1, 6, 8, 10, 13, 17, 23, 27, 39, 64, 70, 72, 73, 76,
+  83, 91, 96, 100, 103, 109, 111, 112.
+- Best-fit topics: changing your life, rebuilding identity, hard resets,
+  twenties, comeback stories, feeling lost, becoming a different person,
+  escaping mediocrity.
+- Click promise: "A severe but realistic rule can rebuild who I become."
+- Topic translation: convert utility into a personal time-bound identity shift:
+  reset, recreate, become unrecognizable, build, disappear, or come back.
+- One-frame story: the subject confronts the viewer with the identity standard
+  they are avoiding.
+- First read: identity or life-change command.
+- Second read: direct face, stillness, and seriousness.
+- Text behavior: short hard phrases, sometimes time-boxed: 6 months, 7 days,
+  12 months, 30 minutes.
+- Composition: high-contrast text field plus close portrait, rarely more than
+  one proof cue.
+- Failure mode: motivational quote poster, gym-transformation before/after,
+  sentimental self-help image, or vague aspirational typography.
+- Prompt contract: make the identity rule concrete and severe; keep the visual
+  calm enough to feel like counsel, not hype.
+
+### Paradigm 3: Deep Work / Focus Protocol
+
+- Evidence count: 18/120 primary assignments.
+- Representative samples: 2, 4, 5, 7, 21, 41, 47, 51, 52, 62, 68, 75, 80, 106,
+  108, 116, 118, 119.
+- Best-fit topics: deep work, focus, routine, dopamine detox, discipline,
+  walking, workday design, monk mode, minimalist productivity, attention
+  control.
+- Click promise: "A repeatable protocol can restore focus and compound results."
+- Topic translation: turn the topic into a ritual, time block, detox, routine,
+  protocol, or concentration rule.
+- One-frame story: the authority figure reveals the disciplined operating rule
+  behind uncommon output.
+- First read: focus command, time block, or protocol title.
+- Second read: concentrated face or restrained work gesture.
+- Text behavior: time counts and protocol phrases work better than broad
+  productivity slogans.
+- Composition: text and portrait first; desk, book, screen, or room glow as
+  muted proof.
+- Failure mode: wellness routine board, calendar app screenshot, productivity
+  dashboard, cozy lifestyle photo, or app-feature graphic.
+- Prompt contract: show one hard focus rule and one credible human operator;
+  keep tools secondary.
+
+### Paradigm 4: High-Income Skill Stack / Future-Proof Skill
+
+- Evidence count: 16/120 primary assignments.
+- Representative samples: 16, 18, 20, 25, 37, 38, 50, 53, 58, 61, 81, 95, 107,
+  110, 113, 115.
+- Best-fit topics: learning, skill acquisition, AI use, generalist careers,
+  networking, high-income skills, skill stacks, relevance over the next decade.
+- Click promise: "There is a scarce skill path I should learn before the market
+  moves."
+- Topic translation: compress the topic into one named skill, stack, order, or
+  future-proof learning command.
+- One-frame story: the expert points to the skill that separates the viewer from
+  the average crowd.
+- First read: named skill, "learn this" claim, or future-proof warning.
 - Second read: face credibility.
-- Text behavior: concise command; optional number; no readable dashboard hero.
-- Composition: left text, right face, blurred UI or workspace behind.
-- Failure mode: software ad, dashboard screenshot, or feature-card collage.
-- Prompt contract: let typography carry the tactic; keep any UI as proof, not
-  the main subject.
+- Text behavior: imperative phrases, one number, or one time horizon; never a
+  full curriculum map.
+- Composition: portrait and text; optional minimal screen, list, or abstract
+  opportunity signal behind the subject.
+- Failure mode: course sales page, certificate ad, feature matrix, noisy AI
+  dashboard, or "learn these 17 things" clutter.
+- Prompt contract: make the skill feel scarce and urgent without visual hype.
 
-### Paradigm 4: Market Shift Warning
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: covers that announce category death, future work
-  shifts, or old-model collapse.
-- Best-fit topics: creator economy, AI disruption, business model change,
-  education or skill-market shifts.
-- Click promise: "An old game is ending; I need to understand the new one."
-- Topic translation: turn the topic into a warning or category-level claim.
-- One-frame story: serious creator acts as witness to a market shift.
-- First read: warning phrase.
-- Second read: severe face.
-- Text behavior: large warning typography, one pale accent at most.
-- Composition: stark portrait plus protected text field.
-- Failure mode: apocalyptic news poster or hype graphic.
-- Prompt contract: express urgency through claim and face, not spectacle.
+### Paradigm 5: Thinking / Intelligence / Mental Model
+
+- Evidence count: 10/120 primary assignments.
+- Representative samples: 11, 14, 22, 32, 40, 67, 78, 86, 93, 94.
+- Best-fit topics: intelligence, mental models, reading, articulation,
+  strategic thinking, reprogramming the mind, gamified thinking, decision
+  quality.
+- Click promise: "A better mental model changes how I think and decide."
+- Topic translation: turn abstract thinking into one mental action: articulate,
+  reprogram, read, strategize, gamify, or think like a genius.
+- One-frame story: the subject is not posing; they are showing a cognitive rule.
+- First read: mental model claim.
+- Second read: intense thinking face or subtle mind/diagram cue.
+- Text behavior: tight phrase with one cognitive verb; avoid long philosophy.
+- Composition: face and typography dominate; mind maps, game HUDs, book stacks,
+  or diagrams are restrained accents.
+- Failure mode: neon brain poster, dense mind map, academic slide, mystical
+  spirituality image, or philosophical quote card.
+- Prompt contract: make intelligence visible through hierarchy and gesture, not
+  decorative brain effects.
+
+### Paradigm 6: Creator Content System / Audience Growth
+
+- Evidence count: 9/120 primary assignments.
+- Representative samples: 19, 28, 31, 48, 56, 60, 63, 77, 98.
+- Best-fit topics: writing, essays, digital writing, audience building, social
+  media, content systems, creator economy, personal brand, newsletter flywheels.
+- Click promise: "There is a writing/content system that still works after the
+  old platform game breaks."
+- Topic translation: convert the topic into a writing command, authentic content
+  rule, audience-from-zero path, or old-channel death warning.
+- One-frame story: the authority figure turns writing and ideas into audience
+  leverage.
+- First read: writing/content claim.
+- Second read: creator portrait or writing proof.
+- Text behavior: blunt command or warning, not a multi-step content calendar.
+- Composition: text and face first; notebook, laptop, essay page, or social
+  feed stays secondary.
+- Failure mode: social media logo collage, funnel diagram, marketing dashboard,
+  platform-growth infographic, or viral-hack poster.
+- Prompt contract: make writing or content discipline feel like an operating
+  system, not a platform hack.
+
+### Paradigm 7: Future Of Work / Category Death
+
+- Evidence count: 9/120 primary assignments.
+- Representative samples: 12, 15, 74, 82, 88, 90, 105, 114, 117.
+- Best-fit topics: future of work, AI disruption, career path shifts, personal
+  brand decline, creator work, new economy, self-improver careers.
+- Click promise: "An old category is dying, and there is a new path I need to
+  understand before it is late."
+- Topic translation: turn the topic into a category-death phrase,
+  future-of-work claim, time-window warning, or new-path announcement.
+- One-frame story: the expert acts as witness to a market shift.
+- First read: death/future/new-path warning.
+- Second read: severe portrait or small symbolic proof.
+- Text behavior: short declarative warnings with strong nouns: death, future,
+  work, career path, AI-first.
+- Composition: dark or muted background, clean text, close subject, optional
+  subtle tech/future cue.
+- Failure mode: apocalyptic news poster, cyberpunk AI spectacle, trend report
+  slide, or generic business forecast.
+- Prompt contract: urgency must come from the claim and face, not from chaos.
+
+### Paradigm 8: Modern Slavery / Society Trap Diagnosis
+
+- Evidence count: 8/120 primary assignments.
+- Representative samples: 33, 35, 49, 54, 79, 89, 92, 104.
+- Best-fit topics: wage slavery, social traps, NPC/autopilot, matrix metaphor,
+  autonomy, control, anti-conformity, escape narratives.
+- Click promise: "The system trapping me has a name, and there is an escape."
+- Topic translation: frame the topic as trap, pyramid, matrix, wage slavery,
+  autopilot, modern slavery, or social conditioning.
+- One-frame story: the authority figure calls out the trap the viewer is living
+  inside.
+- First read: provocative trap diagnosis.
+- Second read: severe portrait, often more monochrome and confrontational.
+- Text behavior: short charged nouns work better than long explanations.
+- Composition: high-contrast text plus portrait; abstract cage/matrix/pyramid
+  cues must stay minimal.
+- Failure mode: conspiracy board, doomer poster, political propaganda, or
+  over-dark horror image.
+- Prompt contract: diagnose the trap sharply while keeping the visual clean and
+  intellectually controlled.
 
 ## Topic Translation Rules
-- Abstract topics: translate into a viewer belief, mistake, identity shift, or mental model. Do not literalize into a complicated diagram unless the user explicitly asks for a visual explainer variant.
-- Concrete topics: translate into a simple shortcut, command, proof claim, or number-backed utility.
-- Required translation variables: viewer pain, wrong belief, better belief, one-sentence claim, topic lane, proof object if any, subject authority action, exact on-cover text.
-- Forbidden translation moves: physical spectacle, prize/reward scenes, multiple feature cards, tool screenshots as the hero, neon AI backgrounds, cute metaphors, busy before/after boards.
-- Example translation: Raw topic "I built an AI content flywheel" becomes "your content system is backwards" or "your ideas need a system" depending on whether the hook is diagnosis or transformation.
+
+1. Pick the internal paradigm before writing copy or prompt details.
+2. Convert the raw topic into one belief-level claim the viewer can understand
+   in under one second.
+3. Business topics become productized knowledge, niche-of-one, value creation,
+   or one-person business paths.
+4. Reinvention topics become identity standards, hard resets, time-boxed change,
+   or severe rules.
+5. Focus topics become protocols, routines, time blocks, detox rules, or deep
+   work constraints.
+6. Skill topics become scarce skill, future-proof stack, learning order, or time
+   horizon.
+7. Thinking topics become mental model, reprogramming, articulation, strategic
+   thinking, or reading/intelligence action.
+8. Content topics become writing command, audience-from-zero path, creator
+   system, or old-platform death warning.
+9. Future-work topics become category death, new path, AI-first shift, or
+   career-window warning.
+10. Society-trap topics become named trap, matrix, autopilot, pyramid, wage
+    slavery, or escape frame.
+11. Forbidden translation moves: giant money props, fake danger, crowd
+    competition, documentary field proof, busy UI screenshots, platform-logo
+    collage, or abstract neon AI spectacle.
 
 ## Cover Storyboard Rules
-- Story moment: the expert catches the viewer in a mistaken assumption and names the sharper rule.
-- Visible conflict: wrong belief vs better belief, scattered behavior vs clear system, outdated skill vs future skill, passive consumption vs deliberate creation.
-- Subject task/action: direct stare, lean-in, finger-to-temple, hands together, or restrained explaining gesture. The action should support the claim.
-- Proof object: usually the claim plus subject authority. Use a blurred UI, document, notes, or prompt canvas only when it makes a workflow/software claim more believable.
-- Viewer question: "Am I making this mistake?" or "What does this person know that I don't?"
-- Forbidden static compositions: ordinary portrait with title pasted on it, product dashboard hero shot, icon collage, slide-deck comparison, or generic AI illustration.
-- Example storyboard: A serious creator leans toward camera on the right, one hand raised in a contained explanation; the left side says `your content system is backwards`, with `backwards` isolated on a white plate; behind the text is a blurred writing/workflow canvas.
+
+- Story moment: the authority figure names the hidden rule, trap, protocol, or
+  path the viewer has missed.
+- Visible conflict: old belief vs sharper belief, passive life vs intentional
+  rebuild, distracted mind vs focus protocol, old work path vs new economy,
+  trapped self vs autonomous self.
+- Subject task/action: direct stare, slight lean-in, restrained pointing,
+  hand-to-temple, hands together, holding a notebook, or explaining with one
+  hand.
+- Proof object: usually the text plus human authority. Use document, book,
+  laptop, diagram, screen glow, or abstract system cue only when it clarifies
+  the claim.
+- Emotional beat: serious, challenging, calm, mildly urgent, never shocked or
+  goofy.
+- Viewer question: "Is this the rule I missed?" or "Am I living inside this
+  mistake?"
+- Forbidden static composition: generic portrait with pasted title, quote card,
+  product ad, lecture slide, dashboard hero, multi-card carousel, or noisy
+  before/after board.
 
 ## Design Layout Brief Rules
-- First read: the approved on-cover claim in huge type.
-- Second read: the subject's face and expression.
-- Third read: one emphasized word, number, or subtle background proof.
-- Layout zones: in 16:9, left 50-60% text zone and right 35-45% face zone. In vertical formats, stack title top/middle and face lower/middle while keeping both central.
-- Visual weight: text and face dominate equally; proof objects stay blurred and secondary.
-- Reading path: main sentence first, emphasized phrase second, face third, optional background cue last.
-- Negative space: preserve a smooth dark or light field behind every text line. Create a plate before placing text on busy UI.
-- Forbidden layouts: three-column comparisons, dense cards, many badges, edge-critical text, a background so detailed that the title needs shrinking, or text blocks that form the wrong sentence when read together.
+
+- First read: blunt claim, warning, command, named protocol, or category-death
+  phrase.
+- Second read: serious human authority portrait.
+- Third read: one accent, proof object, or context cue.
+- Text zone: 40-60% of canvas, protected by dark field or solid backing.
+- Subject zone: 35-50% of canvas, close portrait or upper body.
+- Proof zone: 0-20% of canvas, always behind the text/subject hierarchy.
+- Reading path: title claim, face, accent/proof cue.
+- Negative space: preserve clean dark or gray space around the title; do not
+  fill unused space with icons.
+- Forbidden layouts: equal-weight cards, dense comparison boards, screenshot
+  walls, full-width quote posters, centered title over busy face, and decorative
+  split layouts with no claim hierarchy.
 
 ## Copy Hierarchy Rules
-- Main title: one concise thesis, command, warning, or identity reframe. Ideal length is 3-9 words; up to 12 if line breaks are clean.
-- Subtitle: usually none. If needed, use a small secondary phrase below the main title, not another claim.
-- State labels: avoid unless adapting to a comparison request. Prefer one sentence over labels.
-- Object/zone binding: bind any label to a concrete blurred object or UI zone, never near the main title as a floating phrase.
-- Isolation rules: keep the main claim in one protected block. Highlight only the hinge phrase.
-- Forbidden adjacency: do not place a label or subtitle where it can be read as the beginning or continuation of the main sentence.
-- Removal rule: if two text blocks compete, remove the lower-priority block and make the image carry that meaning.
+
+- Main title: one blunt claim, usually 2-7 words on cover.
+- Subtitle: optional; only if it is shorter than the main title and visually
+  subordinate.
+- State labels: use only when bound to a visual object or topic lane, such as
+  "old path", "new path", "anti-vision", "focus", or "deep work".
+- Text isolation: separate the main claim from small context text; never place
+  two competing slogans side by side.
+- Forbidden adjacency: do not put a secondary label so close to the title that
+  the viewer reads it as one confusing sentence.
+- Text removal rule: if the portrait and claim already explain the promise, cut
+  subtitles and labels.
 
 ## Platform Adaptation
-| Platform/mode | Ratio | Composition rule |
-|---|---:|---|
-| YouTube long video | 16:9 | Use the native Dan Koe structure: left text, right face, blurred studio/UI background. |
-| Bilibili native upload | 1146:717, approx 16:10 | Keep text and face inside a 16:9/4:3 safe center; avoid side-edge title endings. |
-| Bilibili cross-platform | 16:9 | Keep the face slightly larger than YouTube-safe so it survives feed previews. |
-| Bilibili 4:3-safe | 4:3 | Stack shorter text; use chest-up face; remove optional proof objects. |
-| Douyin horizontal | 4:3 | Compress text to 2-3 lines; face occupies right or lower-right; keep central safe area. |
-| Douyin vertical | 3:4 | Use top text and lower face, or face right-middle with stacked left/upper text; no 9:16 unless user asks for short-video frame, not Douyin cover. |
-| Xiaohongshu | 3:4 | Use a cleaner portrait card version with one thesis and strong face; avoid dense note-style labels. |
-| Xiaohongshu square | 1:1 | Put face and claim in a tight two-zone layout; use only one highlight. |
-| TikTok / Reels / Shorts | 9:16 | Use vertical poster logic, but preserve Dan Koe restraint: one claim, close face, dark background. |
+
+- YouTube long video: default fit. Use 16:9, 1280x720 or 1920x1080. Keep the
+  main text large enough to read in the subscription feed.
+- Bilibili cross-platform: use 16:9 or Bilibili-safe wide layout. Increase text
+  size and avoid tiny English-only copy if the audience is Chinese.
+- Bilibili 4:3-safe: keep the face and main claim in the central area; remove
+  third-read proof objects first.
+- Xiaohongshu 3:4 or square: stack the claim above or beside the face, keep one
+  proof cue, and avoid tiny subtitles.
+- TikTok/Reels/Shorts 9:16: use vertical portrait poster logic with title in the
+  upper or middle protected zone and face below/alongside it.
+- WeChat article cover: use the child skill only as an internal design engine;
+  preserve PigeonYang identity and WeChat 2.35:1 safe-area rules from the mother
+  workflow.
 
 ## Layout Patterns
-### Pattern 1: Diagnosis Claim
-- Use when: the topic exposes a mistake, false belief, or hidden blocker.
-- Composition: text-left/face-right, direct stare, dark blurred background.
-- Text: one sentence like `you are learning the wrong skills`.
-- Avoid: literal mistake icons, big red X marks, or multi-point explanations.
 
-### Pattern 2: Transformation Promise
-- Use when: the topic promises identity change, skill change, or life change.
-- Composition: calm face right, softer expression, left stacked sentence with one highlighted phrase.
-- Text: `your life will look drastically different` or equivalent approved wording.
-- Avoid: before/after split screens, fitness-style transformation, or motivational poster tone.
+### Pattern A: Text Left / Authority Right
 
-### Pattern 3: Tactical Shortcut
-- Use when: the topic offers prompts, systems, routines, or workflows.
-- Composition: face right, text left, optional blurred UI/workspace in background.
-- Text: command or number-backed phrase like `steal these 6 prompts`.
-- Avoid: turning the cover into a software ad or showing a readable dashboard.
+- Best for: business, reinvention, focus, skills, trap diagnosis.
+- First read: large claim on left.
+- Second read: close portrait on right.
+- Proof cue: tiny screen, book, line, plate, or accent word.
+- Failure: face too small or text too close to face.
 
-### Pattern 4: Market Shift Warning
-- Use when: the topic argues that an old category is dying or a new category is rising.
-- Composition: serious face, large all-caps or title-case warning, one pale yellow emphasized word.
-- Text: `THE DEATH OF INFO PRODUCTS` style, adapted to the user's exact approved topic.
-- Avoid: apocalyptic visuals, flames, money, or news-poster graphics.
+### Pattern B: Authority Left / Text Right
+
+- Best for: interview, guest, direct challenge, or when subject gaze points into
+  the claim.
+- First read: claim on right in a clean field.
+- Second read: face on left.
+- Proof cue: subdued background object behind the text.
+- Failure: subject becomes a decorative headshot.
+
+### Pattern C: Central Claim With Split Presence
+
+- Best for: category death, future work, thinking, or trap framing.
+- First read: central or near-central claim.
+- Second read: severe face adjacent to the claim.
+- Proof cue: minimal abstract shape or dim symbolic cue.
+- Failure: generic quote poster.
+
+### Pattern D: White Plate / Accent Word
+
+- Best for: productization phrases, focus commands, category warnings.
+- First read: one key phrase isolated on white or accented plate.
+- Second read: portrait and dark field.
+- Proof cue: none or one small object.
+- Failure: too many plates or sticker-like clutter.
 
 ## Subject Rules
-Use a close-up or chest-up portrait. Preserve the user's identity from reference images, but redesign pose and expression for the hook. Preferred expression is serious, focused, restrained, and slightly confrontational. Use hands only when they communicate thinking, explanation, or conviction. Keep clothing simple and neutral.
+
+- Subject role: expert, guide, witness, challenger, or lived proof.
+- Expression: serious, calm, direct, skeptical, focused, or mildly urgent.
+- Gesture: restrained explaining gesture, pointing, thinking pose, hands clasped,
+  holding a notebook, or still stare.
+- Clothing: simple dark or neutral top; no costume, luxury flex, or loud brand
+  styling.
+- Framing: close-up, head and shoulders, or upper body. Face must be readable.
+- Skin/face treatment: realistic, not over-smoothed, not caricatured.
+- Do not make the subject resemble Dan Koe unless the user explicitly owns and
+  supplies that authorized likeness.
 
 ## Reference Image Handling
-Reference images lock identity traits, face traits, hair, clothing preference, product appearance, or brand assets. They do not lock the pose, facial expression, crop, lighting, or background unless the user explicitly says so. For Dan Koe-style covers, convert a casual reference into a calm authority portrait with direct eye contact.
+
+- If the user supplies a portrait/reference image, preserve the user's identity:
+  face, hair, glasses, clothing cues, body type, age range, and other explicit
+  traits.
+- Redesign pose/action only to match the selected paradigm unless the user asks
+  to preserve the original pose.
+- If no portrait is supplied, use a neutral original subject or non-likeness
+  figure.
+- Do not infer Dan Koe's face, hair, or body as the subject model.
+- If a brand reference is supplied, use only authorized colors/logos and keep
+  them subordinate to the claim/portrait hierarchy.
 
 ## Identity And Final Prompt Firewall
-- Internal routing may name Dan Koe, but the final GPT Image 2 prompt must not
-  contain `Dan Koe`, `Dan Koe-inspired`, `in the style of Dan Koe`, `like Dan
-  Koe`, or equivalent creator-name shortcuts.
-- Express the pattern through concrete mechanics: belief-level claim, close
-  authority portrait, protected typography, quiet background, restrained accent,
-  and direct eye contact.
-- If a portrait reference is supplied, identity preservation outranks all
-  creator-pattern rules. The subject must preserve the user's identity traits and
-  must not resemble any public creator.
-- Add a final negative constraint that the generated subject must not resemble
-  any public creator, without naming Dan Koe.
+
+- Dan Koe is an internal routing and research label only.
+- Final GPT Image 2 prompts must not include `Dan Koe`, `Dan Koe-inspired`, `in
+  the style of Dan Koe`, `like Dan Koe`, or creator-name shortcuts.
+- Translate the pattern into concrete rules: serious authority portrait, blunt
+  belief-level text, protected text zone, muted studio background, one accent,
+  and selected internal paradigm.
+- If the user supplies a portrait/reference image, the prompt must state that
+  this reference controls identity and that the subject must not resemble any
+  public creator.
+- Before generation, save the final prompt and run the mother skill firewall
+  with Dan Koe aliases forbidden.
 
 ## Text Rules
-Use bold geometric or grotesk sans-serif typography. Use white text on dark backgrounds or black text on white plates. Keep line breaks semantic. Use lowercase for conversational claims; use all caps only for blunt warnings or market-shift claims. Never use more than one accent treatment.
+
+1. Text is the hook, not decoration.
+2. Prefer 2-7 word cover copy; longer ideas must be compressed.
+3. Use all caps or strong title case; avoid thin fonts.
+4. Isolate one hinge phrase with color, underline, or backing plate.
+5. Avoid three or more independent text blocks.
+6. Avoid long subtitles unless platform crop demands extra explanation.
+7. Keep text off the subject's face.
+8. If the user's title is rewritten or shortened, get exact copy approval before
+   final prompt writing or generation.
 
 ## Typography Layout System
-Protected text zones are mandatory. In wide layouts, reserve the left half as a clean title field; in vertical layouts, reserve the upper/middle central area. If the background contains UI, blur and darken it or place the hinge phrase on a white plate. The main title must be visually isolated from subtitles, labels, and proof objects. The final cover must not create accidental phrases through nearby text blocks.
+
+- Type weight: heavy sans-serif, extra bold or black.
+- Hierarchy: one dominant block, optional tiny support label.
+- Alignment: left-aligned or centered within a protected field.
+- Line breaks: break by meaning, not by equal line length.
+- Backing: dark field, white plate, or solid rectangle only when it improves
+  legibility.
+- Accent: teal/cyan, pale yellow, muted red underline, or white plate; one
+  accent family per cover.
+- Safe area: keep type away from platform edges and subject face.
+- Clutter handling: delete objects before shrinking type.
 
 ## Color And Lighting Rules
-Use grayscale, charcoal, black, white, and cool gray. Optional accent: pale yellow for one word or red for one underline. Keep saturation low. Light the face with a soft key light and mild vignette. Background should be dim, blurred, and unobtrusive.
+
+- Base palette: black, charcoal, cool gray, white, desaturated skin tone.
+- Accent palette: cyan, teal, pale yellow, muted red, or cool screen glow.
+- Lighting: soft studio key light, directional face light, mild rim light, low
+  contrast background separation.
+- Mood: serious, quiet, intellectual, not cinematic spectacle.
+- Background: muted studio, desk, screen glow, wall gradient, abstract dark
+  texture, or simple proof object.
+- Avoid: saturated rainbow gradients, neon cyberpunk, warm luxury gold, busy
+  stock-photo backgrounds, and over-lit corporate headshots.
 
 ## Hook Mechanics
-- Contrarian diagnosis: viewer's current belief is wrong.
-- Identity reframe: the viewer should become a different kind of person.
-- Transformation promise: a simple practice changes the future self.
-- Command: do this one thing now.
-- Paradox: the cure is counterintuitive.
-- Market shift: an old model is dying and a new model rewards the prepared.
+
+1. Belief correction: "you are doing this wrong".
+2. Identity promise: "you can become a different person".
+3. Protocol promise: "this routine creates the result".
+4. Scarcity warning: "this skill/path matters before it is late".
+5. Category death: "the old game is ending".
+6. Trap diagnosis: "the system keeping you stuck has a name".
+7. Productized self: "your knowledge/problem/experience is the product".
+8. Time compression: "6 months", "7 days", "30 minutes", "next 10 years", or
+   another truthful time window.
 
 ## GPT Image 2 Prompt Contract
-Every prompt must include:
-- target platform, aspect ratio, and exact pixel canvas
-- exact approved on-cover text
-- one-sentence topic translation
-- portrait placement and expression
-- protected text zone
-- typography hierarchy and highlight treatment
-- background simplicity and optional proof object
-- platform crop safety
-- negative constraints against spectacle, clutter, neon, copied likeness, weak typography, and text adjacency errors
+
+Every final image prompt must include:
+
+- platform, aspect ratio, and target canvas
+- selected internal paradigm and translated claim, without naming Dan Koe
+- exact approved on-cover text or "no text"
+- subject identity source and preservation rules
+- subject role, expression, gesture, and framing
+- first read, second read, and third read
+- typography placement, protected text zone, line-break behavior, and accent
+  treatment
+- background, lighting, palette, and proof object
+- negative constraints: no creator name, no public-creator resemblance, no exact
+  thumbnail copy, no busy collage, no fake stakes, no thin/low-contrast text
+- post-generation dimension check requirement
 
 ## Negative Constraints
-No Dan Koe likeness replication. No MrBeast-style extreme stakes. No giant machines, money piles, neon AI robots, holographic dashboards, crowded interface screenshots, multiple title blocks, decorative icons, arrows everywhere, shock faces, or tiny unreadable text. Do not place labels near the main title if they can be misread as one sentence.
+
+- Do not copy Dan Koe's likeness, face, hair, exact thumbnails, channel identity,
+  or private brand assets.
+- Do not put creator/style shortcut wording in final generation prompts.
+- Do not make a generic quote-card portrait.
+- Do not use motivational-poster language without a sharp belief claim.
+- Do not add fake luxury, cash, challenge, crowd, danger, charity, or prize
+  stakes.
+- Do not use course-sales graphics, certificate badges, SaaS dashboard hero
+  shots, dense UI, feature matrices, or funnel diagrams.
+- Do not use neon AI backgrounds, cyberpunk future scenes, platform-logo
+  collages, or documentary field scenes unless another skill is selected.
+- Do not place multiple unconnected claims on the same cover.
+- Do not allow tiny text, thin text, low-contrast text, or text over the face.
 
 ## User Intake Questions
-1. 你要发哪个平台？横版、竖版还是都要？
-2. 原始标题或视频主题是什么？
-3. 你是否允许我改短封面文字？如果允许，我会先给候选文案让你确认。
-4. 是否放你的真人形象或其他参考图？
-5. 这个主题更偏身份转变、商业判断、写作创作、AI工作流、还是趋势判断？
-6. 有哪些必须避免的东西：太攻击、太销售、太暗、太像本人、太抽象？
+
+Ask only for missing production information:
+
+1. What platform and target ratio/canvas is this cover for?
+2. What is the raw topic, video title, article hook, or core claim?
+3. Which topic lane is intended: business, reinvention, focus, skill, thinking,
+   content, future work, or society trap?
+4. What exact on-cover text is already approved? If none, propose 3-5 short
+   options and wait for approval.
+5. Is there a user portrait/reference image that must control identity?
+6. What must be included or avoided for brand, legal, or factual reasons?
 
 ## Quality Checklist
-- The topic has been translated into one Dan Koe-style belief-level claim.
-- The exact on-cover text has been approved by the user if rewritten.
-- The face reads as authority, not entertainer shock.
-- Text is the first read and remains readable at feed size.
-- Only one main claim exists.
-- Highlight treatment is limited to one hinge phrase or word.
-- Background is quiet enough for the title.
-- Layout does not create accidental combined phrases.
-- Platform ratio and target canvas are explicit.
-- Reference image preserves identity but not weak source pose.
+
+- The selected internal paradigm is named and justified.
+- The first read is a short belief-level claim, not a vague title.
+- The second read is a credible authority portrait or authorized user identity.
+- The cover has one accent or proof cue, not many.
+- Text is phone-readable and isolated from the face.
+- The visual does not promise fake spectacle, fake money, fake danger, or fake
+  documentary proof.
+- The final prompt does not include Dan Koe or style-name shortcuts.
+- If a reference image is supplied, identity preservation is explicit.
+- Platform ratio, target canvas, and safe areas are specified.
+- The generated output is dimension-checked before delivery.

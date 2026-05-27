@@ -140,385 +140,433 @@ post_generation_check:
 # PigeonYang Cover Design Standard: MrBeast
 
 ## Scope
+Use this standard when the user's topic can truthfully become a visible stake:
+money, time, danger, quantity, prize, crowd, rule, endurance condition,
+transformation, destruction, impossible object, or concrete consequence.
 
-This standard converts the public MrBeast thumbnail strategy into reusable, original cover rules for PigeonYang workflows.
+Best-fit topics:
 
-Use it for high-click covers where the topic can truthfully become a visible event: challenge, comparison, giveaway, survival, transformation, prize, extreme quantity, or concrete proof.
+- extreme comparisons: cheap vs expensive, small vs huge, weak vs powerful,
+  before vs after, low value vs absurd value
+- challenges with one visible rule: last to leave, press a button, keep a hand
+  on an object, fit something into a shape, cross a boundary, hit a target
+- survival/endurance: days, hours, isolation, wilderness, prison, desert,
+  bunker, island, mountain, sky, water, or other visible containment
+- crowd competitions: many people, ages, teams, countries, creators, groups, or
+  public participants fighting for one prize
+- prize/giveaway fantasies: cash, house, car, island, vacation, store, restaurant
+  or object the viewer instantly understands as desirable
+- danger/fear trials: predators, chase, traps, escape rooms, military/FBI/bounty
+  hunter pressure, drowning, sharks, falling, fire, explosion, or other truthful
+  risk frame
+- philanthropic/transformation proof: blind/deaf people helped, wells, houses,
+  animals rescued, weight change, life-changing donation, or other visible
+  before/after impact
 
-Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, logos, protected IP, or quiet authority/aesthetic covers where spectacle would misrepresent the content.
+Do not use this standard for quiet thought leadership, subtle product taste,
+abstract essays, SaaS dashboards, workflow diagrams, pure AI concepts, or calm
+expert portraits unless the topic can honestly become one large visible stake.
+Do not fake money, danger, charity, crowds, or prizes that the content cannot
+deliver.
+
+Do not copy MrBeast's likeness, channel identity, logos, exact thumbnails, fonts,
+or protected franchise/IP cues. Use the user's own portrait, neutral subjects,
+or original scene elements.
 
 ## Evidence Summary
-
-- Cover samples: 12 public MrBeast thumbnails archived in `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206\covers`.
-- Process sources: 5 source notes archived in `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206\sources`.
-- Research run: `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206`.
-- Full research: `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206\distillation\research.md`.
-- Confidence: high for Stakes Engine, topic-to-physical-event translation, price ladder, survival/endurance, group competition, and prize fantasy. Medium for Bilibili adaptation because source evidence is YouTube-native.
+- Cover samples: 120 popular public YouTube long-form MrBeast video cards.
+- Capture method: YouTube channel HTML plus `youtubei/v1/browse` continuation
+  for the `Popular` chip.
+- Source channel: `@MrBeast`, channel id `UCX6OQ3DkcsbYNE6H8uQQuVA`.
+- Research run: `mrbeast/20260528-youtube-popular-top120`.
+- Source artifact: `sources/datas/mrbeast-youtube-popular-top-120-video-cards.json`.
+- Contact sheet: `distillation/sample-contact-sheet.jpg`.
+- Prior process sources remain in `mrbeast/20260524-203206`.
+- Confidence: high for visible stakes, price ladders, endurance containers,
+  crowd competition, prize fantasy, danger trials, giant stunts, and
+  philanthropy/transformation proof. Medium for platform adaptation outside
+  YouTube because the evidence is YouTube-native. Low for abstract topics with
+  no truthful stake.
 
 ## Core Design DNA
-
-1. Convert the topic into one instantly visible physical event.
-2. Show stakes as objects, rules, scale, time, money, danger, or visible consequence.
-3. Put the host/subject inside the event as participant, presenter, witness, or challenger.
-4. Keep the premise child-legible in under one second.
-5. Use sparse scale text: numbers, `DAY`, price labels, or no text.
-6. Make title, thumbnail, and first video seconds one truthful promise.
-7. Use commercial realism, high contrast, and simplified proof objects.
-8. Avoid abstract explanation unless it has been embodied as a machine, arena, challenge, or prize.
+1. Convert the topic into one visible event, not a concept poster.
+2. The first read must be a stake: money, price gap, timer/day count, prize,
+   crowd, danger, rule shape, giant object, or before/after consequence.
+3. The subject is inside the event as host, participant, survivor, winner, loser,
+   referee, rescuer, witness, or prize presenter.
+4. The premise must be child-legible in under one second.
+5. Text is sparse and usually numeric: `$1`, `$100M`, `DAY 100`, `#1`, `1000`,
+   `BEFORE/AFTER`, or one rule label.
+6. Faces, hands, arrows, red shapes, cash, crowds, vehicles, islands, boxes, and
+   hazard colors are used as legibility devices, not decoration.
+7. The title, thumbnail, and first video seconds should make one truthful
+   promise. If the image promises a bigger stake than the content can prove, it
+   fails.
 
 ## Cover Generation Engine
-
-- Engine type: `Stakes Engine`.
-- Viewer decision compressed: "Is this extreme, valuable, dangerous, absurd, or clear enough that I need to see the outcome?"
-- Topic-to-cover mechanism: translate the raw topic into one physical stake, then visualize that stake as an event the viewer can understand without reading the full title.
-- Subject role: participant, presenter, referee, challenger, survivor, prize witness, or proof carrier. The subject is never only a detached expert model.
-- Pre-visual decision: choose the stake before choosing style. The stake must be money, time, quantity, danger, boundary, crowd, luxury object, failure, reward, or impossible scale.
-- Drift risk: if the cover becomes a flowchart, course poster, calm expert portrait, SaaS dashboard, generic tech UI, or abstract concept card, it has left the MrBeast engine.
+- Engine type: `Visible Stakes Engine`.
+- Viewer decision compressed: "This premise is extreme, valuable, risky,
+  generous, competitive, or absurdly clear. I need to see the outcome."
+- Topic-to-cover mechanism: choose the stake first, then choose one internal
+  paradigm: value gap, endurance container, crowd contest, prize/giveaway,
+  danger trial, physical stunt/destruction, transformation proof, or simple rule
+  object.
+- Subject role: host, competitor, survivor, prize witness, challenger, rescuer,
+  referee, winner, loser, or transformation proof.
+- Pre-visual decision: define the single visible stake before choosing color,
+  face expression, layout, or text.
+- Drift risk: fake stakes, fake charity, fake danger, flowcharts, course posters,
+  calm expert portraits, product ads, generic tech UI, abstract neon concepts,
+  and multi-step process diagrams.
 
 ## Popular Paradigms
-
-### Paradigm 1: Price Ladder / Scale Gap
-
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: cheap vs expensive, small vs massive, weak vs extreme,
-  low-output vs high-output covers.
-- Best-fit topics: comparisons, automation gains, output scale, budget tiers,
-  quality gaps.
-- Click promise: "How different are the two extremes?"
+### Paradigm 1: Value Ladder / Extreme Comparison
+- Evidence count: 16/120 primary assignments.
+- Representative samples: 2, 3, 5, 11, 12, 15, 19, 36, 47, 51, 61, 78, 99,
+  116.
+- Best-fit topics: budget tiers, quality gaps, output scale, manual vs
+  automated, small vs huge, cheap vs expensive, low value vs high value.
+- Click promise: how different are the two extremes?
 - Topic translation: convert the topic into two visible endpoints with one
   measurable gap.
-- One-frame story: subject stands between or reacts to the extreme contrast.
-- First read: the scale gap.
-- Second read: subject action or reaction.
+- One-frame story: subject stands between, compares, or reacts to the extremes.
+- First read: the gap.
+- Second read: subject face/action.
 - Text behavior: huge numeric labels only when they sharpen the gap.
 - Composition: two extremes, no middle steps.
-- Failure mode: feature matrix, dashboard comparison, or infographic.
-- Prompt contract: show two physical endpoints and make the result judgeable in
-  one second.
+- Failure mode: feature matrix, dashboard comparison, or subtle product ad.
+- Prompt contract: show two physical endpoints and make the gap judgeable in one
+  second.
 
-### Paradigm 2: Survival / Endurance
-
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: time pressure, isolation, last-to-leave, or survival
-  environment covers.
-- Best-fit topics: persistence, stress tests, hard constraints, long-running
-  experiments.
-- Click promise: "Can they last under this condition?"
-- Topic translation: convert the topic into a visible physical constraint.
-- One-frame story: subject is inside the constraint while the timer/rule is
-  obvious.
-- First read: the condition or timer.
+### Paradigm 2: Survival / Endurance Container
+- Evidence count: 25/120 primary assignments.
+- Representative samples: 4, 6, 7, 10, 14, 16, 21, 25, 28, 30, 38, 42, 46, 57,
+  68, 72, 80, 81, 85, 87, 91, 107, 111, 114, 117.
+- Best-fit topics: time pressure, isolation, hard constraints, long tests,
+  persistence, stress tests, endurance experiments.
+- Click promise: can they last under this visible condition?
+- Topic translation: convert the topic into a physical container, environment,
+  timer, day count, or harsh rule.
+- One-frame story: subject is visibly trapped, waiting, surviving, or enduring.
+- First read: container, timer/day label, or harsh condition.
 - Second read: subject under pressure.
-- Text behavior: one progress label such as day/time count.
-- Composition: subject physically contained by rule, environment, or boundary.
-- Failure mode: generic drama without a visible rule.
+- Text behavior: one day/hour/progress label.
+- Composition: subject physically contained by rule, place, or condition.
+- Failure mode: dramatic background without a visible rule.
 - Prompt contract: make the endurance condition visible before styling.
 
-### Paradigm 3: Rule-Bound Challenge
+### Paradigm 3: Mass Competition / Crowd Geometry
+- Evidence count: 15/120 primary assignments.
+- Representative samples: 1, 8, 9, 29, 34, 40, 53, 60, 66, 77, 90, 105, 106,
+  108, 119.
+- Best-fit topics: people-count tests, creator competitions, teams, age groups,
+  audience experiments, public participation, cohort comparisons.
+- Click promise: who wins when many people face one simple rule?
+- Topic translation: convert the topic into organized participants plus one
+  shared prize/rule.
+- One-frame story: crowd geometry proves scale while the subject anchors or
+  referees the contest.
+- First read: crowd scale, teams, or numbered groups.
+- Second read: prize/rule/host.
+- Text behavior: usually no text or one count/prize label.
+- Composition: crowd simplified into lines, circles, teams, or color blocks.
+- Failure mode: noisy group photo with no rule or prize.
+- Prompt contract: people must be the proof of scale, not background texture.
 
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: red circle, line, button, platform, target, or
-  forbidden-zone challenge covers.
-- Best-fit topics: one-rule experiments, constraints, competitions, AI/workflow
-  tasks that can become a simple physical rule.
-- Click promise: "What happens if this rule is followed or broken?"
-- Topic translation: convert the topic into one visible rule object.
-- One-frame story: subject triggers, avoids, crosses, or defends the rule.
-- First read: the rule boundary.
-- Second read: subject action.
-- Text behavior: optional label only if the rule is not obvious.
-- Composition: one rule object dominates; no hidden instructions.
-- Failure mode: rule only explained in title, not visible in image.
-- Prompt contract: draw the rule as a physical boundary or object.
-
-### Paradigm 4: Group Competition
-
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: many people or teams organized around one simple
-  rule, prize, or outcome.
-- Best-fit topics: crowd tests, user groups, creator comparisons, social scale.
-- Click promise: "Who wins under this simple rule?"
-- Topic translation: convert the topic into participants plus one shared stake.
-- One-frame story: crowd geometry proves scale while subject acts as referee or
-  witness.
-- First read: crowd scale or prize.
-- Second read: host/subject role.
-- Text behavior: usually no text or one prize label.
-- Composition: simplified crowd geometry; one clear focal stake.
-- Failure mode: noisy group photo with no rule.
-- Prompt contract: use people as scale, not decoration.
-
-### Paradigm 5: Prize Fantasy / Impossible Object
-
-- Evidence count: baseline support from the current 12-cover sample; exact
-  frequency pending expanded audit.
-- Representative samples: desirable object, place, reward, vehicle, island,
-  room, or impossible prize covers.
-- Best-fit topics: reward, transformation result, output prize, luxury object,
-  absurd productized promise.
-- Click promise: "Can they really get/build/give away this thing?"
-- Topic translation: convert the value proposition into one desirable object or
-  impossible-looking result.
-- One-frame story: subject presents, reacts to, or stands inside the prize.
+### Paradigm 4: Prize / Giveaway Fantasy
+- Evidence count: 18/120 primary assignments.
+- Representative samples: 18, 22, 24, 31, 39, 41, 49, 58, 59, 71, 73, 94, 95,
+  98, 101, 102, 103, 115.
+- Best-fit topics: reward, gift, desired object, productized promise, generosity,
+  abundance, one-minute spending, cash prize, winner-takes-object.
+- Click promise: can someone really get or keep this thing?
+- Topic translation: turn the value proposition into one desirable object or
+  reward scene.
+- One-frame story: subject presents the prize, someone reaches for it, or the
+  prize fills the frame.
 - First read: prize object.
-- Second read: subject reaction.
-- Text behavior: optional value/price label.
-- Composition: prize dominates; subject validates scale/desirability.
-- Failure mode: subtle product ad or generic luxury mood.
-- Prompt contract: make the prize instantly legible and physically present.
+- Second read: subject/winner reaction.
+- Text behavior: optional value, price, or prize label.
+- Composition: prize dominates; subject validates scale and desirability.
+- Failure mode: generic luxury mood or unearned cash pile.
+- Prompt contract: make the prize physically present and instantly legible.
+
+### Paradigm 5: Fear / Chase / Danger Trial
+- Evidence count: 17/120 primary assignments.
+- Representative samples: 13, 17, 20, 27, 33, 37, 45, 52, 55, 63, 74, 82, 84,
+  93, 96, 97, 100.
+- Best-fit topics: fear exposure, chase, predator, trap, escape, military/police
+  pursuit, drowning, speed danger, obstacle courses, risk-for-reward.
+- Click promise: will the subject survive, escape, or face the danger for the
+  reward?
+- Topic translation: convert the topic into one visible threat plus one subject
+  reaction/action.
+- One-frame story: danger is close enough to matter.
+- First read: threat object, predator, weapon, trap, vehicle, or hazard.
+- Second read: subject fear/focus/action.
+- Text behavior: optional reward or danger label.
+- Composition: threat and subject share the frame with clear distance/impact.
+- Failure mode: vague cinematic danger with no rule or reward.
+- Prompt contract: danger must be specific and truthful, not generic drama.
+
+### Paradigm 6: Giant Physical Stunt / Destruction
+- Evidence count: 15/120 primary assignments.
+- Representative samples: 23, 32, 35, 43, 48, 50, 56, 62, 65, 69, 83, 88, 89,
+  109, 113, 118.
+- Best-fit topics: giant objects, machines, destruction, absurd physical scale,
+  construction, obstacle mechanics, huge food, trains, cars, diamonds, towers,
+  backyard transformations.
+- Click promise: this physical object/event is too big or absurd to ignore.
+- Topic translation: make the abstract result a massive object, destructive
+  action, or impossible-looking physical scene.
+- One-frame story: an object is about to collide, crush, spill, explode, tower,
+  fill, or be won.
+- First read: giant physical object or action.
+- Second read: subject scale or reaction.
+- Text behavior: optional size, price, or arrow.
+- Composition: object dominates; subject proves scale.
+- Failure mode: static object render with no event.
+- Prompt contract: show a physical event, not a prop.
+
+### Paradigm 7: Philanthropic / Transformation Proof
+- Evidence count: 8/120 primary assignments.
+- Representative samples: 64, 67, 70, 75, 86, 90, 92, 110, 112.
+- Best-fit topics: life-change proof, charity, access, rescue, health change,
+  education, housing, wells, sensory restoration, animal rescue.
+- Click promise: a real life changed visibly.
+- Topic translation: convert generosity into before/after or beneficiary proof,
+  not a self-congratulatory portrait.
+- One-frame story: the beneficiary/result is visible, with the subject as
+  witness or helper.
+- First read: transformation result or beneficiary scale.
+- Second read: subject/beneficiary emotion.
+- Text behavior: count, before/after, or no text.
+- Composition: result first; giver second.
+- Failure mode: fake charity optics or generic smiling portrait.
+- Prompt contract: show the impact, not just the gift.
+
+### Paradigm 8: Simple Rule / Choice Object
+- Evidence count: 6/120 primary assignments.
+- Representative samples: 24, 47, 54, 71, 88, 104.
+- Best-fit topics: binary choices, one button, one object to hold, fit-in-shape,
+  hit target, keep hand on object, one mystery key.
+- Click promise: what happens if this simple rule is followed?
+- Topic translation: convert the topic into one rule object.
+- One-frame story: subject is one action away from reward/loss.
+- First read: button, key, target, shape, hand-on-object rule, or boundary.
+- Second read: prize or consequence.
+- Text behavior: optional short rule/prize label.
+- Composition: rule object large and central.
+- Failure mode: rule only explained in title.
+- Prompt contract: draw the rule as a physical object or boundary.
 
 ## Topic Translation Rules
-
-- Abstract topics: make them physical. Systems become giant machines or arenas; loops become visible devices; efficiency becomes extreme output; knowledge becomes a challenge or proof scene.
-- Concrete topics: exaggerate cost, reward, time, danger, quantity, or before/after gap.
-- Required translation variables: raw topic, viewer desire/fear, visible stake, proof object, subject role/action, one optional scale label.
-- Forbidden translation moves: pure flowcharts, generic infographics, lecture slides, calm productivity posters, abstract neon UI, title-only concept posters.
-- Example translation: an abstract system should not become a clean diagram. It should become a visible machine, arena, challenge device, output event, reward scene, failure scene, or other physical proof that makes the promise legible without explaining the system.
+- First choose the stake type and internal paradigm.
+- Abstract topics must become physical stakes: arena, prize, choice, boundary,
+  timer, crowd, object, transformation, or consequence.
+- Concrete topics should exaggerate one truthful dimension: cost, quantity,
+  risk, reward, duration, participant count, physical size, or before/after
+  consequence.
+- Required translation variables: selected paradigm, visible stake, proof object,
+  subject role/action, rule/reward/danger, one-second viewer question, text
+  label if needed, and what would be misleading if exaggerated.
+- Forbidden moves: fake cash, fake charity, fake danger, fake crowd, AI robot,
+  hologram dashboard, flowchart, lecture slide, calm productivity poster,
+  product-ad beauty shot, and title-only concept poster.
 
 ## Cover Storyboard Rules
-
-- Story moment: show the exact second when the extreme premise becomes undeniable. The frame should feel like a paused moment from a real video, not a designed poster.
-- Visible conflict: one clear rule, risk, reward, result, or transformation must be visible in the scene itself.
-- Subject task/action: the host must be doing something caused by the premise: launching the machine, trying to stop chaos, holding the proof, standing inside the challenge, reacting to the result, or presenting a prize. Do not use a neutral presenter pointing at a product.
-- Proof object: the thumbnail needs a physical proof object that makes the title believable: giant machine, red circle, cash/prize, timer, platform, crowd, pile of failed work, output pile, vehicle, island, room, or other tangible evidence.
-- Viewer question: the frame should make the viewer ask one simple question, such as "How did he build that?", "Will it work?", "How bad was the old way?", "How much did it produce?", or "What happens next?"
-- Forbidden static compositions: no host standing between left/right labels, no tidy tool advertisement, no dashboard comparison, no workflow diagram, no calm before/after product demo, no generic person pointing at a machine.
-- Example storyboard: the host is actively triggering, surviving, revealing, or proving the physicalized premise while a visible consequence happens in the same frame. The story should be "this event is happening and the outcome is at stake", not "here is an object related to the topic".
+- Story moment: freeze the exact instant the stake becomes undeniable: before
+  choosing, inside survival, during chase, at prize reveal, after
+  transformation, before collision, or when crowd scale is visible.
+- Visible conflict: cheap vs expensive, safe vs dangerous, alone vs crowd,
+  trapped vs free, before vs after, winner vs loser, small object vs giant scale,
+  ordinary action vs absurd reward.
+- Subject task/action: survive, choose, hold, run, react, referee, rescue,
+  present prize, protect object, trigger machine, stand inside the rule, or
+  witness the transformation.
+- Proof object: cash, prize, timer, day label, circle, triangle, button, crowd,
+  car, island, house, dog, well, bunker, train, target, diamond, danger object,
+  or before/after environment.
+- Viewer question: "Who wins, can they survive, how different is it, would I do
+  this, or is the transformation real?"
+- Forbidden static compositions: neutral host pointing at text, feature matrix,
+  software dashboard, calm portrait, subtle product display, and abstract
+  metaphor object.
 
 ## Design Layout Brief Rules
-
-- First read: the strongest event-level headline or the most shocking visual proof. Do not split first read across unrelated text blocks.
-- Second read: the subject action, usually a large expressive host doing the thing that proves the premise.
-- Third read: the proof object or consequence: machine output, prize, timer, red circle, crowd, collapsed desk, or survival environment.
-- Layout zones: reserve a clean title band or title island; place the host as a large foreground anchor; bind proof objects to one side or background zone; keep conflict zones visually distinct without making the layout feel like a PPT table.
-- Visual weight: title and face/action compete for first read; all labels must be clearly secondary. Proof object should be bigger than decorative clutter.
-- Reading path: design a deliberate path such as title -> host action -> proof object -> consequence. Do not allow side labels to intercept the title path.
-- Negative space: preserve clean space around the main title. Never place a state label close enough to the title that they read as one phrase.
-- Forbidden layouts: no host standing between equal labels, no top row containing multiple same-size text blocks, no left label adjacent to main title, no symmetric UI badge layout that reads like a dashboard, no three-title composition.
-- Example layout: one protected title island; a large foreground host performing the decisive action; one proof-object zone; one consequence/conflict zone. Optional labels must attach to their physical zones as small secondary markers, not float as independent competing headlines.
+- First read: visible stake.
+- Second read: subject action or expression.
+- Third read: scale cue, label, timer, prize, danger, or consequence.
+- Layout zones: one dominant stake zone, one subject anchor, optional secondary
+  consequence zone.
+- Visual weight: stake 45-75%; subject 20-45%; labels only as support.
+- Reading path: stake -> subject -> consequence/label.
+- Negative space: preserve clear room around numeric labels and face.
+- Forbidden layouts: many equal panels, three unrelated text blocks, noisy crowd
+  without grouping, or small prize hidden behind a face.
 
 ## Copy Hierarchy Rules
-
-- Main title: one event sentence or scale phrase that names the click promise for the current topic. Choose it per task after the storyboard is chosen; do not store task-specific copy in this reusable standard.
-- Copy approval: if the user's title is shortened or rewritten, treat the rewrite as a proposal only. Show title candidates and get explicit approval of the exact on-cover text before final prompt writing or generation.
-- Subtitle: usually none. MrBeast-derived covers should avoid subtitle-like explanation.
-- State labels: optional and lower priority. Use them only if they are visually attached to a physical zone/object and cannot be read with the main title.
-- Object/zone binding: if using contrast labels, attach each label to the physical object or zone it describes. A negative-state label belongs on the failure zone; a positive-state label belongs on the success/proof zone. Neither should float near the main title.
-- Isolation rules: main title must have clear whitespace or a single backing shape around it. Secondary labels must be smaller, lower, and separated by distance, object boundaries, or different backing style.
-- Forbidden adjacency: never allow a negative-state label, state tag, object tag, or secondary phrase to sit before or next to the main event title in a way that creates a wrong combined sentence.
-- Removal rule: if the scene already communicates the before/after contrast, remove state labels and keep only the main title. Fewer text blocks are preferred when the story moment is strong.
-- Per-task copy rule: decide the main title, optional labels, and removal tradeoff during the prompt workflow. If labels risk misreading, remove them and let the scene carry the contrast.
+- Main title: usually not needed inside the image unless user-approved.
+- Good text: `$1`, `$100M`, `DAY 100`, `500 PEOPLE`, `BEFORE`, `AFTER`, `#1`,
+  `#100`, one prize amount, or one rule label.
+- Subtitle: avoid.
+- Object/zone binding: labels must sit directly on or beside the thing they
+  describe.
+- Isolation rules: never let price labels and title merge into a confusing
+  sentence.
+- Removal rule: if the event is readable without text, remove text.
 
 ## Platform Adaptation
-
 | Platform/mode | Ratio | Target canvas | Composition rule |
 |---|---:|---:|---|
-| YouTube long video | 16:9 | 1280x720 | Use wide native layouts: split extremes, large host, rule boundary, prize object, crowd, or survival environment. |
-| Bilibili native upload | 1146:717, approx 16:10 | 1146x717 | Build slightly taller master; keep face, text, and proof object in 16:9 and 4:3 center-safe area. |
-| Bilibili cross-platform | 16:9 | 1920x1080 | Use wide layout but keep labels away from edges; avoid tiny side text. |
-| Bilibili 4:3-safe | 4:3 | 1440x1080 | Compress to one central subject plus two strong contrast cues. |
-| Douyin horizontal | 4:3 | 1440x1080 | Use central compression; avoid far-edge labels. |
-| Douyin vertical | 3:4 | 1080x1440 | Stack host, stake, and result as a portrait cover; keep face, title, and proof object in the central safe area. |
-| Xiaohongshu | 3:4 | 1080x1440 | Reduce spectacle density; one large subject plus one clear result/stake. |
-| Xiaohongshu square | 1:1 | 1080x1080 | Use central subject and one proof object. |
-| TikTok/Reels/Shorts | 9:16 | 1080x1920 | Use vertical poster logic; do not force wide split-screen. |
+| YouTube long video | 16:9 | 1280x720 | Native fit: wide stake, large face/action, sparse labels. |
+| Bilibili cross-platform | 16:9 | 1920x1080 | Keep face, stake, and labels center-safe; avoid tiny edge text. |
+| Bilibili native upload | 1146:717 | 1146x717 | Slightly taller frame; keep rule/prize central. |
+| Bilibili 4:3-safe | 4:3 | 1440x1080 | Compress to one subject plus one stake object. |
+| Douyin horizontal | 4:3 | 1440x1080 | Use central action and one large label. |
+| Douyin vertical | 3:4 | 1080x1440 | Stack subject, stake, and prize/danger. |
+| Xiaohongshu | 3:4 | 1080x1440 | Reduce chaos; one large stake and one subject. |
+| Xiaohongshu square | 1:1 | 1080x1080 | Center subject and stake; remove side labels. |
+| TikTok/Reels/Shorts | 9:16 | 1080x1920 | Vertical action frame; keep face and stake large. |
+| WeChat article main | 2.35:1 | 2350x1000 | Use only when the stake remains clear in the central square-safe zone. |
 
 ## Layout Patterns
+### Pattern 1: Two Extremes
+- Use for value ladder and before/after.
+- Composition: two endpoints only; subject bridges or reacts.
+- Text: one label per endpoint.
+- Avoid: multi-step comparison.
 
-### Pattern 1: Price Ladder / Scale Gap
+### Pattern 2: Contained Survivor
+- Use for endurance, isolation, and pressure.
+- Composition: subject inside visible container/environment with timer/day label.
+- Text: one progress label.
+- Avoid: generic drama without a rule.
 
-- Use when: the topic can become cheap vs expensive, manual vs automated, tiny vs massive, weak vs absurdly powerful.
-- Composition: two extremes only. Left side shows failure/cheap/dirty/small; right side shows luxury/power/output/scale. Host bridges or reacts.
-- Text: numeric scale labels such as `$1`, `$1M`, `0`, `100`, `1天100条`.
-- Avoid: many intermediate steps or abstract feature comparisons.
+### Pattern 3: Crowd Arena
+- Use for mass competition and people-count tests.
+- Composition: grouped crowd plus simple rule/prize.
+- Text: count or prize only.
+- Avoid: unstructured crowd noise.
 
-### Pattern 2: Survival / Endurance
+### Pattern 4: Prize Reveal
+- Use for giveaways and wish fulfillment.
+- Composition: prize object dominates, subject validates.
+- Text: value label if needed.
+- Avoid: luxury mood without a rule.
 
-- Use when: time, pressure, persistence, isolation, or failure risk is the hook.
-- Composition: host/subject visibly under pressure inside a physical condition: platform, room, circle, storm, bunker, vehicle, cage.
-- Text: one progress label such as `DAY 30`, `50小时`, or `最后1天`.
-- Avoid: generic dramatic background without a rule.
+### Pattern 5: Danger Near Subject
+- Use for fear/chase/risk.
+- Composition: threat and subject share the same immediate frame.
+- Text: reward or danger label only if needed.
+- Avoid: vague danger background.
 
-### Pattern 3: Rule-Bound Challenge
+### Pattern 6: Giant Physical Event
+- Use for destruction, absurd machines, and massive objects.
+- Composition: object/action dominates; subject proves scale.
+- Text: arrow, price, or size cue.
+- Avoid: static prop render.
 
-- Use when: the cover promise depends on one simple rule.
-- Composition: make the rule visible as a red circle, line, button, platform, container, target, timer, or forbidden zone.
-- Text: optional; use a scale label only if the rule is not obvious.
-- Avoid: hidden rules that require title reading.
-
-### Pattern 4: Group Competition
-
-- Use when: many people, teams, ages, creators, or categories compete.
-- Composition: crowd geometry shows scale; host is central/referee/foreground witness.
-- Text: usually no text or one prize label.
-- Avoid: crowd details that become noise at phone size.
-
-### Pattern 5: Prize Fantasy / Impossible Object
-
-- Use when: the topic centers on getting, building, giving away, or experiencing something desirable.
-- Composition: oversized desirable object/place dominates; host reacts or presents.
-- Text: one price/value label if needed.
-- Avoid: subtle luxury; the prize must be instantly desirable.
+### Pattern 7: Transformation Proof
+- Use for philanthropy and life-change results.
+- Composition: result/beneficiary first, subject second.
+- Text: before/after or count.
+- Avoid: self-congratulatory portrait.
 
 ## Subject Rules
-
-- Use the user's portrait only if supplied.
-- Preserve identity traits from references but redesign pose and expression for the event.
-- The host should push away failure, point to reward, hold proof, stand inside danger, react to scale, or physically operate the machine/rule.
-- Do not use MrBeast's likeness.
-- If the subject is not needed, make the proof object or challenge environment dominant.
+Preserve the user's identity from reference images, but redesign pose and
+expression around the stake. Good roles: participant, witness, referee, rescuer,
+winner, loser, survivor, prize presenter, or challenger. Good expressions:
+surprise, fear, joy, focus, disbelief, urgency, or warm proof for philanthropic
+scenes. Avoid detached expert poses, arms-crossed authority, and face-only
+thumbnails with no stake.
 
 ## Reference Image Handling
-
-- Preserve user identity traits: face structure, hair, glasses, clothing, silhouette, recognizable accessories, brand colors.
-- Do not copy the reference pose, hand gesture, expression, camera angle, character-sheet layout, or static mood unless explicitly requested.
-- If the reference is calm or thoughtful, override it with event-driven action.
-- Prompt wording must include both:
-  - `Preserve identity traits from the reference image: ...`
-  - `Do not copy the reference pose; use this new hook-driven action: ...`
+Reference images lock user identity, face traits, hair, clothing cues, product
+appearance, or brand assets. They do not lock pose, scale, background, or
+expression unless explicitly requested. Convert static portraits into event
+participation. If no real stake/proof object exists, ask for one or route away.
 
 ## Identity And Final Prompt Firewall
-
 - Internal routing may name MrBeast, but the final GPT Image 2 prompt must not
-  contain `MrBeast`, `MrBeast-inspired`, `in the style of MrBeast`, `like
-  MrBeast`, or equivalent creator-name shortcuts.
-- Express the pattern through concrete mechanics: visible stake, event frame,
-  subject action inside the premise, commercial realism, protected scale text,
-  and one clear outcome question.
+  contain `MrBeast`, `Jimmy Donaldson`, `MrBeast-inspired`, `Jimmy
+  Donaldson-inspired`, `in the style of MrBeast`, `like MrBeast`, or equivalent
+  creator-name shortcuts.
+- Express the pattern through concrete mechanics: visible stakes, price gap,
+  endurance container, crowd geometry, prize reveal, danger trial, giant physical
+  event, transformation proof, sparse numeric text, and high-contrast commercial
+  realism.
 - If a portrait reference is supplied, identity preservation outranks all
   creator-pattern rules. The subject must preserve the user's identity traits and
   must not resemble any public creator.
-- Add a final negative constraint that the generated subject must not resemble
-  any public creator, without naming MrBeast.
 
 ## Text Rules
-
-- Prefer 0-4 words or one numeric marker.
-- Use numbers before abstractions.
-- Good text types: price, day count, output count, prize amount, before/after labels.
-- Avoid full-title text and abstract concept labels unless the scene already physicalizes them.
-- Use Chinese text only when short and visually dominant.
+Use text as stake, not explanation. Good text is a price, count, day/time label,
+before/after label, rank, prize amount, or one rule word. Keep it huge,
+high-contrast, and isolated. Avoid sentence titles, slogans, thesis claims,
+brand-copy paragraphs, and multi-label infographics.
 
 ## Typography Layout System
-
-- Treat text as a protected design layer.
-- Every text block needs clean space, a badge, a solid/semi-transparent backing plate, or heavy stroke over simple background.
-- Numeric markers must be huge, high contrast, and readable at phone size.
-- For split comparisons, left/right labels must match size, padding, alignment, and visual weight.
-- Keep text away from faces, hands, proof objects, dense crowds, and busy machinery.
-- For Bilibili 16:9, keep text and face in center-safe area and avoid edge-critical labels.
-- If the background is chaotic, simplify the background or add a clean plate before placing text.
+Protected text zones: top corners for price/day labels, before/after headers,
+object-bound labels, prize tags, shape labels, or one giant central number.
+Typography should be thick, white/yellow/black with strong outline or backing.
+When there are multiple labels, use the same style family and keep them bound to
+their zones. Delete text before shrinking it.
 
 ## Color And Lighting Rules
-
-- Use high-contrast commercial realism.
-- Make faces and proof objects bright and sharp.
-- Use clean semantic contrast: dirty white/gray/red for failure or danger; white/yellow/red/blue/green/gold for reward or success.
-- Use MrBeast-style prop-realistic color, not cyberpunk color. The palette should feel like a bright real YouTube set, game-show prop, luxury room, field, island, vehicle, or physical challenge environment.
-- Prefer real-world saturated color blocks: red tape, yellow hazard stripes, blue plastic buttons, white panels, green grass, gold luxury props, cash, sky blue, and bright studio lights.
-- For AI/software topics, avoid deep blue sci-fi ambience, neon holograms, glowing abstract cores, generic tech grids, and dark laboratories. Make the AI system a practical oversized studio machine or game-show contraption.
-- Use hazard colors for danger and rule boundaries.
-- Simplify background detail aggressively.
-
-## Color Palette Translation
-
-- If the raw topic contains AI, software, automation, workflow, platform, or system language, translate the palette away from default AI/cyberpunk blue.
-- The machine should look physically built: white/yellow body panels, red emergency buttons, blue plastic accents, black/yellow hazard stripes, metal rails, paper cards, camera gear, belts, and practical lamps.
-- Lighting should look like bright commercial photography or a YouTube studio set, not a futuristic nightclub.
-- Use blue as a small accent, not the dominant background.
-- Do not use large neon rings, holographic dashboards, deep blue voids, abstract tech tunnels, or glowing UI walls.
+Use saturated commercial realism. Common color roles: red for rule/danger,
+yellow/gold for money/reward, blue sky/water for scale, orange for prison/danger
+suits, green for money/grass, black/yellow for hazard, clean white for prize or
+medical transformation. Avoid muted editorial palettes, cyberpunk glow, generic
+AI purple, and darkness that hides the stake.
 
 ## Hook Mechanics
-
-- Price ladder: worthless to absurdly expensive.
-- Endurance: survive time under visible physical pressure.
-- Boundary rule: stay inside, do not touch, fit within, last to leave.
-- Prize fantasy: desirable object/place/reward.
-- Social scale: many people under one simple rule.
-- Physical danger: height, storm, confinement, wild setting, isolation.
-- Abstract-to-stakes: make an intangible system visible as a machine, arena, output factory, prize, or failure scene.
+- Price gap creates immediate value curiosity.
+- Day/time count makes endurance measurable.
+- Crowd geometry makes scale undeniable.
+- Prize object creates wish fulfillment.
+- Danger object creates risk.
+- Giant physical object creates absurd proof.
+- Before/after creates transformation belief.
+- One rule object creates instant challenge clarity.
 
 ## GPT Image 2 Prompt Contract
-
-Every prompt must specify:
-
-- final artifact: finished video cover/thumbnail
-- platform and ratio
-- target canvas in pixels
-- platform adaptation decision
-- cover generation engine and topic translation decision
-- one-frame cover storyboard
-- design layout brief and copy hierarchy
-- raw topic and translated click promise
-- single visible stake
-- layout pattern
-- main subject and reference image handling
-- event-driven subject action
-- exact on-image text or "no text"
-- typography hierarchy and protected text zones
-- composition hierarchy
-- color/lighting rules
-- mobile readability constraints
-- anti-infographic negative constraints
-- post-generation dimension verification
-
-Do not prompt "in MrBeast's exact style." Prompt the transferable Stakes Engine rules.
+Every prompt must include:
+- target platform, aspect ratio, and exact pixel canvas
+- selected internal paradigm
+- visible stake and truthful proof object
+- subject role/action inside the event
+- camera distance and composition pattern
+- exact text labels or "no text"
+- where each label attaches
+- high-contrast commercial realism and color role
+- platform crop-safe zones
+- explicit rejection of creator likeness, creator names, fake stakes, fake
+  charity, and fake danger
 
 ## Negative Constraints
-
-- no MrBeast likeness
-- no copied existing thumbnail
-- no copied logos, watermarks, or protected IP
-- no pure flowchart
-- no generic infographic
-- no SaaS dashboard
-- no cyberpunk AI palette
-- no neon-blue holographic interface
-- no dark futuristic lab
-- no calm expert portrait
-- no course-poster layout
-- no extra text
-- no competing title blocks
-- no negative-state label adjacent to the main title
-- no state labels unless object-bound and clearly secondary
-- no misspelled text
-- no unreadable small text
-- no text on clutter without backing
-- no inconsistent paired labels
-- no edge-critical details outside platform safe areas
-- no copying reference pose
+No MrBeast likeness replication. No channel logo imitation. No exact thumbnail
+recreation. No protected franchise/IP imitation. No fake money, fake charity,
+fake danger, fake crowd, or fake prize. No dashboard, workflow diagram, lecture
+poster, subtle product ad, calm expert portrait, or abstract AI concept art. No
+public creator names in final prompts.
 
 ## User Intake Questions
-
-Ask in this order:
-
-1. Which platform will this cover be published on?
-2. Which mode or orientation is needed: Bilibili native, Bilibili cross-platform, 4:3-safe, horizontal, vertical, square, long video, or short video?
-3. What is the raw video topic?
-4. What result, danger, reward, quantity, time, or transformation can be made visible?
-5. What exact on-cover text should appear? If none, say no text.
-6. Should the user's own face appear? If yes, request a reference image.
-7. Should the reference pose be preserved, or should it be redesigned for the event? Default: redesign for the event.
-8. What must appear?
-9. What must not appear?
-10. Are there brand, legal, or platform constraints?
+1. 这次真实 stake 是什么：钱、时间、危险、人数、奖品、规则、改造、还是巨大物体？
+2. 哪个物体或场景能一眼证明这个 stake？
+3. 主体在事件里是什么角色：参与者、见证者、裁判、幸存者、获胜者、失败者、救助者？
+4. 封面文字是否只用数字、金额、天数、人数、before/after 或 no text？
+5. 哪些夸张会误导观众，必须禁止？
 
 ## Quality Checklist
-
-- Did the raw topic get translated through the Stakes Engine before visual design?
-- Did the prompt build a one-frame story before describing composition?
-- Did the prompt define a design layout brief and copy hierarchy before final image instructions?
-- Is the main title isolated from labels and protected from accidental phrase joining?
-- Can the viewer understand the rule/reward/danger/result in under one second?
-- Is there one visible stake?
-- Does the subject act inside the event instead of posing outside it?
-- Does the visual avoid pure diagram/infographic/course-poster logic?
-- Does the selected ratio match the platform?
-- Are face, text, and proof object inside the platform safe area?
-- Is the on-image text short and readable at phone size?
-- Does every text block have a protected readable zone or backing?
-- Did the output avoid copying MrBeast's identity or a specific existing thumbnail?
+- One internal paradigm is selected before visual style.
+- One truthful stake is visible before text.
+- The first read is money, rule, danger, prize, crowd, timer, giant object, or
+  transformation result.
+- Subject is inside the event, not presenting a concept.
+- Text is numeric, short, and stake-bound.
+- The frame is understandable in one second.
+- No fake charity, danger, prize, or crowd.
+- Platform ratio and target canvas are explicit.
+- Reference image identity is preserved.
+- Final prompt avoids creator-name shortcuts and public creator likeness.
