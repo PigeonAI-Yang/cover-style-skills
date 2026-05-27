@@ -5,11 +5,12 @@ Route a user's draft to the most suitable distilled creator-cover skills before
 cover generation.
 
 This is the core product layer. The router should recommend a specific
-distilled blogger/creator child skill before proposing visual execution. It must
-not produce a generic cover direction when an existing child skill provides a
-stronger visual decision engine. The router's user-facing output is a
-child-skill recommendation packet: each card starts with the recommended child
-skill, then explains why that skill fits and what design scheme it would use.
+distilled blogger/creator child skill and one internal paradigm before proposing
+visual execution. It must not produce a generic cover direction when an existing
+child skill and paradigm provide a stronger visual decision engine. The router's
+user-facing output is a child-skill recommendation packet: each card starts with
+the recommended child skill and selected internal paradigm, then explains why
+that pairing fits and what design scheme it would use.
 
 ## Inputs
 - Article title
@@ -22,6 +23,7 @@ skill, then explains why that skill fits and what design scheme it would use.
 Each child skill is treated as an internal design engine with:
 
 - engine name
+- popular paradigm cards
 - best-fit article types
 - hook families
 - topic translation rules
@@ -40,7 +42,9 @@ For every draft, answer:
 - Does the article need authority, maker proof, documentary evidence, spectacle,
   or utility clarity?
 - Which child skill would make the article legible in one second?
+- Which internal paradigm inside that child skill best fits the article?
 - Which child skill would distort the article?
+- Which internal paradigms were considered but rejected?
 
 ## Current Engine Routing Guide
 - `pigeonyang-cover-style-dan-koe`: thesis, warning, identity reframe, creator
@@ -64,8 +68,11 @@ Create `engine-routing.md` as an internal routing record in the private project:
 
 ### Candidate 1
 - Child skill:
+- Candidate internal paradigms:
+- Selected internal paradigm:
 - Fit score:
 - Why it fits:
+- Why this paradigm fits:
 - What visual promise it creates:
 - Risk:
 - Recommendation reason:
@@ -91,8 +98,11 @@ must be skill-first:
 
 ## Recommendation 1
 - Recommended child skill:
+- Selected internal paradigm:
 - Fit score:
 - Why this skill is recommended:
+- Why this paradigm fits:
+- Rejected internal paradigms:
 - Proposed on-cover copy:
 - Main visual promise:
 - Proposed design scheme:
@@ -109,7 +119,8 @@ must be skill-first:
 ## Rules
 - Recommend 3 engines when possible.
 - Present child skill plus design scheme plus reason together.
-- The approval object is the child skill, not an abstract direction label.
+- The approval object is the child skill plus selected internal paradigm, not an
+  abstract direction label.
 - Do not require low-fidelity mock images for skill approval; poor mock images
   can degrade judgment. Generate images only after one child skill is approved,
   unless the user explicitly asks for visual comparisons.

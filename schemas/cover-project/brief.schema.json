@@ -116,6 +116,9 @@
         "approved_child_skill": {
           "type": ["string", "null"]
         },
+        "approved_internal_paradigm": {
+          "type": ["string", "null"]
+        },
         "approved_copy": {
           "type": ["string", "null"]
         },
@@ -123,7 +126,13 @@
           "type": ["string", "null"]
         }
       },
-      "required": ["direction_id", "approved_copy", "approved_at"],
+      "required": [
+        "direction_id",
+        "approved_child_skill",
+        "approved_internal_paradigm",
+        "approved_copy",
+        "approved_at"
+      ],
       "additionalProperties": false
     }
   },

@@ -53,19 +53,20 @@ Missing fields:
 
 1. Extract the relevant design rules from the distilled research below.
 2. Use the cover generation engine and topic translation rules to convert the user's raw topic into this creator's cover logic before choosing visual style.
-3. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
-4. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
-5. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
-6. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
-7. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
-8. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
-9. Produce an Execution Design Packet with copy approval, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
-10. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
-11. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the engine.
-12. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
-13. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `何同学` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
-14. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
-15. Register any generated output, verify dimensions, and mark final only through the workflow gate.
+3. Select one internal paradigm from `Popular Paradigms`. Record why it fits and why the other internal paradigms were rejected. If no paradigm fits, route away from this child skill.
+4. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
+5. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
+6. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
+7. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
+8. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
+9. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
+10. Produce an Execution Design Packet with copy approval, selected internal paradigm, rejected internal paradigms, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
+11. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
+12. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the selected internal paradigm.
+13. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
+14. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `何同学` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
+15. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
+16. Register any generated output, verify dimensions, and mark final only through the workflow gate.
 
 ## Execution Gate
 
@@ -74,6 +75,8 @@ Do not write the final GPT Image 2 prompt, and do not generate an image, unless 
 Required packet fields:
 
 - Copy approval: exact approved on-cover text, or "no text". If the user's title was shortened or rewritten, include the approved candidate. Permission to shorten is not approval of a specific title.
+- Selected internal paradigm: the chosen `Popular Paradigms` card and why it fits this task.
+- Rejected internal paradigms: which other internal paradigms were considered and why they were not chosen.
 - Topic translation: raw topic, creator-engine translation, click promise, visible stake, proof object, and forbidden drift.
 - Cover storyboard: story moment, conflict, subject action, proof object, emotional beat, viewer question, and why it is not a static poster.
 - Design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, platform safe area, and forbidden layouts.
@@ -101,6 +104,8 @@ Continue only after the user approves one exact title or provides replacement te
 ```markdown
 ## Execution Design Packet
 Copy approval:
+Selected internal paradigm:
+Rejected internal paradigms:
 Topic translation:
 Cover storyboard:
 Design layout brief:
@@ -205,6 +210,97 @@ neutral subject.
 - Drift risk: fake concept machines, generic AI dashboards, architecture diagrams,
   SaaS launch posters, Dan Koe text-first claims, MrBeast stakes, or cinematic
   documentary stills.
+
+## Popular Paradigms
+### Paradigm 1: Macro Proof State
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: 5G status bar, typewriter key close-up, screen-time
+  UI, price/product detail.
+- Best-fit topics: screen states, device details, measurable product facts,
+  prices, UI proof, small mechanisms.
+- Click promise: "This one visible detail proves the invisible technology or
+  result."
+- Topic translation: convert the topic into one close-up proof state.
+- One-frame story: the proof detail is pushed close enough to judge.
+- First read: screen/object/detail.
+- Second read: hand, device edge, or subject scale.
+- Text behavior: native screen/object text or one attached label.
+- Composition: macro close-up with optional secondary subject.
+- Failure mode: floating headline explaining a detail that is not visible.
+- Prompt contract: choose the real proof detail before adding subject or title.
+
+### Paradigm 2: Oversized Object Demonstration
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: self-typing keyboard, AirDesk, assembly-line machine,
+  large device/product builds.
+- Best-fit topics: prototypes, built products, physical rigs, strange device
+  scale, productized experiments.
+- Click promise: "They actually built a strange thing."
+- Topic translation: convert the topic into one physically large or visually
+  strange object.
+- One-frame story: subject demonstrates or stands behind the object as proof.
+- First read: oversized object.
+- Second read: subject/operator.
+- Text behavior: product name, price, or function word attached to object.
+- Composition: object fills most of frame; subject validates scale.
+- Failure mode: balanced workbench with many small parts.
+- Prompt contract: make the object dominant enough to prove the build.
+
+### Paradigm 3: Binary Test
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: phone fast/slow, fake/real app, visible/invisible or
+  charged/degraded comparison states.
+- Best-fit topics: before/after, real/fake, old/new, fast/slow, expensive/cheap,
+  measured tests.
+- Click promise: "Which side is true or better?"
+- Topic translation: convert the topic into two real states that can be judged.
+- One-frame story: subject holds or frames two objects/screens toward the viewer.
+- First read: the two proof states.
+- Second read: short labels or subject action.
+- Text behavior: one short object-bound label per side.
+- Composition: two clear objects or states, not a table.
+- Failure mode: abstract comparison diagram with no real objects.
+- Prompt contract: only use this when both states have visible proof.
+
+### Paradigm 4: Absurd Utility Action
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: water utility object, powered chair, cow-service
+  intervention, overbuilt everyday solution.
+- Best-fit topics: playful utility, everyday problem solved by a strange object,
+  action-driven invention.
+- Click promise: "Why did they solve this ordinary problem in such an overbuilt
+  way?"
+- Topic translation: convert utility into a real action already happening.
+- One-frame story: subject uses, rides, launches, opens, presses, or tests the
+  invention.
+- First read: action.
+- Second read: strange object.
+- Text behavior: optional short function label.
+- Composition: action frame, not beauty shot.
+- Failure mode: static product render with no use.
+- Prompt contract: show the object performing its function.
+
+### Paradigm 5: Internal Reveal
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: AirDesk internals, sketch plan, transparent TV,
+  assembly and wiring views.
+- Best-fit topics: hidden mechanisms, product internals, making process, design
+  proof, transparent or opened devices.
+- Click promise: "What is inside this thing, and how did they make it work?"
+- Topic translation: convert the topic into an opened, sketched, transparent, or
+  partially assembled proof.
+- One-frame story: the object is opened or revealed at the moment of proof.
+- First read: internal structure.
+- Second read: subject/hand/label as witness.
+- Text behavior: product name or one large object-bound label.
+- Composition: overhead or oblique internal reveal.
+- Failure mode: generic exploded-view diagram.
+- Prompt contract: reveal real structure, not a decorative diagram.
 
 ## Topic Translation Rules
 - Abstract topics: use this engine only if they can be grounded in a real

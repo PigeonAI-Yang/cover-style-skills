@@ -8,9 +8,10 @@ Preset: `{{COVER_MODE}}`
 ## Recommendation Rule
 Do not ask Yang to choose from text-only skill recommendations.
 
-Each recommendation must start with the recommended child skill. The approval
-decision is based on article diagnosis, child-skill fit, design scheme, proposed
-copy, and risk. Do not require low-fidelity mock images by default.
+Each recommendation must start with the recommended child skill and selected
+internal paradigm. The approval decision is based on article diagnosis,
+child-skill fit, paradigm fit, design scheme, proposed copy, and risk. Do not
+require low-fidelity mock images by default.
 
 Prefer existing child skills. The skill name is project metadata; generated
 image prompts must translate it into concrete visual rules and must not contain
@@ -30,8 +31,11 @@ only, not a final cover candidate.
 
 ## Recommendation 1
 - Recommended child skill:
+- Selected internal paradigm:
 - Fit score:
 - Why this skill is recommended:
+- Why this paradigm fits:
+- Rejected internal paradigms:
 - Target canvas:
 - Hook angle:
 - Proposed on-cover copy:
@@ -44,8 +48,11 @@ only, not a final cover candidate.
 
 ## Recommendation 2
 - Recommended child skill:
+- Selected internal paradigm:
 - Fit score:
 - Why this skill is recommended:
+- Why this paradigm fits:
+- Rejected internal paradigms:
 - Target canvas:
 - Hook angle:
 - Proposed on-cover copy:
@@ -58,8 +65,11 @@ only, not a final cover candidate.
 
 ## Recommendation 3
 - Recommended child skill:
+- Selected internal paradigm:
 - Fit score:
 - Why this skill is recommended:
+- Why this paradigm fits:
+- Rejected internal paradigms:
 - Target canvas:
 - Hook angle:
 - Proposed on-cover copy:
@@ -72,4 +82,4 @@ only, not a final cover candidate.
 
 ## Approval Gate
 Stop here until Yang has seen the skill recommendation packet and approves one
-child skill plus exact on-cover copy.
+child skill, one internal paradigm, and exact on-cover copy.

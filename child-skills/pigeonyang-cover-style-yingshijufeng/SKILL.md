@@ -53,19 +53,20 @@ Missing fields:
 
 1. Extract the relevant design rules from the distilled research below.
 2. Use the cover generation engine and topic translation rules to convert the user's raw topic into this creator's cover logic before choosing visual style.
-3. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
-4. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
-5. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
-6. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
-7. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
-8. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
-9. Produce an Execution Design Packet with copy approval, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
-10. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
-11. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the engine.
-12. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
-13. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `影视飓风` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
-14. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
-15. Register any generated output, verify dimensions, and mark final only through the workflow gate.
+3. Select one internal paradigm from `Popular Paradigms`. Record why it fits and why the other internal paradigms were rejected. If no paradigm fits, route away from this child skill.
+4. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
+5. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
+6. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
+7. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
+8. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
+9. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
+10. Produce an Execution Design Packet with copy approval, selected internal paradigm, rejected internal paradigms, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
+11. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
+12. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the selected internal paradigm.
+13. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
+14. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `影视飓风` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
+15. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
+16. Register any generated output, verify dimensions, and mark final only through the workflow gate.
 
 ## Execution Gate
 
@@ -74,6 +75,8 @@ Do not write the final GPT Image 2 prompt, and do not generate an image, unless 
 Required packet fields:
 
 - Copy approval: exact approved on-cover text, or "no text". If the user's title was shortened or rewritten, include the approved candidate. Permission to shorten is not approval of a specific title.
+- Selected internal paradigm: the chosen `Popular Paradigms` card and why it fits this task.
+- Rejected internal paradigms: which other internal paradigms were considered and why they were not chosen.
 - Topic translation: raw topic, creator-engine translation, click promise, visible stake, proof object, and forbidden drift.
 - Cover storyboard: story moment, conflict, subject action, proof object, emotional beat, viewer question, and why it is not a static poster.
 - Design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, platform safe area, and forbidden layouts.
@@ -101,6 +104,8 @@ Continue only after the user approves one exact title or provides replacement te
 ```markdown
 ## Execution Design Packet
 Copy approval:
+Selected internal paradigm:
+Rejected internal paradigms:
 Topic translation:
 Cover storyboard:
 Design layout brief:
@@ -126,8 +131,8 @@ post_generation_check:
 ## Iteration Plan
 <2-3 likely improvements after first image>
 
-Generation gate:
-<generate directly if preflight passes; otherwise prompt_only with blocker>
+## Generation Gate
+<generate directly if preflight passes; otherwise output prompt_only with blocker>
 ```
 
 ## Design Standard
@@ -142,9 +147,9 @@ Do not use it to copy Tim's likeness, the 影视飓风 logo, exact covers, exact
 
 ## Evidence Summary
 
-- Cover samples: 12 main-account Bilibili covers archived in the managed research workspace for run `yingshijufeng/20260525-053030`.
-- Process sources: 6 saved process/data sources archived in the managed research workspace for run `yingshijufeng/20260525-053030`.
-- Research run: `yingshijufeng/20260525-053030`.
+- Cover samples: 12 main-account Bilibili covers archived in `J:\PigeonYang\cover-style-distiller\research-runs\yingshijufeng\20260525-053030\covers`.
+- Process sources: 6 saved process/data sources archived in `J:\PigeonYang\cover-style-distiller\research-runs\yingshijufeng\20260525-053030\sources`.
+- Research run: `J:\PigeonYang\cover-style-distiller\research-runs\yingshijufeng\20260525-053030`.
 - Confidence: high for shell-first topic packaging, cinematic proof objects, short Bilibili text, host-as-guide role, and documentary/tech hybrid. Medium for exact top-video ranking because direct Bilibili space API was blocked and a public dashboard API was used.
 
 ## Core Design DNA
@@ -165,6 +170,118 @@ Do not use it to copy Tim's likeness, the 影视飓风 logo, exact covers, exact
 - Subject role: host/witness/guide/tester/presenter; guest as authority proof; object/location as evidence.
 - Pre-visual decision: choose the shell and proof object before choosing composition or style.
 - Drift risk: if the cover becomes a MrBeast extreme challenge, SaaS dashboard, lecture slide, flowchart, generic tech poster, or clean product ad, it has left the 影视飓风 engine.
+
+## Popular Paradigms
+
+### Paradigm 1: Hidden World Proof
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: unusual place, hidden industry, taboo, or rare-access
+  covers.
+- Best-fit topics: investigations, behind-the-scenes systems, hidden mechanisms,
+  social/tech worlds ordinary viewers cannot enter.
+- Click promise: "What is inside this hidden world?"
+- Topic translation: wrap the hard-core topic in a public shell and visible
+  location/object.
+- One-frame story: host has entered or revealed the place.
+- First read: place, large shell word, or strange proof object.
+- Second read: host as guide/witness.
+- Text behavior: one noun, taboo label, or no text.
+- Composition: cinematic real location with protected short text.
+- Failure mode: generic background with pasted influencer face.
+- Prompt contract: prove access through a real scene before adding typography.
+
+### Paradigm 2: Test / Comparison With Real People
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: machine vs person, device test, human comparison, old
+  vs new result covers.
+- Best-fit topics: experiments, devices, AI vs human, tech result comparisons.
+- Click promise: "What happened when this was tested for real?"
+- Topic translation: convert the topic into a visible test with people, devices,
+  or result objects.
+- One-frame story: host/guest interacts with the test object.
+- First read: test scene or comparison object.
+- Second read: host/guest reaction.
+- Text behavior: short comparison phrase, number, or `VS`.
+- Composition: people and proof object in the same real scene.
+- Failure mode: sterile spec table or lab stock image.
+- Prompt contract: make the test feel witnessed, not diagrammed.
+
+### Paradigm 3: Money / Number As Proof
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: amount, age, price, output, view count, or scale
+  number covers.
+- Best-fit topics: price, cost, scale, age, result metrics, business or industry
+  proof.
+- Click promise: "Why is this number so high, low, or strange?"
+- Topic translation: attach the number to a real person, object, or place.
+- One-frame story: host reveals or reacts to the number as evidence.
+- First read: number.
+- Second read: attached proof object/person.
+- Text behavior: huge number with unit; no extra sentence.
+- Composition: number visually bound to proof.
+- Failure mode: floating statistic with no scene.
+- Prompt contract: bind every number to visible evidence.
+
+### Paradigm 4: Tech Arrival / Controlled Room
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: AI, camera, software, lab, studio, control-room, or
+  future-tech covers.
+- Best-fit topics: emerging technology, AI workflows, camera gear, production
+  systems, controlled experiments.
+- Click promise: "This new technology is real and a little unsettling."
+- Topic translation: turn tech into a real room, device, screen, or controlled
+  setup.
+- One-frame story: host operates or witnesses the system.
+- First read: real controlled environment or machine.
+- Second read: host's guide role.
+- Text behavior: optional short factual or uneasy label.
+- Composition: cinematic control room, practical screens, real equipment.
+- Failure mode: cyberpunk hologram or SaaS poster.
+- Prompt contract: use practical tech evidence, not abstract neon.
+
+### Paradigm 5: Guest / Authority Encounter
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: guest, expert, famous person, creator, or authority
+  pair covers.
+- Best-fit topics: interviews, expert access, public figures, creator or company
+  stories.
+- Click promise: "What did this credible person reveal?"
+- Topic translation: make the person or name the proof object.
+- One-frame story: host and guest appear as a real encounter.
+- First read: guest/name.
+- Second read: host relationship or reaction.
+- Text behavior: guest name or one emotional phrase.
+- Composition: guest and host pair with a clear question.
+- Failure mode: generic podcast two-head cover.
+- Prompt contract: make the encounter itself the proof.
+
+### Paradigm 6: Brand / Place Reveal
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: company, studio, office, new building, production
+  base, or place reveal covers.
+- Best-fit topics: organization stories, studio/process reveals, company
+  infrastructure, place-based hooks.
+- Click promise: "What is inside this place or brand system?"
+- Topic translation: use the place as the public shell and proof.
+- One-frame story: host presents or enters the place.
+- First read: place/building/brand cue.
+- Second read: host action.
+- Text behavior: one reveal label or no text.
+- Composition: place dominates; host validates access.
+- Failure mode: corporate brochure or real-estate poster.
+- Prompt contract: frame the place as evidence of a story.
 
 ## Topic Translation Rules
 
@@ -278,14 +395,20 @@ Do not use it to copy Tim's likeness, the 影视飓风 logo, exact covers, exact
 - Do not copy the reference pose unless the user explicitly asks.
 - Use a new hook-driven action: pointing to proof, holding device/phone/card, standing inside real scene, reacting to result, guiding viewer through place, or operating equipment.
 - If the user provides a product/device/location reference, keep its key shape and visible function but adapt lighting and composition to the shell.
-- The final image subject must resemble the user's supplied reference and must not resemble any public creator.
 
 ## Identity And Final Prompt Firewall
 
-- Internal skill routing may name 影视飓风, but the final GPT Image 2 prompt must not contain `影视飓风`, `影视飓风-inspired`, `in the style of 影视飓风`, `like 影视飓风`, or any equivalent creator-name shortcut.
-- Express the pattern through concrete cover mechanics: real-world proof scene, documentary shell, subject-location-object relationship, restrained cinematic lighting, and clean reveal hierarchy.
-- If a portrait reference is supplied, identity preservation outranks all creator-pattern rules. The subject must preserve the user's face, hair, glasses, clothing cues, body type, and supplied identity traits.
-- Add a negative constraint that the generated subject must not resemble any public creator, without naming 影视飓风 in the final prompt.
+- Internal routing may name 影视飓风, Tim, or the source channel for analysis, but
+  the final GPT Image 2 prompt must not contain `影视飓风`, `Tim`, `影视飓风-inspired`,
+  `in the style of 影视飓风`, `like 影视飓风`, or equivalent creator-name shortcuts.
+- Express the pattern through concrete mechanics: public-facing shell, real proof
+  object/person/place/number, documentary frame, host-as-guide action, short
+  protected Bilibili text, and cinematic realism.
+- If a portrait reference is supplied, identity preservation outranks all
+  creator-pattern rules. The subject must preserve the user's identity traits and
+  must not resemble any public creator.
+- Add a final negative constraint that the generated subject must not resemble
+  any public creator, without naming 影视飓风 or Tim.
 
 ## Text Rules
 

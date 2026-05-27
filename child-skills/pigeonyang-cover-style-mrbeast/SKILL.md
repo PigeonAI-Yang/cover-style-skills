@@ -53,19 +53,20 @@ Missing fields:
 
 1. Extract the relevant design rules from the distilled research below.
 2. Use the cover generation engine and topic translation rules to convert the user's raw topic into this creator's cover logic before choosing visual style.
-3. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
-4. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
-5. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
-6. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
-7. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
-8. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
-9. Produce an Execution Design Packet with copy approval, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
-10. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
-11. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the engine.
-12. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
-13. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `MrBeast` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
-14. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
-15. Register any generated output, verify dimensions, and mark final only through the workflow gate.
+3. Select one internal paradigm from `Popular Paradigms`. Record why it fits and why the other internal paradigms were rejected. If no paradigm fits, route away from this child skill.
+4. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
+5. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
+6. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
+7. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
+8. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
+9. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
+10. Produce an Execution Design Packet with copy approval, selected internal paradigm, rejected internal paradigms, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
+11. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
+12. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the selected internal paradigm.
+13. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
+14. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `MrBeast` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
+15. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
+16. Register any generated output, verify dimensions, and mark final only through the workflow gate.
 
 ## Execution Gate
 
@@ -74,6 +75,8 @@ Do not write the final GPT Image 2 prompt, and do not generate an image, unless 
 Required packet fields:
 
 - Copy approval: exact approved on-cover text, or "no text". If the user's title was shortened or rewritten, include the approved candidate. Permission to shorten is not approval of a specific title.
+- Selected internal paradigm: the chosen `Popular Paradigms` card and why it fits this task.
+- Rejected internal paradigms: which other internal paradigms were considered and why they were not chosen.
 - Topic translation: raw topic, creator-engine translation, click promise, visible stake, proof object, and forbidden drift.
 - Cover storyboard: story moment, conflict, subject action, proof object, emotional beat, viewer question, and why it is not a static poster.
 - Design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, platform safe area, and forbidden layouts.
@@ -101,6 +104,8 @@ Continue only after the user approves one exact title or provides replacement te
 ```markdown
 ## Execution Design Packet
 Copy approval:
+Selected internal paradigm:
+Rejected internal paradigms:
 Topic translation:
 Cover storyboard:
 Design layout brief:
@@ -126,8 +131,8 @@ post_generation_check:
 ## Iteration Plan
 <2-3 likely improvements after first image>
 
-Generation gate:
-<generate directly if preflight passes; otherwise prompt_only with blocker>
+## Generation Gate
+<generate directly if preflight passes; otherwise output prompt_only with blocker>
 ```
 
 ## Design Standard
@@ -144,10 +149,10 @@ Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, lo
 
 ## Evidence Summary
 
-- Cover samples: 12 public MrBeast thumbnails archived in `<USER_RESEARCH_WORKSPACE>\mrbeast\20260524-203206\covers`.
-- Process sources: 5 source notes archived in `<USER_RESEARCH_WORKSPACE>\mrbeast\20260524-203206\sources`.
-- Research run: `<USER_RESEARCH_WORKSPACE>\mrbeast\20260524-203206`.
-- Full research: `<USER_RESEARCH_WORKSPACE>\mrbeast\20260524-203206\distillation\research.md`.
+- Cover samples: 12 public MrBeast thumbnails archived in `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206\covers`.
+- Process sources: 5 source notes archived in `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206\sources`.
+- Research run: `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206`.
+- Full research: `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206\distillation\research.md`.
 - Confidence: high for Stakes Engine, topic-to-physical-event translation, price ladder, survival/endurance, group competition, and prize fantasy. Medium for Bilibili adaptation because source evidence is YouTube-native.
 
 ## Core Design DNA
@@ -169,6 +174,102 @@ Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, lo
 - Subject role: participant, presenter, referee, challenger, survivor, prize witness, or proof carrier. The subject is never only a detached expert model.
 - Pre-visual decision: choose the stake before choosing style. The stake must be money, time, quantity, danger, boundary, crowd, luxury object, failure, reward, or impossible scale.
 - Drift risk: if the cover becomes a flowchart, course poster, calm expert portrait, SaaS dashboard, generic tech UI, or abstract concept card, it has left the MrBeast engine.
+
+## Popular Paradigms
+
+### Paradigm 1: Price Ladder / Scale Gap
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: cheap vs expensive, small vs massive, weak vs extreme,
+  low-output vs high-output covers.
+- Best-fit topics: comparisons, automation gains, output scale, budget tiers,
+  quality gaps.
+- Click promise: "How different are the two extremes?"
+- Topic translation: convert the topic into two visible endpoints with one
+  measurable gap.
+- One-frame story: subject stands between or reacts to the extreme contrast.
+- First read: the scale gap.
+- Second read: subject action or reaction.
+- Text behavior: huge numeric labels only when they sharpen the gap.
+- Composition: two extremes, no middle steps.
+- Failure mode: feature matrix, dashboard comparison, or infographic.
+- Prompt contract: show two physical endpoints and make the result judgeable in
+  one second.
+
+### Paradigm 2: Survival / Endurance
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: time pressure, isolation, last-to-leave, or survival
+  environment covers.
+- Best-fit topics: persistence, stress tests, hard constraints, long-running
+  experiments.
+- Click promise: "Can they last under this condition?"
+- Topic translation: convert the topic into a visible physical constraint.
+- One-frame story: subject is inside the constraint while the timer/rule is
+  obvious.
+- First read: the condition or timer.
+- Second read: subject under pressure.
+- Text behavior: one progress label such as day/time count.
+- Composition: subject physically contained by rule, environment, or boundary.
+- Failure mode: generic drama without a visible rule.
+- Prompt contract: make the endurance condition visible before styling.
+
+### Paradigm 3: Rule-Bound Challenge
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: red circle, line, button, platform, target, or
+  forbidden-zone challenge covers.
+- Best-fit topics: one-rule experiments, constraints, competitions, AI/workflow
+  tasks that can become a simple physical rule.
+- Click promise: "What happens if this rule is followed or broken?"
+- Topic translation: convert the topic into one visible rule object.
+- One-frame story: subject triggers, avoids, crosses, or defends the rule.
+- First read: the rule boundary.
+- Second read: subject action.
+- Text behavior: optional label only if the rule is not obvious.
+- Composition: one rule object dominates; no hidden instructions.
+- Failure mode: rule only explained in title, not visible in image.
+- Prompt contract: draw the rule as a physical boundary or object.
+
+### Paradigm 4: Group Competition
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: many people or teams organized around one simple
+  rule, prize, or outcome.
+- Best-fit topics: crowd tests, user groups, creator comparisons, social scale.
+- Click promise: "Who wins under this simple rule?"
+- Topic translation: convert the topic into participants plus one shared stake.
+- One-frame story: crowd geometry proves scale while subject acts as referee or
+  witness.
+- First read: crowd scale or prize.
+- Second read: host/subject role.
+- Text behavior: usually no text or one prize label.
+- Composition: simplified crowd geometry; one clear focal stake.
+- Failure mode: noisy group photo with no rule.
+- Prompt contract: use people as scale, not decoration.
+
+### Paradigm 5: Prize Fantasy / Impossible Object
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: desirable object, place, reward, vehicle, island,
+  room, or impossible prize covers.
+- Best-fit topics: reward, transformation result, output prize, luxury object,
+  absurd productized promise.
+- Click promise: "Can they really get/build/give away this thing?"
+- Topic translation: convert the value proposition into one desirable object or
+  impossible-looking result.
+- One-frame story: subject presents, reacts to, or stands inside the prize.
+- First read: prize object.
+- Second read: subject reaction.
+- Text behavior: optional value/price label.
+- Composition: prize dominates; subject validates scale/desirability.
+- Failure mode: subtle product ad or generic luxury mood.
+- Prompt contract: make the prize instantly legible and physically present.
 
 ## Topic Translation Rules
 
@@ -232,14 +333,14 @@ Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, lo
 
 - Use when: the topic can become cheap vs expensive, manual vs automated, tiny vs massive, weak vs absurdly powerful.
 - Composition: two extremes only. Left side shows failure/cheap/dirty/small; right side shows luxury/power/output/scale. Host bridges or reacts.
-- Text: numeric scale labels such as `$1`, `$1M`, `0`, `100`, `1澶?00鏉.
+- Text: numeric scale labels such as `$1`, `$1M`, `0`, `100`, `1天100条`.
 - Avoid: many intermediate steps or abstract feature comparisons.
 
 ### Pattern 2: Survival / Endurance
 
 - Use when: time, pressure, persistence, isolation, or failure risk is the hook.
 - Composition: host/subject visibly under pressure inside a physical condition: platform, room, circle, storm, bunker, vehicle, cage.
-- Text: one progress label such as `DAY 30`, `50灏忔椂`, or `鏈€鍚?澶ー.
+- Text: one progress label such as `DAY 30`, `50小时`, or `最后1天`.
 - Avoid: generic dramatic background without a rule.
 
 ### Pattern 3: Rule-Bound Challenge
@@ -276,17 +377,23 @@ Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, lo
 - Preserve user identity traits: face structure, hair, glasses, clothing, silhouette, recognizable accessories, brand colors.
 - Do not copy the reference pose, hand gesture, expression, camera angle, character-sheet layout, or static mood unless explicitly requested.
 - If the reference is calm or thoughtful, override it with event-driven action.
-- The final image subject must resemble the user's supplied reference and must not resemble any public creator.
 - Prompt wording must include both:
   - `Preserve identity traits from the reference image: ...`
   - `Do not copy the reference pose; use this new hook-driven action: ...`
 
 ## Identity And Final Prompt Firewall
 
-- Internal skill routing may name MrBeast, but the final GPT Image 2 prompt must not contain `MrBeast`, `MrBeast-inspired`, `in the style of MrBeast`, `like MrBeast`, or any equivalent creator-name shortcut.
-- Express the pattern through concrete cover mechanics: extreme visible stakes, physical proof, strong subject action, readable labels, practical set lighting, and high-contrast composition.
-- If a portrait reference is supplied, identity preservation outranks all creator-pattern rules. The subject must preserve the user's face, hair, glasses, clothing cues, body type, and supplied identity traits.
-- Add a negative constraint that the generated subject must not resemble any public creator, without naming MrBeast in the final prompt.
+- Internal routing may name MrBeast, but the final GPT Image 2 prompt must not
+  contain `MrBeast`, `MrBeast-inspired`, `in the style of MrBeast`, `like
+  MrBeast`, or equivalent creator-name shortcuts.
+- Express the pattern through concrete mechanics: visible stake, event frame,
+  subject action inside the premise, commercial realism, protected scale text,
+  and one clear outcome question.
+- If a portrait reference is supplied, identity preservation outranks all
+  creator-pattern rules. The subject must preserve the user's identity traits and
+  must not resemble any public creator.
+- Add a final negative constraint that the generated subject must not resemble
+  any public creator, without naming MrBeast.
 
 ## Text Rules
 

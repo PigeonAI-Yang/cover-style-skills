@@ -15,14 +15,16 @@ The product advantage is not that AI can generate images. It is that the system
 can:
 
 - research a creator's real cover practice,
-- turn that practice into a reusable decision engine,
-- choose the right engine for a user's article or video,
+- turn that practice into a reusable decision engine with multiple popular
+  paradigm cards when the evidence supports them,
+- choose the right engine and internal paradigm for a user's article or video,
 - translate that engine into original cover rules without copying the creator.
 
 ## Layering
 
 - Distillation owns evidence, standards, and child-skill creation.
-- Router owns article/video diagnosis and engine selection.
+- Router owns article/video diagnosis, engine selection, and internal paradigm
+  selection.
 - Production owns private project files, prompt firewall, reference-image
   preflight, output registration, dimension checks, and metrics.
 
@@ -46,11 +48,10 @@ turn the whole product into a PigeonYang-only cover factory.
 ## Operating Rules
 
 - Strategy comes before generation.
-- Route to a child skill before final prompting.
+- Route to a child skill and internal paradigm before final prompting.
 - If no child skill fits, propose a new distillation target instead of forcing a
   weak engine.
 - Copy can be proposed by the Agent, but exact final wording needs approval.
 - Final prompts must translate creator patterns into concrete visual rules and
   avoid public creator-name shortcuts.
 - Generated outputs are not final until registered and dimension-checked.
-

@@ -27,6 +27,80 @@ Do not copy Dan Koe's likeness, exact recurring cover, channel identity, or priv
 - Pre-visual decision: Decide the one sentence the viewer must believe after seeing the cover. If this sentence is weak, fix the sentence before designing.
 - Drift risk: Giant props, money, shock faces, colorful AI visuals, busy screenshots, dashboard collages, or comparison boards move the cover away from Dan Koe.
 
+## Popular Paradigms
+### Paradigm 1: Diagnosis Claim
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: covers where the text names a mistake, false belief,
+  or hidden blocker.
+- Best-fit topics: creator identity, learning, work, focus, business mistakes,
+  AI-workflow diagnosis.
+- Click promise: "I may be doing this wrong, and this person can name the rule."
+- Topic translation: convert the topic into one blunt viewer mistake or belief
+  correction.
+- One-frame story: serious authority figure catches the viewer in a mistaken
+  assumption.
+- First read: huge diagnosis claim.
+- Second read: calm direct face.
+- Text behavior: one sentence with one hinge phrase isolated.
+- Composition: left protected text zone, right close portrait, quiet background.
+- Failure mode: becomes a generic quote card or multi-point lesson.
+- Prompt contract: write one approved diagnosis claim before choosing pose,
+  background, or typography.
+
+### Paradigm 2: Transformation Promise
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: covers that promise a future self, skill shift, or
+  life/work transformation.
+- Best-fit topics: habit systems, skill building, one-person business, writing,
+  self-directed work.
+- Click promise: "This practice changes who I become."
+- Topic translation: convert utility into an identity or future-state shift.
+- One-frame story: expert shows the rule that creates the change.
+- First read: transformation claim.
+- Second read: controlled face and gesture.
+- Text behavior: short sentence with one emotionally loaded phrase.
+- Composition: text and face share dominance; optional blurred proof cue.
+- Failure mode: motivational poster or before/after spectacle.
+- Prompt contract: keep the transformation intellectual and restrained.
+
+### Paradigm 3: Tactical Shortcut
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: covers around prompts, systems, routines, workflows,
+  or tools.
+- Best-fit topics: AI prompts, content systems, productivity workflows, creator
+  operating systems.
+- Click promise: "There is a simpler tactic I can use now."
+- Topic translation: convert the topic into a command, shortcut, or number-backed
+  utility phrase.
+- One-frame story: authority figure gives the viewer the actionable rule.
+- First read: command or numbered shortcut.
+- Second read: face credibility.
+- Text behavior: concise command; optional number; no readable dashboard hero.
+- Composition: left text, right face, blurred UI or workspace behind.
+- Failure mode: software ad, dashboard screenshot, or feature-card collage.
+- Prompt contract: let typography carry the tactic; keep any UI as proof, not
+  the main subject.
+
+### Paradigm 4: Market Shift Warning
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: covers that announce category death, future work
+  shifts, or old-model collapse.
+- Best-fit topics: creator economy, AI disruption, business model change,
+  education or skill-market shifts.
+- Click promise: "An old game is ending; I need to understand the new one."
+- Topic translation: turn the topic into a warning or category-level claim.
+- One-frame story: serious creator acts as witness to a market shift.
+- First read: warning phrase.
+- Second read: severe face.
+- Text behavior: large warning typography, one pale accent at most.
+- Composition: stark portrait plus protected text field.
+- Failure mode: apocalyptic news poster or hype graphic.
+- Prompt contract: express urgency through claim and face, not spectacle.
+
 ## Topic Translation Rules
 - Abstract topics: translate into a viewer belief, mistake, identity shift, or mental model. Do not literalize into a complicated diagram unless the user explicitly asks for a visual explainer variant.
 - Concrete topics: translate into a simple shortcut, command, proof claim, or number-backed utility.
@@ -105,6 +179,19 @@ Use a close-up or chest-up portrait. Preserve the user's identity from reference
 
 ## Reference Image Handling
 Reference images lock identity traits, face traits, hair, clothing preference, product appearance, or brand assets. They do not lock the pose, facial expression, crop, lighting, or background unless the user explicitly says so. For Dan Koe-style covers, convert a casual reference into a calm authority portrait with direct eye contact.
+
+## Identity And Final Prompt Firewall
+- Internal routing may name Dan Koe, but the final GPT Image 2 prompt must not
+  contain `Dan Koe`, `Dan Koe-inspired`, `in the style of Dan Koe`, `like Dan
+  Koe`, or equivalent creator-name shortcuts.
+- Express the pattern through concrete mechanics: belief-level claim, close
+  authority portrait, protected typography, quiet background, restrained accent,
+  and direct eye contact.
+- If a portrait reference is supplied, identity preservation outranks all
+  creator-pattern rules. The subject must preserve the user's identity traits and
+  must not resemble any public creator.
+- Add a final negative constraint that the generated subject must not resemble
+  any public creator, without naming Dan Koe.
 
 ## Text Rules
 Use bold geometric or grotesk sans-serif typography. Use white text on dark backgrounds or black text on white plates. Keep line breaks semantic. Use lowercase for conversational claims; use all caps only for blunt warnings or market-shift claims. Never use more than one accent treatment.

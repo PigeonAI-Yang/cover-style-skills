@@ -34,12 +34,15 @@ but must mark assumptions explicitly.
 3. Extract article promise, reader pain, contradiction, stakes, and strongest open-rate hook.
 4. Write `engine-routing.md`: diagnose the article and recommend suitable child
    skills.
-5. Rank up to three child skills. Prefer existing child skills when their cover
-   generation engine fits the article.
-6. Present a skill recommendation packet: child skill first, then reason,
-   proposed design scheme, proposed copy, and risk.
-7. Ask Yang to approve one child skill and final cover copy.
-8. Build an execution design packet with the approved child skill.
+5. Rank up to three child skill and internal paradigm pairings. Prefer existing
+   child skills when their cover generation engine and a specific internal
+   paradigm fit the article.
+6. Present a skill recommendation packet: child skill and selected internal
+   paradigm first, then reason, proposed design scheme, proposed copy, and risk.
+7. Ask Yang to approve one child skill, one internal paradigm, and final cover
+   copy.
+8. Build an execution design packet with the approved child skill and internal
+   paradigm.
 9. Write the final GPT Image 2 prompt.
 10. Run prompt firewall checks.
 11. Run generation preflight. If identity reference is required but cannot be
@@ -55,8 +58,8 @@ but must mark assumptions explicitly.
 
 ## Mandatory Gate Rules
 - Do not hand-write a final prompt directly from the article or from a chat
-  summary. The final prompt must follow the approved child skill and execution
-  packet.
+  summary. The final prompt must follow the approved child skill, selected
+  internal paradigm, and execution packet.
 - Do not call image generation before the prompt firewall passes.
 - Do not claim identity preservation when the runtime cannot prove that the
   private identity reference image was passed as an explicit image input.
@@ -69,9 +72,12 @@ but must mark assumptions explicitly.
 Each recommendation card must include:
 
 - Recommended child skill
+- Selected internal paradigm
 - Fit score
 - Target canvas and preset
 - Why this child skill is recommended for the article
+- Why this internal paradigm fits
+- Rejected internal paradigms
 - Hook angle
 - Proposed cover copy
 - Visual premise
@@ -82,9 +88,9 @@ Each recommendation card must include:
 - Risk or possible misread
 
 The skill-selection gate is reasoning-first, not mockup-first. Yang approves the
-recommended child skill from the router's article diagnosis, fit reason, design
-scheme, and risk. Low-fidelity mock images are not required and should not be
-used as the default approval gate.
+recommended child skill and internal paradigm from the router's article
+diagnosis, fit reason, design scheme, and risk. Low-fidelity mock images are not
+required and should not be used as the default approval gate.
 
 Final prompts and any user-requested visual comparison prompts must include the
 platform, aspect ratio, target canvas, and safe-area rules explicitly:
@@ -129,13 +135,14 @@ image prompts. Final prompts must pass the prompt firewall.
 ## Approval Gates
 - Copy Approval Gate: final on-cover text requires Yang's approval.
 - Skill Approval Gate: final prompt generation only happens after Yang sees the
-  skill recommendation packet and approves one child skill.
+  skill recommendation packet and approves one child skill plus one internal
+  paradigm.
 - Identity Gate: final prompt must require the fixed PigeonYang character identity.
 - Style Gate: final prompt must keep anime / refined illustration style and forbid photorealistic person replacement.
 - Privacy Gate: project artifacts must not be written inside the product repo.
 - Generation Preflight Gate: final image generation only happens when prompt
-  firewall, identity-reference capability, approved child skill, and execution
-  packet gates pass.
+  firewall, identity-reference capability, approved child skill, selected
+  internal paradigm, and execution packet gates pass.
 - Finalization Gate: final status only happens after generated output
   registration and exact target canvas verification.
 
@@ -183,7 +190,7 @@ Save an artifact:
 python scripts\manage_cover_project.py save-artifact --project-path <project-path> --artifact directions --from-file <directions-file>
 ```
 
-Approve one child skill recommendation and exact cover copy:
+Approve one child skill recommendation, internal paradigm, and exact cover copy:
 
 ```powershell
 python scripts\manage_cover_project.py set-approved --project-path <project-path> --direction-id direction-2 --approved-copy "<copy>"
@@ -231,7 +238,8 @@ python scripts\coverctl.py mark-final --project-path <project-path> --json
 ## Error Handling
 - If no identity reference exists, stop before generation and ask Yang to provide or register one.
 - If copy is not approved, do not write the final prompt.
-- If an approved child skill is missing, do not write the execution packet.
+- If an approved child skill or internal paradigm is missing, do not write the
+  execution packet.
 - If the execution packet is missing, do not write or use a final prompt.
 - If the runtime cannot explicitly pass a required identity reference image,
   output the final prompt and state the missing condition instead of generating a

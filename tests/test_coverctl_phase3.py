@@ -27,8 +27,11 @@ ENGINE_ROUTING = """# Engine Routing
 
 ### Candidate 1
 - Child skill: pigeonyang-cover-style-he-tongxue
+- Candidate internal paradigms: Macro Proof State; Oversized Object Demonstration; Binary Test
+- Selected internal paradigm: Macro Proof State
 - Fit score: 0.92
 - Why it fits: turns abstract AI workflow into a visible proof object.
+- Why this paradigm fits: the article needs one readable proof object instead of a multi-step diagram.
 - What visual promise it creates: messy inputs become article output.
 - Risk: too much machine detail.
 - User-facing recommendation reason: best match for maker proof.
@@ -47,8 +50,11 @@ DIRECTIONS = """# Skill Recommendation Packet
 
 ## Recommendation 1
 - Recommended child skill: pigeonyang-cover-style-he-tongxue
+- Selected internal paradigm: Macro Proof State
 - Fit score: 0.92
 - Why this skill is recommended: the article is about making an AI workflow feel like a real product.
+- Why this paradigm fits: the cover can make one output screen or workbench object the first read.
+- Rejected internal paradigms: Binary Test lacks a true before/after pair; Absurd Utility Action would overplay the article.
 - Target canvas: WeChat public account article main cover, 2350x1000, 2.35:1, x=675..1675
 - Hook angle: messy practice materials become publishable content.
 - Proposed on-cover copy: 这是内容飞轮
@@ -65,7 +71,14 @@ EXECUTION_PACKET = """# Execution Design Packet
 
 ## Copy Approval
 Approved child skill: pigeonyang-cover-style-he-tongxue.
+Selected internal paradigm: Macro Proof State.
 Approved copy: 这是内容飞轮.
+
+## Selected Internal Paradigm
+Macro Proof State: make one proof object or output screen the first read.
+
+## Rejected Internal Paradigms
+Binary Test lacks a true before/after pair; Absurd Utility Action would overplay the article.
 
 ## Article Hook Translation
 Turn abstract AI content workflow into a tactile proof object.
@@ -184,7 +197,7 @@ class CoverctlPhase3Test(unittest.TestCase):
                 DIRECTIONS,
                 "--json",
             )
-            run_coverctl(
+            approved = run_coverctl(
                 root,
                 "set-approved",
                 "--project-path",
@@ -194,6 +207,10 @@ class CoverctlPhase3Test(unittest.TestCase):
                 "--approved-copy",
                 "这是内容飞轮",
                 "--json",
+            )
+            self.assertEqual(
+                json.loads(approved.stdout)["approved_internal_paradigm"],
+                "Macro Proof State",
             )
             run_coverctl(
                 root,

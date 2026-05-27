@@ -15,6 +15,17 @@ Minimum source set:
 - source URL for every sample and process source
 - manifest entry for every downloaded cover or copied source
 
+Evidence tiers:
+
+- Exploratory baseline: 10-15 high-performing covers. Use this to find initial
+  hypotheses and obvious failure boundaries only.
+- Formal creator standard: 30-50 high-performing covers when available, or the
+  creator's full public high-performing set if the channel has fewer relevant
+  videos.
+- Popular paradigm: a recurring high-performing cover move with enough samples
+  to name its own best-fit topics, click promise, composition, text behavior,
+  and failure mode.
+
 Prefer:
 
 - most-viewed videos
@@ -25,6 +36,7 @@ Prefer:
 Avoid:
 
 - single-cover overfitting
+- treating one high-performing pattern as the creator's only pattern
 - copying a person's exact face, pose, branding, or logo
 - treating generic YouTube tactics as creator-specific DNA
 
@@ -59,6 +71,33 @@ For each creator, answer:
 - What must happen to the raw video topic before it becomes a cover?
 - What is the subject's role: host, expert, proof, witness, prize, victim, guide, object, atmosphere?
 - What would make the cover drift into a different creator's engine?
+
+### Popular Paradigms
+
+Distill high-performing samples into multiple internal paradigm cards before
+writing the final design standard. A creator can have several popular paradigms.
+Do not collapse them into one broad engine if the evidence shows distinct topic
+translation, click promise, or composition logic.
+
+For each candidate paradigm, record:
+
+- evidence count and representative samples
+- best-fit topics
+- click promise
+- topic translation rule
+- one-frame story
+- first read and second read
+- text behavior
+- composition
+- failure mode
+- prompt contract
+
+Rule confidence:
+
+- `core`: high-frequency shared DNA across the creator's high-performing covers
+- `paradigm`: repeated but specific to one popular cover type
+- `conditional`: useful for a narrower topic or platform condition
+- `weak`: plausible but under-sampled; do not make it default behavior
 
 ### Topic Translation Rules
 
@@ -190,6 +229,7 @@ Design DNA should be 3-7 rules. If there are more, compress them.
 ### Weak
 
 ## Cover Generation Engine
+## Popular Paradigms
 ## Topic Translation Rules
 ## Cover Storyboard Rules
 ## Design Layout Brief Rules

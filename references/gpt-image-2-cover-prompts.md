@@ -11,6 +11,7 @@ The prompt must specify:
 - target canvas in pixels
 - subject and relationship between elements
 - creator cover generation engine and topic translation decision
+- selected internal paradigm and rejected internal paradigms
 - one-frame cover storyboard
 - design layout brief and copy hierarchy
 - composition and focal hierarchy
@@ -31,6 +32,9 @@ Copy approval:
 
 Topic translation:
 <raw topic -> creator-engine translation; name the click promise, visible stake, proof object, and forbidden drift>
+
+Selected internal paradigm:
+<chosen paradigm card from the child skill, why it fits, and why other internal paradigms were rejected>
 
 Cover storyboard:
 <one-frame story: story moment, visible conflict, subject action, proof object, emotional beat, viewer question, and why this is not a static poster>
@@ -70,6 +74,9 @@ Topic:
 
 Cover generation engine:
 <engine type and why this creator uses it for this topic>
+
+Selected internal paradigm:
+<internal paradigm card chosen for this cover; include rejected internal paradigms if they affected the decision>
 
 Topic translation:
 <how the raw topic was transformed before visual design; for abstract topics, state whether it became a physical event, concept label, transformation proof, suspense gap, utility result, or aesthetic atmosphere>
@@ -132,6 +139,9 @@ Do not:
 - Before generation, save the exact final prompt to a prompt file and run `scripts/verify_prompt_firewall.py`. Use `--forbid` for the distilled creator's name and aliases. If a portrait/reference image is supplied, use `--require-identity-reference`.
 - If `verify_prompt_firewall.py` fails, do not generate. Rewrite the final prompt until the script passes.
 - Do not jump directly from a raw topic to visual style. First translate the topic through the child skill's cover generation engine.
+- Do not use a child skill as one undifferentiated style. Select one internal
+  paradigm from the child skill's `Popular Paradigms` before storyboard and
+  composition. If no internal paradigm fits, route to another child skill.
 - Do not jump from topic translation directly to composition. First build a one-frame cover storyboard. If the storyboard has no action, conflict, proof object, or viewer question, revise the story before writing image instructions.
 - Do not jump from storyboard directly to image prompt. First write a design layout brief and copy hierarchy. If text blocks can be read as an unintended phrase, remove the lower-priority text or move it far away and bind it to an object/zone.
 - A main title must be an isolated semantic unit. State labels must never sit close enough to the main title to be read as one sentence.

@@ -14,6 +14,7 @@ REQUIRED_STANDARD_SECTIONS = [
     "## Evidence Summary",
     "## Core Design DNA",
     "## Cover Generation Engine",
+    "## Popular Paradigms",
     "## Topic Translation Rules",
     "## Cover Storyboard Rules",
     "## Design Layout Brief Rules",
@@ -118,19 +119,20 @@ Missing fields:
 
 1. Extract the relevant design rules from the distilled research below.
 2. Use the cover generation engine and topic translation rules to convert the user's raw topic into this creator's cover logic before choosing visual style.
-3. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
-4. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
-5. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
-6. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
-7. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
-8. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
-9. Produce an Execution Design Packet with copy approval, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
-10. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
-11. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the engine.
-12. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
-13. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `{creator_name}` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
-14. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
-15. Register any generated output, verify dimensions, and mark final only through the workflow gate.
+3. Select one internal paradigm from `Popular Paradigms`. Record why it fits and why the other internal paradigms were rejected. If no paradigm fits, route away from this child skill.
+4. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
+5. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
+6. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
+7. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
+8. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
+9. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
+10. Produce an Execution Design Packet with copy approval, selected internal paradigm, rejected internal paradigms, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
+11. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
+12. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the selected internal paradigm.
+13. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
+14. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `{creator_name}` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
+15. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
+16. Register any generated output, verify dimensions, and mark final only through the workflow gate.
 
 ## Execution Gate
 
@@ -139,6 +141,8 @@ Do not write the final GPT Image 2 prompt, and do not generate an image, unless 
 Required packet fields:
 
 - Copy approval: exact approved on-cover text, or "no text". If the user's title was shortened or rewritten, include the approved candidate. Permission to shorten is not approval of a specific title.
+- Selected internal paradigm: the chosen `Popular Paradigms` card and why it fits this task.
+- Rejected internal paradigms: which other internal paradigms were considered and why they were not chosen.
 - Topic translation: raw topic, creator-engine translation, click promise, visible stake, proof object, and forbidden drift.
 - Cover storyboard: story moment, conflict, subject action, proof object, emotional beat, viewer question, and why it is not a static poster.
 - Design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, platform safe area, and forbidden layouts.
@@ -166,6 +170,8 @@ Continue only after the user approves one exact title or provides replacement te
 ```markdown
 ## Execution Design Packet
 Copy approval:
+Selected internal paradigm:
+Rejected internal paradigms:
 Topic translation:
 Cover storyboard:
 Design layout brief:
@@ -208,15 +214,27 @@ default_prompt: "Write a GPT Image 2 video cover prompt using this distilled cov
 '''
 
 
-def build_skill_json(creator_id: str, version: str) -> str:
+def build_skill_json(creator_id: str, version: str, kind: str) -> str:
     data = {
         "name": f"pigeonyang-cover-style-{creator_id}",
         "version": version,
-        "kind": "child",
+        "kind": kind,
         "package": "pigeonyang-cover-style-skills",
         "package_version": version,
     }
     return json.dumps(data, ensure_ascii=False, indent=2) + "\n"
+
+
+def resolve_skill_kind(skill_dir: Path, requested_kind: str | None) -> str:
+    if requested_kind:
+        return requested_kind
+    metadata = skill_dir / "skill.json"
+    if metadata.exists():
+        data = json.loads(metadata.read_text(encoding="utf-8"))
+        existing_kind = data.get("kind")
+        if existing_kind in {"child", "child-example"}:
+            return existing_kind
+    return "child"
 
 
 def main() -> int:
@@ -226,6 +244,7 @@ def main() -> int:
     parser.add_argument("--source", required=True, type=Path, help="Path to distillation/design-standard.md")
     parser.add_argument("--output-root", required=True, type=Path)
     parser.add_argument("--skill-version", default="0.1.0")
+    parser.add_argument("--kind", choices=["child", "child-example"])
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
 
@@ -240,6 +259,7 @@ def main() -> int:
     skill_dir = output_root / f"pigeonyang-cover-style-{creator_id}"
     if skill_dir.exists() and not args.force:
         raise FileExistsError(f"{skill_dir} already exists; pass --force to overwrite")
+    skill_kind = resolve_skill_kind(skill_dir, args.kind)
 
     standard = source.read_text(encoding="utf-8")
     validate_standard(standard)
@@ -249,7 +269,7 @@ def main() -> int:
         encoding="utf-8",
     )
     (skill_dir / "skill.json").write_text(
-        build_skill_json(creator_id, args.skill_version),
+        build_skill_json(creator_id, args.skill_version, skill_kind),
         encoding="utf-8",
     )
     agents_dir = skill_dir / "agents"

@@ -290,6 +290,7 @@ def command_create(args: argparse.Namespace) -> int:
         "approval": {
             "direction_id": None,
             "approved_child_skill": None,
+            "approved_internal_paradigm": None,
             "approved_copy": None,
             "approved_at": None,
         },
@@ -391,6 +392,7 @@ def command_set_approved(args: argparse.Namespace) -> int:
             "",
             f"- Approved direction: {args.direction_id}",
             f"- Approved child skill: {args.child_skill or ''}",
+            f"- Approved internal paradigm: {args.internal_paradigm or ''}",
             f"- Exact approved on-cover copy: {args.approved_copy}",
             f"- Approval time: {approved_at}",
             f"- Notes: {args.notes or ''}",
@@ -405,6 +407,7 @@ def command_set_approved(args: argparse.Namespace) -> int:
             {
                 "direction_id": args.direction_id,
                 "approved_child_skill": args.child_skill,
+                "approved_internal_paradigm": args.internal_paradigm,
                 "approved_copy": args.approved_copy,
                 "approved_at": approved_at,
             },
@@ -475,6 +478,7 @@ def build_parser() -> argparse.ArgumentParser:
     set_approved.add_argument("--direction-id", required=True)
     set_approved.add_argument("--approved-copy", required=True)
     set_approved.add_argument("--child-skill")
+    set_approved.add_argument("--internal-paradigm")
     set_approved.add_argument("--approved-at")
     set_approved.add_argument("--notes")
     set_approved.set_defaults(func=command_set_approved)

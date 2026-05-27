@@ -72,6 +72,97 @@ neutral subject.
   SaaS launch posters, Dan Koe text-first claims, MrBeast stakes, or cinematic
   documentary stills.
 
+## Popular Paradigms
+### Paradigm 1: Macro Proof State
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: 5G status bar, typewriter key close-up, screen-time
+  UI, price/product detail.
+- Best-fit topics: screen states, device details, measurable product facts,
+  prices, UI proof, small mechanisms.
+- Click promise: "This one visible detail proves the invisible technology or
+  result."
+- Topic translation: convert the topic into one close-up proof state.
+- One-frame story: the proof detail is pushed close enough to judge.
+- First read: screen/object/detail.
+- Second read: hand, device edge, or subject scale.
+- Text behavior: native screen/object text or one attached label.
+- Composition: macro close-up with optional secondary subject.
+- Failure mode: floating headline explaining a detail that is not visible.
+- Prompt contract: choose the real proof detail before adding subject or title.
+
+### Paradigm 2: Oversized Object Demonstration
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: self-typing keyboard, AirDesk, assembly-line machine,
+  large device/product builds.
+- Best-fit topics: prototypes, built products, physical rigs, strange device
+  scale, productized experiments.
+- Click promise: "They actually built a strange thing."
+- Topic translation: convert the topic into one physically large or visually
+  strange object.
+- One-frame story: subject demonstrates or stands behind the object as proof.
+- First read: oversized object.
+- Second read: subject/operator.
+- Text behavior: product name, price, or function word attached to object.
+- Composition: object fills most of frame; subject validates scale.
+- Failure mode: balanced workbench with many small parts.
+- Prompt contract: make the object dominant enough to prove the build.
+
+### Paradigm 3: Binary Test
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: phone fast/slow, fake/real app, visible/invisible or
+  charged/degraded comparison states.
+- Best-fit topics: before/after, real/fake, old/new, fast/slow, expensive/cheap,
+  measured tests.
+- Click promise: "Which side is true or better?"
+- Topic translation: convert the topic into two real states that can be judged.
+- One-frame story: subject holds or frames two objects/screens toward the viewer.
+- First read: the two proof states.
+- Second read: short labels or subject action.
+- Text behavior: one short object-bound label per side.
+- Composition: two clear objects or states, not a table.
+- Failure mode: abstract comparison diagram with no real objects.
+- Prompt contract: only use this when both states have visible proof.
+
+### Paradigm 4: Absurd Utility Action
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: water utility object, powered chair, cow-service
+  intervention, overbuilt everyday solution.
+- Best-fit topics: playful utility, everyday problem solved by a strange object,
+  action-driven invention.
+- Click promise: "Why did they solve this ordinary problem in such an overbuilt
+  way?"
+- Topic translation: convert utility into a real action already happening.
+- One-frame story: subject uses, rides, launches, opens, presses, or tests the
+  invention.
+- First read: action.
+- Second read: strange object.
+- Text behavior: optional short function label.
+- Composition: action frame, not beauty shot.
+- Failure mode: static product render with no use.
+- Prompt contract: show the object performing its function.
+
+### Paradigm 5: Internal Reveal
+- Evidence count: baseline support from the current 15-cover redistill sample;
+  exact frequency pending expanded audit.
+- Representative samples: AirDesk internals, sketch plan, transparent TV,
+  assembly and wiring views.
+- Best-fit topics: hidden mechanisms, product internals, making process, design
+  proof, transparent or opened devices.
+- Click promise: "What is inside this thing, and how did they make it work?"
+- Topic translation: convert the topic into an opened, sketched, transparent, or
+  partially assembled proof.
+- One-frame story: the object is opened or revealed at the moment of proof.
+- First read: internal structure.
+- Second read: subject/hand/label as witness.
+- Text behavior: product name or one large object-bound label.
+- Composition: overhead or oblique internal reveal.
+- Failure mode: generic exploded-view diagram.
+- Prompt contract: reveal real structure, not a decorative diagram.
+
 ## Topic Translation Rules
 - Abstract topics: use this engine only if they can be grounded in a real
   artifact: a working interface, an actual generated output, a physical prototype,

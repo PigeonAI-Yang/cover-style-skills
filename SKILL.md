@@ -46,12 +46,14 @@ execution, while keeping the final output PigeonYang-branded and firewall-safe.
 - Every generated child skill must include `skill.json` with name, semantic version, kind, package, and package_version metadata.
 - Produce two distillation artifacts for every creator: `distillation\research.md` and `distillation\design-standard.md`. The research file stores evidence and reasoning; the design standard is the stable reusable contract used by child skills.
 - Distill the creator's cover generation engine before distilling surface style. The engine explains how a video topic becomes a clickable cover promise, visual event, subject role, text system, and composition.
+- Treat a creator as a bundle of popular paradigms, not a single style. If high-performing samples show multiple recurring cover moves, write separate `Popular Paradigms` cards and route each task to one selected internal paradigm.
 - Do not assume every creator uses a MrBeast-style stakes engine. Classify the engine from evidence. Common engines include `Stakes Engine`, `Authority Engine`, `Transformation Engine`, `Aesthetic Identity Engine`, `Narrative Suspense Engine`, and `Utility Clarity Engine`.
 - Every design standard must include `Cover Generation Engine` and `Topic Translation Rules`. These sections explain how to translate a user's topic into that creator's cover logic before writing image prompts.
+- Every design standard must include `Popular Paradigms`. Each paradigm card must define evidence count, representative samples, best-fit topics, click promise, topic translation, one-frame story, first/second read, text behavior, composition, failure mode, and prompt contract.
 - Every design standard must include `Cover Storyboard Rules`. Prompt writing must build a one-frame cover storyboard before writing final image instructions. The storyboard defines the story moment, conflict, subject task, visible proof, emotional beat, and composition.
 - Every design standard must include `Design Layout Brief Rules` and `Copy Hierarchy Rules`. Prompt writing must define information hierarchy, reading path, text blocks, semantic grouping, and forbidden text adjacency before final image instructions.
 - Research and standardize typography as a protected layout system, not as loose text styling. Every creator standard must define text hierarchy, protected text zones, backing shapes or badges, background isolation, platform-safe placement, and clutter-handling rules.
-- Treat prompt execution as a gated design process, not a memory task. Before writing the final GPT Image 2 prompt or generating an image, produce an `Execution Design Packet` with topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, and a pre-generation self-check.
+- Treat prompt execution as a gated design process, not a memory task. Before writing the final GPT Image 2 prompt or generating an image, produce an `Execution Design Packet` with selected internal paradigm, rejected internal paradigms, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, and a pre-generation self-check.
 - Every `Execution Design Packet` must include an identity and final-prompt firewall check: who the subject must look like, what creator/style words are forbidden in the final prompt, and how the creator pattern will be expressed without naming the creator.
 - The final prompt firewall is not optional. Before direct generation, save the exact final GPT Image 2 prompt to a prompt file and run `scripts/verify_prompt_firewall.py` with the distilled creator's forbidden names/aliases. If a portrait/reference image is supplied, also pass `--require-identity-reference`. Do not generate if the script fails.
 - Do not generate from only a raw topic, title, or user requirements. If the `Execution Design Packet` is missing or fails the self-check, revise the packet first instead of generating.
@@ -76,8 +78,8 @@ execution, while keeping the final output PigeonYang-branded and firewall-safe.
   If `coverctl.py preflight-generation` returns `prompt_only`, deliver the exact
   final prompt and state the missing generation condition instead of generating.
 - For PigeonYang WeChat article covers, always write `engine-routing.md` before `directions.md`. The router must recommend suitable child skills and explain fit, risk, and rejected engines.
-- For PigeonYang WeChat article covers, produce a child-skill recommendation packet before final prompt writing. Each card must start with the recommended child skill and include fit score, reason, proposed design scheme, proposed copy, risk, and visible composition.
-- For PigeonYang WeChat article covers, the approval object is the child skill, not an abstract direction label. Prefer existing child skills such as `pigeonyang-cover-style-dan-koe`, `pigeonyang-cover-style-he-tongxue`, `pigeonyang-cover-style-yingshijufeng`, or `pigeonyang-cover-style-mrbeast` when their cover generation engine fits the article.
+- For PigeonYang WeChat article covers, produce a child-skill recommendation packet before final prompt writing. Each card must start with the recommended child skill and selected internal paradigm, then include fit score, reason, proposed design scheme, proposed copy, risk, and visible composition.
+- For PigeonYang WeChat article covers, the approval object is the child skill plus selected internal paradigm, not an abstract direction label. Prefer existing child skills such as `pigeonyang-cover-style-dan-koe`, `pigeonyang-cover-style-he-tongxue`, `pigeonyang-cover-style-yingshijufeng`, or `pigeonyang-cover-style-mrbeast` when their cover generation engine and internal paradigm fit the article.
 - Do not ask Yang to choose from generic visual directions. Recommend the child skill directly from the article diagnosis. Low-fidelity mock images are not required for approval and should not be used by default.
 - Do not rely on the model remembering dimensions. Every direction reference prompt and every final prompt must explicitly state `WeChat public account article main cover`, `2.35:1`, `target canvas 2350x1000 pixels`, and central square-safe zone `x=675..1675`.
 - Child skill names are internal routing labels only. Do not put public creator names, `inspired by`, or `in the style of` wording in generated image prompts. Translate each child skill engine into concrete visual rules.
@@ -143,6 +145,7 @@ Produce `distillation\research.md` with these sections:
 ## Process Sources
 ## Design DNA
 ## Cover Generation Engine
+## Popular Paradigms
 ## Topic Translation Rules
 ## Cover Storyboard Rules
 ## Design Layout Brief Rules
@@ -172,6 +175,17 @@ Cover Generation Engine must answer:
 - How does the creator turn a topic into a click promise?
 - What is the subject's role: host, proof, witness, prize, victim, guide, expert, object, or atmosphere?
 - What must happen before visual style is selected?
+
+Popular Paradigms must answer:
+
+- What recurring high-performing cover moves exist under this creator?
+- How many samples support each paradigm?
+- Which samples are representative?
+- What topics fit each paradigm?
+- What click promise does each paradigm create?
+- What one-frame story and first/second read define the paradigm?
+- What text behavior and composition rules distinguish the paradigm?
+- What failure mode means the task should choose another paradigm or child skill?
 
 Topic Translation Rules must answer:
 
@@ -242,16 +256,19 @@ When the user asks for a cover in a distilled creator style:
    - user's own portrait/reference image, if required
    - must-include or must-avoid elements
    - brand constraints
-4. Use the child skill's `Cover Generation Engine` and `Topic Translation Rules` to translate the raw topic into the creator's cover logic.
-5. Build a one-frame `Cover Storyboard` before final prompting. Do not skip it. If the storyboard is weak, revise the story instead of decorating the frame.
-6. Build a `Design Layout Brief` and `Copy Hierarchy` before final prompting. Do not skip them. If text blocks can be misread as one phrase, remove or reposition the lower-priority text before generating.
-7. If the exact on-cover text is not supplied, or if you shorten/rewrite the user's title, run a `Copy Approval Gate` before final prompt writing:
+4. Use the child skill's `Cover Generation Engine`, `Popular Paradigms`, and `Topic Translation Rules` to translate the raw topic into the creator's cover logic.
+5. Select one internal paradigm from `Popular Paradigms`. Record rejected internal paradigms and why they do not fit. If no paradigm fits, route away from this child skill.
+6. Build a one-frame `Cover Storyboard` before final prompting. Do not skip it. If the storyboard is weak, revise the story instead of decorating the frame.
+7. Build a `Design Layout Brief` and `Copy Hierarchy` before final prompting. Do not skip them. If text blocks can be misread as one phrase, remove or reposition the lower-priority text before generating.
+8. If the exact on-cover text is not supplied, or if you shorten/rewrite the user's title, run a `Copy Approval Gate` before final prompt writing:
    - propose 3-5 candidate titles
    - explain what each preserves and what it drops
    - recommend one
    - ask the user to approve one exact title or provide their own
    - do not generate until the exact title is approved
-8. Produce an `Execution Design Packet` using `references/gpt-image-2-cover-prompts.md`. The packet must include:
+9. Produce an `Execution Design Packet` using `references/gpt-image-2-cover-prompts.md`. The packet must include:
+   - selected internal paradigm
+   - rejected internal paradigms
    - topic translation
    - cover storyboard
    - design layout brief
@@ -259,15 +276,15 @@ When the user asks for a cover in a distilled creator style:
    - reference handling
    - identity and final-prompt firewall
    - pre-generation self-check
-9. If any self-check item fails, revise the packet before writing the final image prompt.
-10. Write a GPT Image 2 prompt packet using `references/gpt-image-2-cover-prompts.md`; include the exact target canvas in pixels. Before generation, remove the distilled creator's name and any style/inspired-by wording from the final prompt.
-11. Save the exact final prompt text to a prompt file and run `scripts/verify_prompt_firewall.py`. Use `--forbid` for the distilled creator display name and common aliases; use `--require-identity-reference` when the user supplied a portrait/reference image. Do not continue if the script fails.
-12. After the prompt firewall passes, do not ask for another generation
+10. If any self-check item fails, revise the packet before writing the final image prompt.
+11. Write a GPT Image 2 prompt packet using `references/gpt-image-2-cover-prompts.md`; include the exact target canvas in pixels. Before generation, remove the distilled creator's name and any style/inspired-by wording from the final prompt.
+12. Save the exact final prompt text to a prompt file and run `scripts/verify_prompt_firewall.py`. Use `--forbid` for the distilled creator display name and common aliases; use `--require-identity-reference` when the user supplied a portrait/reference image. Do not continue if the script fails.
+13. After the prompt firewall passes, do not ask for another generation
     confirmation. If the runtime has an image-generation backend that can satisfy
     all required inputs, including identity references, generate directly.
-13. If the runtime cannot satisfy required inputs, output the exact final prompt
+14. If the runtime cannot satisfy required inputs, output the exact final prompt
     instead of generating and clearly state the missing generation condition.
-14. After generation, verify the output dimensions with `scripts/verify_image_dimensions.py`. If the result does not match the requested ratio/canvas, do not report it as complete; regenerate or ask whether to crop/resize.
+15. After generation, verify the output dimensions with `scripts/verify_image_dimensions.py`. If the result does not match the requested ratio/canvas, do not report it as complete; regenerate or ask whether to crop/resize.
 
 ### 6. PigeonYang WeChat Article Cover Workflow
 
@@ -367,6 +384,7 @@ First write `engine-routing.md`:
 
 - article diagnosis
 - candidate child skills
+- candidate internal paradigms under each child skill
 - fit score
 - why each fits
 - what visual promise each creates
@@ -378,8 +396,10 @@ Before final prompt writing, produce candidate child-skill recommendation cards.
 Each card must include:
 
 - recommended child skill
+- selected internal paradigm
 - fit score
-- why this child skill is recommended for this article
+- why this child skill and paradigm are recommended for this article
+- rejected internal paradigms
 - hook angle
 - proposed on-cover copy
 - visual premise
@@ -414,8 +434,9 @@ outputs\direction-references\
 ```
 
 Do not proceed from generic prose directions. Proceed from a concrete child-skill
-recommendation: child skill, fit reason, design scheme, copy, and risk. Do not
-generate low-fidelity previews unless Yang asks for them.
+recommendation: child skill, selected internal paradigm, fit reason, design
+scheme, copy, and risk. Do not generate low-fidelity previews unless Yang asks
+for them.
 
 Every visual reference prompt must explicitly include:
 
@@ -466,6 +487,8 @@ same packet and ask for approval.
 After the user approves one child skill, produce an `Execution Design Packet` with:
 
 - approved copy
+- approved child skill and selected internal paradigm
+- rejected internal paradigms
 - article hook translation
 - one-frame cover storyboard
 - design layout brief
@@ -543,6 +566,8 @@ For prompt-only output, return:
 ```markdown
 ## Execution Design Packet
 Copy approval:
+Selected internal paradigm:
+Rejected internal paradigms:
 Topic translation:
 Cover storyboard:
 Design layout brief:

@@ -36,6 +36,102 @@ Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, lo
 - Pre-visual decision: choose the stake before choosing style. The stake must be money, time, quantity, danger, boundary, crowd, luxury object, failure, reward, or impossible scale.
 - Drift risk: if the cover becomes a flowchart, course poster, calm expert portrait, SaaS dashboard, generic tech UI, or abstract concept card, it has left the MrBeast engine.
 
+## Popular Paradigms
+
+### Paradigm 1: Price Ladder / Scale Gap
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: cheap vs expensive, small vs massive, weak vs extreme,
+  low-output vs high-output covers.
+- Best-fit topics: comparisons, automation gains, output scale, budget tiers,
+  quality gaps.
+- Click promise: "How different are the two extremes?"
+- Topic translation: convert the topic into two visible endpoints with one
+  measurable gap.
+- One-frame story: subject stands between or reacts to the extreme contrast.
+- First read: the scale gap.
+- Second read: subject action or reaction.
+- Text behavior: huge numeric labels only when they sharpen the gap.
+- Composition: two extremes, no middle steps.
+- Failure mode: feature matrix, dashboard comparison, or infographic.
+- Prompt contract: show two physical endpoints and make the result judgeable in
+  one second.
+
+### Paradigm 2: Survival / Endurance
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: time pressure, isolation, last-to-leave, or survival
+  environment covers.
+- Best-fit topics: persistence, stress tests, hard constraints, long-running
+  experiments.
+- Click promise: "Can they last under this condition?"
+- Topic translation: convert the topic into a visible physical constraint.
+- One-frame story: subject is inside the constraint while the timer/rule is
+  obvious.
+- First read: the condition or timer.
+- Second read: subject under pressure.
+- Text behavior: one progress label such as day/time count.
+- Composition: subject physically contained by rule, environment, or boundary.
+- Failure mode: generic drama without a visible rule.
+- Prompt contract: make the endurance condition visible before styling.
+
+### Paradigm 3: Rule-Bound Challenge
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: red circle, line, button, platform, target, or
+  forbidden-zone challenge covers.
+- Best-fit topics: one-rule experiments, constraints, competitions, AI/workflow
+  tasks that can become a simple physical rule.
+- Click promise: "What happens if this rule is followed or broken?"
+- Topic translation: convert the topic into one visible rule object.
+- One-frame story: subject triggers, avoids, crosses, or defends the rule.
+- First read: the rule boundary.
+- Second read: subject action.
+- Text behavior: optional label only if the rule is not obvious.
+- Composition: one rule object dominates; no hidden instructions.
+- Failure mode: rule only explained in title, not visible in image.
+- Prompt contract: draw the rule as a physical boundary or object.
+
+### Paradigm 4: Group Competition
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: many people or teams organized around one simple
+  rule, prize, or outcome.
+- Best-fit topics: crowd tests, user groups, creator comparisons, social scale.
+- Click promise: "Who wins under this simple rule?"
+- Topic translation: convert the topic into participants plus one shared stake.
+- One-frame story: crowd geometry proves scale while subject acts as referee or
+  witness.
+- First read: crowd scale or prize.
+- Second read: host/subject role.
+- Text behavior: usually no text or one prize label.
+- Composition: simplified crowd geometry; one clear focal stake.
+- Failure mode: noisy group photo with no rule.
+- Prompt contract: use people as scale, not decoration.
+
+### Paradigm 5: Prize Fantasy / Impossible Object
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: desirable object, place, reward, vehicle, island,
+  room, or impossible prize covers.
+- Best-fit topics: reward, transformation result, output prize, luxury object,
+  absurd productized promise.
+- Click promise: "Can they really get/build/give away this thing?"
+- Topic translation: convert the value proposition into one desirable object or
+  impossible-looking result.
+- One-frame story: subject presents, reacts to, or stands inside the prize.
+- First read: prize object.
+- Second read: subject reaction.
+- Text behavior: optional value/price label.
+- Composition: prize dominates; subject validates scale/desirability.
+- Failure mode: subtle product ad or generic luxury mood.
+- Prompt contract: make the prize instantly legible and physically present.
+
 ## Topic Translation Rules
 
 - Abstract topics: make them physical. Systems become giant machines or arenas; loops become visible devices; efficiency becomes extreme output; knowledge becomes a challenge or proof scene.
@@ -145,6 +241,20 @@ Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, lo
 - Prompt wording must include both:
   - `Preserve identity traits from the reference image: ...`
   - `Do not copy the reference pose; use this new hook-driven action: ...`
+
+## Identity And Final Prompt Firewall
+
+- Internal routing may name MrBeast, but the final GPT Image 2 prompt must not
+  contain `MrBeast`, `MrBeast-inspired`, `in the style of MrBeast`, `like
+  MrBeast`, or equivalent creator-name shortcuts.
+- Express the pattern through concrete mechanics: visible stake, event frame,
+  subject action inside the premise, commercial realism, protected scale text,
+  and one clear outcome question.
+- If a portrait reference is supplied, identity preservation outranks all
+  creator-pattern rules. The subject must preserve the user's identity traits and
+  must not resemble any public creator.
+- Add a final negative constraint that the generated subject must not resemble
+  any public creator, without naming MrBeast.
 
 ## Text Rules
 

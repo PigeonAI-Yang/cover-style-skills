@@ -32,6 +32,118 @@ Do not use it to copy Tim's likeness, the 影视飓风 logo, exact covers, exact
 - Pre-visual decision: choose the shell and proof object before choosing composition or style.
 - Drift risk: if the cover becomes a MrBeast extreme challenge, SaaS dashboard, lecture slide, flowchart, generic tech poster, or clean product ad, it has left the 影视飓风 engine.
 
+## Popular Paradigms
+
+### Paradigm 1: Hidden World Proof
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: unusual place, hidden industry, taboo, or rare-access
+  covers.
+- Best-fit topics: investigations, behind-the-scenes systems, hidden mechanisms,
+  social/tech worlds ordinary viewers cannot enter.
+- Click promise: "What is inside this hidden world?"
+- Topic translation: wrap the hard-core topic in a public shell and visible
+  location/object.
+- One-frame story: host has entered or revealed the place.
+- First read: place, large shell word, or strange proof object.
+- Second read: host as guide/witness.
+- Text behavior: one noun, taboo label, or no text.
+- Composition: cinematic real location with protected short text.
+- Failure mode: generic background with pasted influencer face.
+- Prompt contract: prove access through a real scene before adding typography.
+
+### Paradigm 2: Test / Comparison With Real People
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: machine vs person, device test, human comparison, old
+  vs new result covers.
+- Best-fit topics: experiments, devices, AI vs human, tech result comparisons.
+- Click promise: "What happened when this was tested for real?"
+- Topic translation: convert the topic into a visible test with people, devices,
+  or result objects.
+- One-frame story: host/guest interacts with the test object.
+- First read: test scene or comparison object.
+- Second read: host/guest reaction.
+- Text behavior: short comparison phrase, number, or `VS`.
+- Composition: people and proof object in the same real scene.
+- Failure mode: sterile spec table or lab stock image.
+- Prompt contract: make the test feel witnessed, not diagrammed.
+
+### Paradigm 3: Money / Number As Proof
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: amount, age, price, output, view count, or scale
+  number covers.
+- Best-fit topics: price, cost, scale, age, result metrics, business or industry
+  proof.
+- Click promise: "Why is this number so high, low, or strange?"
+- Topic translation: attach the number to a real person, object, or place.
+- One-frame story: host reveals or reacts to the number as evidence.
+- First read: number.
+- Second read: attached proof object/person.
+- Text behavior: huge number with unit; no extra sentence.
+- Composition: number visually bound to proof.
+- Failure mode: floating statistic with no scene.
+- Prompt contract: bind every number to visible evidence.
+
+### Paradigm 4: Tech Arrival / Controlled Room
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: AI, camera, software, lab, studio, control-room, or
+  future-tech covers.
+- Best-fit topics: emerging technology, AI workflows, camera gear, production
+  systems, controlled experiments.
+- Click promise: "This new technology is real and a little unsettling."
+- Topic translation: turn tech into a real room, device, screen, or controlled
+  setup.
+- One-frame story: host operates or witnesses the system.
+- First read: real controlled environment or machine.
+- Second read: host's guide role.
+- Text behavior: optional short factual or uneasy label.
+- Composition: cinematic control room, practical screens, real equipment.
+- Failure mode: cyberpunk hologram or SaaS poster.
+- Prompt contract: use practical tech evidence, not abstract neon.
+
+### Paradigm 5: Guest / Authority Encounter
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: guest, expert, famous person, creator, or authority
+  pair covers.
+- Best-fit topics: interviews, expert access, public figures, creator or company
+  stories.
+- Click promise: "What did this credible person reveal?"
+- Topic translation: make the person or name the proof object.
+- One-frame story: host and guest appear as a real encounter.
+- First read: guest/name.
+- Second read: host relationship or reaction.
+- Text behavior: guest name or one emotional phrase.
+- Composition: guest and host pair with a clear question.
+- Failure mode: generic podcast two-head cover.
+- Prompt contract: make the encounter itself the proof.
+
+### Paradigm 6: Brand / Place Reveal
+
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: company, studio, office, new building, production
+  base, or place reveal covers.
+- Best-fit topics: organization stories, studio/process reveals, company
+  infrastructure, place-based hooks.
+- Click promise: "What is inside this place or brand system?"
+- Topic translation: use the place as the public shell and proof.
+- One-frame story: host presents or enters the place.
+- First read: place/building/brand cue.
+- Second read: host action.
+- Text behavior: one reveal label or no text.
+- Composition: place dominates; host validates access.
+- Failure mode: corporate brochure or real-estate poster.
+- Prompt contract: frame the place as evidence of a story.
+
 ## Topic Translation Rules
 
 - Abstract topics: wrap them in a public shell and a visible proof scene. The shell can be a question, hidden world, person, object, number, location, or unsettling result.
@@ -144,6 +256,20 @@ Do not use it to copy Tim's likeness, the 影视飓风 logo, exact covers, exact
 - Do not copy the reference pose unless the user explicitly asks.
 - Use a new hook-driven action: pointing to proof, holding device/phone/card, standing inside real scene, reacting to result, guiding viewer through place, or operating equipment.
 - If the user provides a product/device/location reference, keep its key shape and visible function but adapt lighting and composition to the shell.
+
+## Identity And Final Prompt Firewall
+
+- Internal routing may name 影视飓风, Tim, or the source channel for analysis, but
+  the final GPT Image 2 prompt must not contain `影视飓风`, `Tim`, `影视飓风-inspired`,
+  `in the style of 影视飓风`, `like 影视飓风`, or equivalent creator-name shortcuts.
+- Express the pattern through concrete mechanics: public-facing shell, real proof
+  object/person/place/number, documentary frame, host-as-guide action, short
+  protected Bilibili text, and cinematic realism.
+- If a portrait reference is supplied, identity preservation outranks all
+  creator-pattern rules. The subject must preserve the user's identity traits and
+  must not resemble any public creator.
+- Add a final negative constraint that the generated subject must not resemble
+  any public creator, without naming 影视飓风 or Tim.
 
 ## Text Rules
 

@@ -34,12 +34,15 @@ translation, not crude placeholders that make the choice harder.
 
 ## Recommendation 1 Preview Prompt
 - Recommended child skill:
+- Selected internal paradigm:
 - Recommendation reason this image should test:
 
 ## Recommendation 2 Preview Prompt
 - Recommended child skill:
+- Selected internal paradigm:
 - Recommendation reason this image should test:
 
 ## Recommendation 3 Preview Prompt
 - Recommended child skill:
+- Selected internal paradigm:
 - Recommendation reason this image should test:

@@ -53,19 +53,20 @@ Missing fields:
 
 1. Extract the relevant design rules from the distilled research below.
 2. Use the cover generation engine and topic translation rules to convert the user's raw topic into this creator's cover logic before choosing visual style.
-3. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
-4. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
-5. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
-6. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
-7. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
-8. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
-9. Produce an Execution Design Packet with copy approval, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
-10. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
-11. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the engine.
-12. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
-13. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `Dan Koe` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
-14. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
-15. Register any generated output, verify dimensions, and mark final only through the workflow gate.
+3. Select one internal paradigm from `Popular Paradigms`. Record why it fits and why the other internal paradigms were rejected. If no paradigm fits, route away from this child skill.
+4. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
+5. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
+6. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
+7. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
+8. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
+9. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
+10. Produce an Execution Design Packet with copy approval, selected internal paradigm, rejected internal paradigms, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
+11. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
+12. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the selected internal paradigm.
+13. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
+14. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `Dan Koe` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
+15. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
+16. Register any generated output, verify dimensions, and mark final only through the workflow gate.
 
 ## Execution Gate
 
@@ -74,6 +75,8 @@ Do not write the final GPT Image 2 prompt, and do not generate an image, unless 
 Required packet fields:
 
 - Copy approval: exact approved on-cover text, or "no text". If the user's title was shortened or rewritten, include the approved candidate. Permission to shorten is not approval of a specific title.
+- Selected internal paradigm: the chosen `Popular Paradigms` card and why it fits this task.
+- Rejected internal paradigms: which other internal paradigms were considered and why they were not chosen.
 - Topic translation: raw topic, creator-engine translation, click promise, visible stake, proof object, and forbidden drift.
 - Cover storyboard: story moment, conflict, subject action, proof object, emotional beat, viewer question, and why it is not a static poster.
 - Design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, platform safe area, and forbidden layouts.
@@ -101,6 +104,8 @@ Continue only after the user approves one exact title or provides replacement te
 ```markdown
 ## Execution Design Packet
 Copy approval:
+Selected internal paradigm:
+Rejected internal paradigms:
 Topic translation:
 Cover storyboard:
 Design layout brief:
@@ -126,8 +131,8 @@ post_generation_check:
 ## Iteration Plan
 <2-3 likely improvements after first image>
 
-Generation gate:
-<generate directly if preflight passes; otherwise prompt_only with blocker>
+## Generation Gate
+<generate directly if preflight passes; otherwise output prompt_only with blocker>
 ```
 
 ## Design Standard
@@ -160,6 +165,80 @@ Do not copy Dan Koe's likeness, exact recurring cover, channel identity, or priv
 - Subject role: Expert and witness. The subject looks like they have seen the pattern and are telling the viewer directly.
 - Pre-visual decision: Decide the one sentence the viewer must believe after seeing the cover. If this sentence is weak, fix the sentence before designing.
 - Drift risk: Giant props, money, shock faces, colorful AI visuals, busy screenshots, dashboard collages, or comparison boards move the cover away from Dan Koe.
+
+## Popular Paradigms
+### Paradigm 1: Diagnosis Claim
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: covers where the text names a mistake, false belief,
+  or hidden blocker.
+- Best-fit topics: creator identity, learning, work, focus, business mistakes,
+  AI-workflow diagnosis.
+- Click promise: "I may be doing this wrong, and this person can name the rule."
+- Topic translation: convert the topic into one blunt viewer mistake or belief
+  correction.
+- One-frame story: serious authority figure catches the viewer in a mistaken
+  assumption.
+- First read: huge diagnosis claim.
+- Second read: calm direct face.
+- Text behavior: one sentence with one hinge phrase isolated.
+- Composition: left protected text zone, right close portrait, quiet background.
+- Failure mode: becomes a generic quote card or multi-point lesson.
+- Prompt contract: write one approved diagnosis claim before choosing pose,
+  background, or typography.
+
+### Paradigm 2: Transformation Promise
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: covers that promise a future self, skill shift, or
+  life/work transformation.
+- Best-fit topics: habit systems, skill building, one-person business, writing,
+  self-directed work.
+- Click promise: "This practice changes who I become."
+- Topic translation: convert utility into an identity or future-state shift.
+- One-frame story: expert shows the rule that creates the change.
+- First read: transformation claim.
+- Second read: controlled face and gesture.
+- Text behavior: short sentence with one emotionally loaded phrase.
+- Composition: text and face share dominance; optional blurred proof cue.
+- Failure mode: motivational poster or before/after spectacle.
+- Prompt contract: keep the transformation intellectual and restrained.
+
+### Paradigm 3: Tactical Shortcut
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: covers around prompts, systems, routines, workflows,
+  or tools.
+- Best-fit topics: AI prompts, content systems, productivity workflows, creator
+  operating systems.
+- Click promise: "There is a simpler tactic I can use now."
+- Topic translation: convert the topic into a command, shortcut, or number-backed
+  utility phrase.
+- One-frame story: authority figure gives the viewer the actionable rule.
+- First read: command or numbered shortcut.
+- Second read: face credibility.
+- Text behavior: concise command; optional number; no readable dashboard hero.
+- Composition: left text, right face, blurred UI or workspace behind.
+- Failure mode: software ad, dashboard screenshot, or feature-card collage.
+- Prompt contract: let typography carry the tactic; keep any UI as proof, not
+  the main subject.
+
+### Paradigm 4: Market Shift Warning
+- Evidence count: baseline support from the current 12-cover sample; exact
+  frequency pending expanded audit.
+- Representative samples: covers that announce category death, future work
+  shifts, or old-model collapse.
+- Best-fit topics: creator economy, AI disruption, business model change,
+  education or skill-market shifts.
+- Click promise: "An old game is ending; I need to understand the new one."
+- Topic translation: turn the topic into a warning or category-level claim.
+- One-frame story: serious creator acts as witness to a market shift.
+- First read: warning phrase.
+- Second read: severe face.
+- Text behavior: large warning typography, one pale accent at most.
+- Composition: stark portrait plus protected text field.
+- Failure mode: apocalyptic news poster or hype graphic.
+- Prompt contract: express urgency through claim and face, not spectacle.
 
 ## Topic Translation Rules
 - Abstract topics: translate into a viewer belief, mistake, identity shift, or mental model. Do not literalize into a complicated diagram unless the user explicitly asks for a visual explainer variant.
@@ -238,14 +317,20 @@ Do not copy Dan Koe's likeness, exact recurring cover, channel identity, or priv
 Use a close-up or chest-up portrait. Preserve the user's identity from reference images, but redesign pose and expression for the hook. Preferred expression is serious, focused, restrained, and slightly confrontational. Use hands only when they communicate thinking, explanation, or conviction. Keep clothing simple and neutral.
 
 ## Reference Image Handling
-Reference images lock identity traits, face traits, hair, clothing preference, product appearance, or brand assets. They do not lock the pose, facial expression, crop, lighting, or background unless the user explicitly says so. For this pattern, convert a casual reference into a calm authority portrait with direct eye contact. The final image subject must resemble the user's supplied reference and must not resemble any public creator.
+Reference images lock identity traits, face traits, hair, clothing preference, product appearance, or brand assets. They do not lock the pose, facial expression, crop, lighting, or background unless the user explicitly says so. For Dan Koe-style covers, convert a casual reference into a calm authority portrait with direct eye contact.
 
 ## Identity And Final Prompt Firewall
-
-- Internal skill routing may name Dan Koe, but the final GPT Image 2 prompt must not contain `Dan Koe`, `Dan Koe-inspired`, `in the style of Dan Koe`, `like Dan Koe`, or any equivalent creator-name shortcut.
-- Express the pattern through concrete cover mechanics: serious authority portrait, one blunt claim, minimal studio composition, protected title field, restrained grayscale palette, and one accent at most.
-- If a portrait reference is supplied, identity preservation outranks all creator-pattern rules. The subject must preserve the user's face, hair, glasses, clothing cues, body type, and supplied identity traits.
-- Add a negative constraint that the generated subject must not resemble any public creator, without naming Dan Koe in the final prompt.
+- Internal routing may name Dan Koe, but the final GPT Image 2 prompt must not
+  contain `Dan Koe`, `Dan Koe-inspired`, `in the style of Dan Koe`, `like Dan
+  Koe`, or equivalent creator-name shortcuts.
+- Express the pattern through concrete mechanics: belief-level claim, close
+  authority portrait, protected typography, quiet background, restrained accent,
+  and direct eye contact.
+- If a portrait reference is supplied, identity preservation outranks all
+  creator-pattern rules. The subject must preserve the user's identity traits and
+  must not resemble any public creator.
+- Add a final negative constraint that the generated subject must not resemble
+  any public creator, without naming Dan Koe.
 
 ## Text Rules
 Use bold geometric or grotesk sans-serif typography. Use white text on dark backgrounds or black text on white plates. Keep line breaks semantic. Use lowercase for conversational claims; use all caps only for blunt warnings or market-shift claims. Never use more than one accent treatment.

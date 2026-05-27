@@ -15,8 +15,11 @@ Target: `{{TARGET_CANVAS}}`
 
 ### Candidate 1
 - Child skill:
+- Candidate internal paradigms:
+- Selected internal paradigm:
 - Fit score:
 - Why it fits:
+- Why this paradigm fits:
 - What visual promise it creates:
 - Risk:
 - User-facing recommendation reason:
@@ -24,8 +27,11 @@ Target: `{{TARGET_CANVAS}}`
 
 ### Candidate 2
 - Child skill:
+- Candidate internal paradigms:
+- Selected internal paradigm:
 - Fit score:
 - Why it fits:
+- Why this paradigm fits:
 - What visual promise it creates:
 - Risk:
 - User-facing recommendation reason:
@@ -33,8 +39,11 @@ Target: `{{TARGET_CANVAS}}`
 
 ### Candidate 3
 - Child skill:
+- Candidate internal paradigms:
+- Selected internal paradigm:
 - Fit score:
 - Why it fits:
+- Why this paradigm fits:
 - What visual promise it creates:
 - Risk:
 - User-facing recommendation reason:
@@ -47,8 +56,9 @@ Target: `{{TARGET_CANVAS}}`
 ## Recommendation
 
 Present the user-facing decision as child-skill recommendation cards in
-`directions.md`: child skill first, then reason, design scheme, copy, and risk.
-Do not ask Yang to choose from this internal routing record alone.
+`directions.md`: child skill and selected internal paradigm first, then reason,
+design scheme, copy, and risk. Do not ask Yang to choose from this internal
+routing record alone.
 
 ## Firewall Note
 Child skill names and public creator names are internal routing notes only.

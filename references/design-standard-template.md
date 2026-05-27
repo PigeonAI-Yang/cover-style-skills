@@ -37,6 +37,21 @@ distillation\design-standard.md
 - Pre-visual decision:
 - Drift risk:
 
+## Popular Paradigms
+### Paradigm 1: <name>
+- Evidence count:
+- Representative samples:
+- Best-fit topics:
+- Click promise:
+- Topic translation:
+- One-frame story:
+- First read:
+- Second read:
+- Text behavior:
+- Composition:
+- Failure mode:
+- Prompt contract:
+
 ## Topic Translation Rules
 - Abstract topics:
 - Concrete topics:
@@ -104,6 +119,12 @@ distillation\design-standard.md
 - Use imperative, prompt-ready language.
 - Child skills should embed this design standard, not the full research artifact, unless the user asks for audit details.
 - Include a `Cover Generation Engine` section. It must classify the creator's actual engine from evidence instead of assuming every creator uses a stakes/challenge model.
+- Include a `Popular Paradigms` section. It must split a creator's high-performing
+  covers into evidence-backed internal paradigm cards when multiple successful
+  cover moves exist. Do not force one creator into a single operational pattern.
+  Each paradigm needs evidence count, representative samples, best-fit topics,
+  click promise, topic translation, one-frame story, first/second read, text
+  behavior, composition, failure mode, and prompt contract.
 - Include a `Topic Translation Rules` section. It must define how user topics are transformed before visual composition. For MrBeast-like creators, abstract topics usually become physical stakes, giant machines, extreme outcomes, rewards, loss, or challenge scenes. For other creators, the translation may be authority, transformation, aesthetic identity, suspense, or utility clarity.
 - Include a `Cover Storyboard Rules` section. It must force title-to-one-frame-story work before prompt writing: visible conflict, subject action, proof object, viewer question, and forbidden static compositions.
 - Include a `Design Layout Brief Rules` section. It must force flat-design planning before prompt writing: information hierarchy, layout zones, reading path, visual weight, negative space, and forbidden layouts.

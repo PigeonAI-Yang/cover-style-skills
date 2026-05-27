@@ -87,15 +87,16 @@ Implementation status: covered by `create_cover_project` for MVP creation.
 
 ### `save_directions`
 Writes `directions.md` containing the child-skill recommendation packet: child
-skill, fit score, recommendation reason, proposed design scheme, proposed copy,
-risk, and canvas constraints.
+skill, selected internal paradigm, fit score, recommendation reason, proposed
+design scheme, proposed copy, risk, and canvas constraints.
 
 Implementation: `scripts/manage_cover_project.py save-artifact --artifact directions`.
 
 Phase 3 validation:
 - Refuse if `engine-routing.md` is missing.
-- Require each recommendation to name a child skill, fit score, proposed copy,
-  canvas preset, target canvas, safe area, design scheme, and risk.
+- Require each recommendation to name a child skill, selected internal paradigm,
+  fit score, proposed copy, canvas preset, target canvas, safe area, design
+  scheme, and risk.
 - Require at least one recommended child skill and no more than three.
 
 ### `save_approved_direction`
@@ -105,8 +106,9 @@ Implementation: `scripts/manage_cover_project.py set-approved`.
 
 Phase 3 validation:
 - `direction_id` must resolve to a recommendation in `directions.md`.
-- The approved record must store the selected child skill and exact on-cover
-  copy. The approval object is the child skill, not a generic visual direction.
+- The approved record must store the selected child skill, selected internal
+  paradigm, and exact on-cover copy. The approval object is the child skill plus
+  internal paradigm, not a generic visual direction.
 
 ### `save_execution_packet`
 Writes `execution-packet.md`.
@@ -114,13 +116,13 @@ Writes `execution-packet.md`.
 Implementation: `scripts/manage_cover_project.py save-artifact --artifact execution-packet`.
 
 Phase 3 validation:
-- Refuse if no approved child skill exists.
-- Require packet sections for copy approval, topic translation, cover storyboard,
-  design layout brief, copy hierarchy, reference handling, identity and
-  final-prompt firewall, pre-generation self-check, and post-generation
-  dimension check.
-- Require the packet to name the approved child skill internally while preserving
-  final-prompt firewall rules.
+- Refuse if no approved child skill or internal paradigm exists.
+- Require packet sections for copy approval, selected internal paradigm,
+  rejected internal paradigms, topic translation, cover storyboard, design layout
+  brief, copy hierarchy, reference handling, identity and final-prompt firewall,
+  pre-generation self-check, and post-generation dimension check.
+- Require the packet to name the approved child skill and selected internal
+  paradigm internally while preserving final-prompt firewall rules.
 
 ### `save_final_prompt`
 Writes `prompt-final.txt`.
@@ -189,8 +191,8 @@ Outputs:
 - required next artifact
 
 Rules:
-- Refuse if approved child skill, execution packet, final prompt, or firewall
-  pass result is missing.
+- Refuse if approved child skill, selected internal paradigm, execution packet,
+  final prompt, or firewall pass result is missing.
 - Refuse final generation when identity reference is required and
   `reference_image_mode` is not `explicit`.
 - Return `prompt_only` instead of `generate` when the only blocker is missing

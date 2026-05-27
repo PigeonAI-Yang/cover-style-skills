@@ -4,6 +4,10 @@ Project: `{{PROJECT_ID}}`
 
 ## Copy Approval
 
+## Selected Internal Paradigm
+
+## Rejected Internal Paradigms
+
 ## Article Hook Translation
 
 ## Cover Storyboard

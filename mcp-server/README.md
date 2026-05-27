@@ -85,7 +85,8 @@ the preferred integration path for MCP clients.
 - `get_project_state`: compute the current workflow state from files.
 - `save_engine_routing`: save validated `engine-routing.md`.
 - `save_skill_recommendations`: save validated child-skill recommendation cards.
-- `set_approved_direction`: record the approved child skill and exact cover copy.
+- `set_approved_direction`: record the approved child skill, internal paradigm,
+  and exact cover copy.
 - `save_execution_packet`: save a validated execution design packet.
 - `save_final_prompt`: save a validated final prompt.
 - `verify_prompt_firewall`: persist `firewall-result.json`.

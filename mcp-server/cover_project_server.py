@@ -73,7 +73,7 @@ TOOLS = [
     },
     {
         "name": "set_approved_direction",
-        "description": "Record the approved direction and exact cover copy.",
+        "description": "Record the approved child skill, internal paradigm, and exact cover copy.",
         "inputSchema": {
             "type": "object",
             "required": ["project_path", "direction_id", "approved_copy"],
@@ -81,6 +81,7 @@ TOOLS = [
                 "project_path": {"type": "string"},
                 "direction_id": {"type": "string"},
                 "child_skill": {"type": "string"},
+                "internal_paradigm": {"type": "string"},
                 "approved_copy": {"type": "string"},
                 "notes": {"type": "string"},
             },
@@ -361,6 +362,7 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
             str(arguments["approved_copy"]),
         ]
         optional_arg(args, "--child-skill", arguments.get("child_skill"))
+        optional_arg(args, "--internal-paradigm", arguments.get("internal_paradigm"))
         optional_arg(args, "--notes", arguments.get("notes"))
         return text_result(run_coverctl(args))
 

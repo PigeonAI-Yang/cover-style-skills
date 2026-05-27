@@ -13,6 +13,31 @@ from pathlib import Path
 PRODUCT_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = PRODUCT_ROOT.parent
 
+REQUIRED_DESIGN_STANDARD_SECTIONS = [
+    "## Scope",
+    "## Evidence Summary",
+    "## Core Design DNA",
+    "## Cover Generation Engine",
+    "## Popular Paradigms",
+    "## Topic Translation Rules",
+    "## Cover Storyboard Rules",
+    "## Design Layout Brief Rules",
+    "## Copy Hierarchy Rules",
+    "## Platform Adaptation",
+    "## Layout Patterns",
+    "## Subject Rules",
+    "## Reference Image Handling",
+    "## Identity And Final Prompt Firewall",
+    "## Text Rules",
+    "## Typography Layout System",
+    "## Color And Lighting Rules",
+    "## Hook Mechanics",
+    "## GPT Image 2 Prompt Contract",
+    "## Negative Constraints",
+    "## User Intake Questions",
+    "## Quality Checklist",
+]
+
 
 def run(args: list[str], cwd: Path = PRODUCT_ROOT) -> dict:
     try:
@@ -68,10 +93,16 @@ def design_standards() -> list[dict]:
         return rows
     for path in sorted(root.iterdir()):
         if path.is_dir():
+            standard_path = path / "design-standard.md"
+            text = standard_path.read_text(encoding="utf-8", errors="replace") if standard_path.exists() else ""
+            missing = [
+                section for section in REQUIRED_DESIGN_STANDARD_SECTIONS if section not in text
+            ]
             rows.append(
                 {
                     "creator": path.name,
-                    "has_design_standard": (path / "design-standard.md").exists(),
+                    "has_design_standard": standard_path.exists(),
+                    "missing_sections": missing,
                 }
             )
     return rows
@@ -191,7 +222,12 @@ def print_text(report: dict) -> None:
     print("")
     print(f"Design standards: {len(report['design_standards'])}")
     for item in report["design_standards"]:
-        status = "OK" if item["has_design_standard"] else "MISSING"
+        if not item["has_design_standard"]:
+            status = "MISSING"
+        elif item.get("missing_sections"):
+            status = "MISSING SECTION: " + ", ".join(item["missing_sections"])
+        else:
+            status = "OK"
         print(f"- {item['creator']}: {status}")
     research = report["research_runs"]
     print("")
@@ -227,4 +263,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

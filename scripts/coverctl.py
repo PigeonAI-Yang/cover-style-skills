@@ -47,16 +47,21 @@ STATE_ORDER = [
 
 RECOMMENDATION_FIELDS = [
     "Recommended child skill",
+    "Selected internal paradigm",
     "Fit score",
     "Why this skill is recommended",
+    "Why this paradigm fits",
     "Target canvas",
     "Proposed on-cover copy",
     "Visual premise",
+    "Rejected internal paradigms",
     "Risk or possible misread",
 ]
 
 EXECUTION_PACKET_SECTIONS = [
     "Copy Approval",
+    "Selected Internal Paradigm",
+    "Rejected Internal Paradigms",
     "Article Hook Translation",
     "Cover Storyboard",
     "Design Layout Brief",
@@ -235,6 +240,14 @@ def validate_engine_routing(project_path: Path, text: str | None = None) -> list
             errors.append(f"engine-routing.md missing section: {heading}")
     if not any(is_filled(value) for value in re.findall(r"(?im)^\s*[-*]\s*Child skill\s*:\s*(.*?)\s*$", text)):
         errors.append("engine-routing.md must include at least one filled child skill")
+    if not any(
+        is_filled(value)
+        for value in re.findall(
+            r"(?im)^\s*[-*]\s*(?:Selected internal paradigm|Candidate internal paradigms)\s*:\s*(.*?)\s*$",
+            text,
+        )
+    ):
+        errors.append("engine-routing.md must include at least one internal paradigm")
     if not any(is_filled(value) for value in re.findall(r"(?im)^\s*[-*]\s*Fit score\s*:\s*(.*?)\s*$", text)):
         errors.append("engine-routing.md must include at least one fit score")
     return errors
@@ -296,23 +309,32 @@ def resolve_approval(project_path: Path) -> dict[str, str | None]:
     direction_id = approval.get("direction_id")
     approved_copy = approval.get("approved_copy")
     child_skill = approval.get("approved_child_skill")
+    internal_paradigm = approval.get("approved_internal_paradigm")
 
     approved_text = read_text(project_path / "approved-direction.md")
     if not is_filled(child_skill):
         child_skill = bullet_value(approved_text, "Approved child skill") or bullet_value(
             approved_text, "Child skill"
         )
+    if not is_filled(internal_paradigm):
+        internal_paradigm = bullet_value(
+            approved_text, "Approved internal paradigm"
+        ) or bullet_value(approved_text, "Selected internal paradigm")
 
-    if not is_filled(child_skill) and is_filled(direction_id):
+    if (not is_filled(child_skill) or not is_filled(internal_paradigm)) and is_filled(direction_id):
         recommendations = parse_recommendations(read_text(project_path / "directions.md"))
         match = recommendations.get(str(direction_id).casefold())
         if match:
-            child_skill = match.get("Recommended child skill")
+            if not is_filled(child_skill):
+                child_skill = match.get("Recommended child skill")
+            if not is_filled(internal_paradigm):
+                internal_paradigm = match.get("Selected internal paradigm")
 
     return {
         "direction_id": direction_id,
         "approved_copy": approved_copy,
         "approved_child_skill": child_skill,
+        "approved_internal_paradigm": internal_paradigm,
     }
 
 
@@ -325,11 +347,18 @@ def validate_approval(project_path: Path) -> list[str]:
         errors.append("approved on-cover copy is missing")
     if not is_filled(approval.get("approved_child_skill")):
         errors.append("approved child skill is missing")
+    if not is_filled(approval.get("approved_internal_paradigm")):
+        errors.append("approved internal paradigm is missing")
     elif is_filled(approval.get("direction_id")):
         recommendations = parse_recommendations(read_text(project_path / "directions.md"))
         direction = recommendations.get(str(approval["direction_id"]).casefold())
         if direction and direction["Recommended child skill"] != approval["approved_child_skill"]:
             errors.append("approved child skill does not match selected recommendation")
+        if (
+            direction
+            and direction["Selected internal paradigm"] != approval["approved_internal_paradigm"]
+        ):
+            errors.append("approved internal paradigm does not match selected recommendation")
     return errors
 
 
@@ -344,6 +373,9 @@ def validate_execution_packet(project_path: Path, text: str | None = None) -> li
     child_skill = approval.get("approved_child_skill")
     if is_filled(child_skill) and str(child_skill) not in text:
         errors.append("execution-packet.md must name the approved child skill internally")
+    internal_paradigm = approval.get("approved_internal_paradigm")
+    if is_filled(internal_paradigm) and str(internal_paradigm) not in text:
+        errors.append("execution-packet.md must name the selected internal paradigm internally")
     return errors
 
 
@@ -578,6 +610,9 @@ def command_set_approved(args: argparse.Namespace) -> int:
     child_skill = args.child_skill or selected["Recommended child skill"]
     if child_skill != selected["Recommended child skill"]:
         raise GateError("approved child skill does not match selected recommendation")
+    internal_paradigm = args.internal_paradigm or selected["Selected internal paradigm"]
+    if internal_paradigm != selected["Selected internal paradigm"]:
+        raise GateError("approved internal paradigm does not match selected recommendation")
     approved_at = args.approved_at or now_iso()
     text = "\n".join(
         [
@@ -587,6 +622,7 @@ def command_set_approved(args: argparse.Namespace) -> int:
             "",
             f"- Approved direction: {args.direction_id}",
             f"- Approved child skill: {child_skill}",
+            f"- Approved internal paradigm: {internal_paradigm}",
             f"- Exact approved on-cover copy: {args.approved_copy}",
             f"- Approval time: {approved_at}",
             f"- Notes: {args.notes or ''}",
@@ -600,10 +636,18 @@ def command_set_approved(args: argparse.Namespace) -> int:
             "child_skill_approved",
             direction_id=args.direction_id,
             approved_child_skill=child_skill,
+            approved_internal_paradigm=internal_paradigm,
             approved_copy=args.approved_copy,
             approved_at=approved_at,
         )
-    output({"status": "PASS", "approved_child_skill": child_skill}, args.json)
+    output(
+        {
+            "status": "PASS",
+            "approved_child_skill": child_skill,
+            "approved_internal_paradigm": internal_paradigm,
+        },
+        args.json,
+    )
     return 0
 
 
@@ -940,6 +984,7 @@ def build_parser() -> argparse.ArgumentParser:
     approve.add_argument("--direction-id", required=True)
     approve.add_argument("--approved-copy", required=True)
     approve.add_argument("--child-skill")
+    approve.add_argument("--internal-paradigm")
     approve.add_argument("--approved-at")
     approve.add_argument("--notes")
     approve.add_argument("--json", action="store_true")
