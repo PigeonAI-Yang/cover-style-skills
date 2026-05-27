@@ -33,7 +33,36 @@ creative engine.
 - `references/`: research, prompt, platform, and workspace rules.
 - `scripts/create_child_skill.py`: creates a child skill from a design standard.
 - `scripts/manage_research_workspace.py`: manages raw research runs outside Git.
+- `scripts/capture_bilibili_space.py`: captures a creator's rendered Bilibili
+  upload page through the local Chrome CDP proxy and archives video cards,
+  source JSON, covers, and contact sheets into a managed research run.
 - `scripts/coverctl.py`: deterministic production workflow gate.
+
+## Bilibili CDP Capture
+
+Use this when direct Bilibili APIs are blocked or rate-limited. First make sure
+`web-access` CDP is ready, then run from `product/`:
+
+```powershell
+python scripts\capture_bilibili_space.py `
+  --creator-id he-tongxue `
+  --creator-name "何同学" `
+  --mid 163637592 `
+  --order most-played
+```
+
+Useful bounded capture for verification:
+
+```powershell
+python scripts\capture_bilibili_space.py `
+  --creator-id he-tongxue `
+  --creator-name "何同学" `
+  --mid 163637592 `
+  --order most-played `
+  --max-pages 1 `
+  --max-videos 5 `
+  --no-download-covers
+```
 
 ## Health Check
 
@@ -48,4 +77,3 @@ Use JSON output for automation:
 ```powershell
 python scripts\healthcheck.py --json
 ```
-
