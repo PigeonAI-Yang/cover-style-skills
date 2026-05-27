@@ -1,4 +1,4 @@
-display_name: "PigeonYang Cover Style Distiller"
-short_description: "Distill creator cover patterns into skills."
-default_prompt: "Distill a creator's video thumbnail style into a reusable PigeonYang child skill, then write a GPT Image 2 cover prompt."
+display_name: "Creator Cover Paradigm Distiller"
+short_description: "Distill creator cover patterns into reusable design engines."
+default_prompt: "Distill a creator's cover pattern into a reusable child skill, route a user article or video to the right engine, then write a GPT Image 2 cover prompt."
 

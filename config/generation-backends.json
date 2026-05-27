@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "backends": {
+    "codex-image-gen": {
+      "display_name": "Codex image_gen",
+      "kind": "codex-native-image-generation",
+      "reference_image_support": "conditional",
+      "default_reference_image_mode": "unknown",
+      "accepted_reference_evidence": [
+        "attached_conversation_image"
+      ],
+      "explicit_prompt_markers": [
+        "Use the supplied identity reference image",
+        "Use the supplied private identity reference image",
+        "Use the supplied identity reference image in this conversation",
+        "Preserve PigeonYang anime identity from the private identity reference image",
+        "Preserve PigeonYang anime identity from the reference image"
+      ],
+      "notes": "Codex image_gen is explicit only when the user supplied the identity image in the conversation and the final prompt references that supplied identity/reference image. Local file paths alone are not enough."
+    },
+    "manual-external": {
+      "display_name": "Manual external image backend",
+      "kind": "manual",
+      "reference_image_support": "conditional",
+      "default_reference_image_mode": "unknown",
+      "accepted_reference_evidence": [
+        "external_tool_explicit_reference"
+      ],
+      "explicit_prompt_markers": [
+        "Use the supplied identity reference image",
+        "Use the supplied private identity reference image"
+      ],
+      "notes": "Use when Yang runs the prompt in another image tool that explicitly accepts the identity reference image."
+    }
+  }
+}

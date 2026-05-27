@@ -1,73 +1,70 @@
-# PRD: PigeonYang Agent-Native Cover Skill Router
+# PRD: Creator Cover Paradigm Distiller
 
 ## Problem
-Yang needs a repeatable way to turn article ideas into high-open-rate covers by
-using the design intelligence already distilled from excellent creators. Current
-cover generation through ad hoc prompts or generic "good-looking cover" logic is
-not stable enough: it bypasses proven creator-specific visual engines, and the
-user cannot judge direction quality from prose alone.
+
+Users do not need another generic "make me a good cover" prompt. They need a
+repeatable way to extract cover decision systems from excellent creators, then
+apply the right system to their own article or video without copying a public
+creator's identity, assets, or exact layouts.
+
+The project drifted toward a PigeonYang WeChat cover workflow because that was
+the first real application. That workflow is valuable, but it is not the product
+center.
 
 ## Product Promise
-Given an article title, summary, draft, or full Markdown article, the system
-analyzes the article, recommends suitable distilled creator-cover skills as
-internal design engines, produces visual direction references from those engines,
-lets Yang choose the best direction, then generates a GPT Image 2-ready cover
-while preserving PigeonYang identity, platform sizing, and prompt-firewall safety.
+
+Given a creator, the system distills that creator's cover paradigm into a
+reusable child skill backed by real cover samples and process sources.
+
+Given a user's article or video, the system diagnoses the hook, routes it to the
+most suitable distilled child skill, explains the design scheme that engine would
+use, gets exact copy approval when needed, then produces a GPT Image 2-ready
+cover prompt and generated output through deterministic workflow gates.
+
+## Product Layers
+
+1. Distillation: collect evidence, write `research.md`, produce canonical
+   `design-standard.md`, and generate a child skill.
+2. Router: choose the best creator-cover engine for a user's article or video.
+3. Production: save project records, run prompt firewall checks, prove reference
+   image handling, register generated outputs, and verify dimensions.
 
 ## Primary User
-Yang, working inside Codex.
+
+Yang inside Codex. The architecture should still be general enough to support
+other users, platforms, and creators later.
 
 ## MVP Scope
-- WeChat public account cover first.
-- Input can be title-only, title plus summary, or full article Markdown.
-- System routes the article to 3 suitable internal design engines from the
-  distilled child-skill library.
-- System explains why each engine fits or does not fit the article.
-- System produces three visual direction references, not text-only directions.
-- Yang approves one visual direction and final cover copy before final prompt
-  writing and generation.
-- Generated covers must preserve the fixed PigeonYang character identity.
-- Project records are saved outside the product repo.
-- Metrics are manually recorded after publishing.
+
+- Maintain a small library of distilled child skills.
+- Keep canonical `design-standard.md` files in Git.
+- Keep raw research runs outside Git.
+- Route article/video inputs to up to three suitable child skills.
+- Produce a skill-first recommendation packet.
+- Require exact on-cover copy approval before final prompt writing when copy is
+  proposed or rewritten.
+- Use `coverctl.py` or MCP tools for deterministic production gates.
+- Treat PigeonYang WeChat article covers as the first application workflow.
 
 ## Non-Goals
+
 - No standalone SaaS or web UI in MVP.
-- No external customer workflow in MVP.
-- No direct MCP image generation wrapper in MVP.
-- No automatic publishing to WeChat in MVP.
-- No fully automatic one-shot generation without approval gates.
+- No automatic publishing.
+- No one-shot generation that bypasses routing and approval.
+- No direct MCP image-generation wrapper until a reference-capable backend is
+  explicitly implemented.
+- No raw research archives inside the product repo.
 
 ## Success Criteria
-- Yang can produce a usable WeChat cover from an article draft inside Codex.
-- The first response recommends suitable distilled creator skills with concrete
-  rationale.
-- Direction choice is based on visual references, not prose imagination.
-- Final cover feels like PigeonYang: refined anime identity, knowledge-media click clarity, and medium brand consistency.
-- Final cover benefits from a specific distilled creator-cover engine without
-  naming or copying that creator in the final prompt.
-- Each project stores enough context to reconstruct decisions later.
-- Published articles can be manually annotated with open-rate metrics.
 
-## Design Engine Library
-The product is expected to grow by adding more high-quality creator-cover child
-skills. Each child skill is a reusable design engine, not a public style label.
-The router should choose engines based on the article's content type, hook,
-proof object, emotional promise, platform, and PigeonYang identity constraints.
+- A new creator can be researched and converted into a child skill from a
+  managed research run.
+- A user draft can be routed to a child skill with a concrete reason, visual
+  premise, copy proposal, and risk.
+- Final prompts translate creator patterns into concrete design rules without
+  creator-name shortcuts.
+- The repo contains reusable product assets, not raw research clutter.
+- Private production projects stay outside Git.
+- The workflow gate can explain exactly why a project is ready, blocked, or
+  prompt-only.
 
-## Private Project Location
-Private cover projects live under:
-
-```text
-J:\PigeonYang\cover-style-distiller\cover-projects
-```
-
-This directory is outside the product git repo and must remain private.
-
-## Default Identity Reference
-The default identity reference should be stored privately as:
-
-```text
-J:\PigeonYang\cover-style-distiller\cover-projects\_identity\pigeonyang-character-reference.png
-```
-
-The identity must preserve: silver-gray short hair, glasses, black suit, calm confident intellectual expression, refined all-black styling, and anime character-design-sheet continuity.

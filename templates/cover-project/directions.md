@@ -1,37 +1,37 @@
-# Cover Directions
+# Skill Recommendation Packet
 
 Project: `{{PROJECT_ID}}`
 Platform: WeChat public account article cover
 Target: `{{TARGET_CANVAS}}`
 Preset: `{{COVER_MODE}}`
 
-## Direction Preview Rule
-Do not ask Yang to choose from text-only directions.
+## Recommendation Rule
+Do not ask Yang to choose from text-only skill recommendations.
 
-Each direction must have a visual reference image or low-fidelity direction
-preview saved under `outputs/direction-references/`. The text below only explains
-what the image is trying to test.
+Each recommendation must start with the recommended child skill. The approval
+decision is based on article diagnosis, child-skill fit, design scheme, proposed
+copy, and risk. Do not require low-fidelity mock images by default.
 
-Each direction must also state the internal design engine used. Prefer existing
-child skills. The engine name is internal project metadata; generated image
-prompts must translate it into concrete visual rules and must not contain public
-creator names or style-copy wording.
+Prefer existing child skills. The skill name is project metadata; generated
+image prompts must translate it into concrete visual rules and must not contain
+public creator names or style-copy wording.
 
-Every direction reference prompt must explicitly include:
+Every final prompt or user-requested visual comparison prompt must explicitly include:
 
 - `WeChat public account article main cover`
 - `2.35:1`
 - `target canvas 2350x1000 pixels`
 - central square-safe zone `x=675..1675`
 
-After generation, verify each direction reference with
+After generation, verify each final image or user-requested preview with
 `scripts/verify_image_dimensions.py --preset wechat-article-main --ratio-only`.
-If the exact canvas is not `2350x1000`, mark it as a reference only, not a final
-cover candidate.
+If an optional preview's exact canvas is not `2350x1000`, mark it as a reference
+only, not a final cover candidate.
 
-## Direction 1
-- Internal design engine:
-- Visual reference:
+## Recommendation 1
+- Recommended child skill:
+- Fit score:
+- Why this skill is recommended:
 - Target canvas:
 - Hook angle:
 - Proposed on-cover copy:
@@ -42,9 +42,10 @@ cover candidate.
 - Why it may improve open rate:
 - Risk or possible misread:
 
-## Direction 2
-- Internal design engine:
-- Visual reference:
+## Recommendation 2
+- Recommended child skill:
+- Fit score:
+- Why this skill is recommended:
 - Target canvas:
 - Hook angle:
 - Proposed on-cover copy:
@@ -55,9 +56,10 @@ cover candidate.
 - Why it may improve open rate:
 - Risk or possible misread:
 
-## Direction 3
-- Internal design engine:
-- Visual reference:
+## Recommendation 3
+- Recommended child skill:
+- Fit score:
+- Why this skill is recommended:
 - Target canvas:
 - Hook angle:
 - Proposed on-cover copy:
@@ -69,5 +71,5 @@ cover candidate.
 - Risk or possible misread:
 
 ## Approval Gate
-Stop here until Yang has seen the three visual references and approves one
-direction plus exact on-cover copy.
+Stop here until Yang has seen the skill recommendation packet and approves one
+child skill plus exact on-cover copy.

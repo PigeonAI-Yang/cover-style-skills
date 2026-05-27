@@ -63,6 +63,16 @@ STATUS_BY_ARTIFACT = {
 
 VALID_STATUSES = {
     "brief_created",
+    "routing_completed",
+    "child_skill_approved",
+    "execution_packet_saved",
+    "final_prompt_saved",
+    "prompt_firewall_passed",
+    "generation_preflight_passed",
+    "prompt_only_blocked",
+    "generation_output_recorded",
+    "dimension_verified",
+    "final_marked",
     "directions_ready",
     "direction_approved",
     "prompt_ready",
@@ -279,6 +289,7 @@ def command_create(args: argparse.Namespace) -> int:
         "status": "brief_created",
         "approval": {
             "direction_id": None,
+            "approved_child_skill": None,
             "approved_copy": None,
             "approved_at": None,
         },
@@ -379,6 +390,7 @@ def command_set_approved(args: argparse.Namespace) -> int:
             f"Project: `{project_path.name}`",
             "",
             f"- Approved direction: {args.direction_id}",
+            f"- Approved child skill: {args.child_skill or ''}",
             f"- Exact approved on-cover copy: {args.approved_copy}",
             f"- Approval time: {approved_at}",
             f"- Notes: {args.notes or ''}",
@@ -392,6 +404,7 @@ def command_set_approved(args: argparse.Namespace) -> int:
             "direction_approved",
             {
                 "direction_id": args.direction_id,
+                "approved_child_skill": args.child_skill,
                 "approved_copy": args.approved_copy,
                 "approved_at": approved_at,
             },
@@ -461,6 +474,7 @@ def build_parser() -> argparse.ArgumentParser:
     set_approved.add_argument("--project-path", required=True, type=Path)
     set_approved.add_argument("--direction-id", required=True)
     set_approved.add_argument("--approved-copy", required=True)
+    set_approved.add_argument("--child-skill")
     set_approved.add_argument("--approved-at")
     set_approved.add_argument("--notes")
     set_approved.set_defaults(func=command_set_approved)

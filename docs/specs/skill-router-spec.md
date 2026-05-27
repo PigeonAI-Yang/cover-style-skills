@@ -4,9 +4,12 @@
 Route a user's draft to the most suitable distilled creator-cover skills before
 cover generation.
 
-This is the core product layer. The router should not produce a generic cover
-direction when an existing child skill provides a stronger visual decision
-engine.
+This is the core product layer. The router should recommend a specific
+distilled blogger/creator child skill before proposing visual execution. It must
+not produce a generic cover direction when an existing child skill provides a
+stronger visual decision engine. The router's user-facing output is a
+child-skill recommendation packet: each card starts with the recommended child
+skill, then explains why that skill fits and what design scheme it would use.
 
 ## Inputs
 - Article title
@@ -36,8 +39,8 @@ For every draft, answer:
   visible stakes, identity reframe, or aesthetic mood?
 - Does the article need authority, maker proof, documentary evidence, spectacle,
   or utility clarity?
-- What visual engine would make the article legible in one second?
-- Which engine would distort the article?
+- Which child skill would make the article legible in one second?
+- Which child skill would distort the article?
 
 ## Current Engine Routing Guide
 - `pigeonyang-cover-style-dan-koe`: thesis, warning, identity reframe, creator
@@ -50,7 +53,7 @@ For every draft, answer:
   visible scale, challenges, absurd proof, high contrast result gaps.
 
 ## Output
-Create `engine-routing.md` in the private project:
+Create `engine-routing.md` as an internal routing record in the private project:
 
 ```markdown
 # Engine Routing
@@ -65,7 +68,8 @@ Create `engine-routing.md` in the private project:
 - Why it fits:
 - What visual promise it creates:
 - Risk:
-- Direction reference prompt:
+- Recommendation reason:
+- Proposed design scheme:
 
 ### Candidate 2
 ...
@@ -78,12 +82,42 @@ Create `engine-routing.md` in the private project:
 ## Recommendation
 ```
 
+Then create `directions.md` as the user-facing skill recommendation packet. The
+file name stays `directions.md` for current script compatibility, but the content
+must be skill-first:
+
+```markdown
+# Skill Recommendation Packet
+
+## Recommendation 1
+- Recommended child skill:
+- Fit score:
+- Why this skill is recommended:
+- Proposed on-cover copy:
+- Main visual promise:
+- Proposed design scheme:
+- Risk or possible misread:
+- Platform/canvas:
+
+## Recommendation 2
+...
+
+## Recommendation 3
+...
+```
+
 ## Rules
 - Recommend 3 engines when possible.
-- Use visual direction references for approval; never ask the user to choose
-  from text-only routing.
+- Present child skill plus design scheme plus reason together.
+- The approval object is the child skill, not an abstract direction label.
+- Do not require low-fidelity mock images for skill approval; poor mock images
+  can degrade judgment. Generate images only after one child skill is approved,
+  unless the user explicitly asks for visual comparisons.
 - Public creator names may appear in internal routing notes, but generated image
   prompts must translate the engine into concrete design rules.
 - Final prompts must pass `scripts/verify_prompt_firewall.py`.
 - If no current child skill fits, say so and propose a new distillation target
   instead of forcing a bad engine.
+- Every final or user-requested preview prompt must explicitly include
+  `WeChat public account article main cover`, `2.35:1`,
+  `target canvas 2350x1000 pixels`, and central square-safe zone `x=675..1675`.

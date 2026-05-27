@@ -6,16 +6,16 @@ Target: `{{TARGET_CANVAS}}`
 Preset: `{{COVER_MODE}}`
 
 ## Purpose
-Generate three rough visual direction references from routed child-skill design
-engines before asking for approval.
+This file is optional. Use it only when Yang explicitly asks for visual
+comparisons before approving a child skill, or when a high-quality draft is
+needed after child-skill approval.
 
-These are decision images, not final covers. They should test composition,
-visual metaphor, title treatment, and overall taste. They do not need to preserve
-every final detail, but they must be close enough for Yang to judge which visual
-direction is worth developing.
+Low-fidelity mock images are not the default approval gate. If previews are
+generated, they should be good enough to clarify the child skill's visual
+translation, not crude placeholders that make the choice harder.
 
 ## Rules
-- Select one internal child-skill design engine for each direction.
+- Select one recommended child skill for each optional preview.
 - Record the internal engine name in `directions.md`, but do not put public
   creator names, `inspired by`, or `in the style of` wording in generated image
   prompts.
@@ -32,11 +32,14 @@ direction is worth developing.
 - Only final accepted covers require exact `2350x1000`; direction references may
   pass ratio-only, but exact size failures must be recorded.
 
-## Direction 1 Prompt
-- Internal design engine:
+## Recommendation 1 Preview Prompt
+- Recommended child skill:
+- Recommendation reason this image should test:
 
-## Direction 2 Prompt
-- Internal design engine:
+## Recommendation 2 Preview Prompt
+- Recommended child skill:
+- Recommendation reason this image should test:
 
-## Direction 3 Prompt
-- Internal design engine:
+## Recommendation 3 Preview Prompt
+- Recommended child skill:
+- Recommendation reason this image should test:

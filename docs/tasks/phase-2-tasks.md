@@ -1,21 +1,22 @@
 # TASKS: Phase 2
 
 ## Task 1: First Real Article Run
-Status: prompt ready 2026-05-26
+Status: reroute required 2026-05-27
 
 - Use a real title, summary, Markdown draft, or draft path.
 - Create a private cover project.
-- Produce three differentiated WeChat cover directions.
+- Produce a WeChat child-skill recommendation packet without default low-fidelity previews.
 - Stop for direction and exact copy approval.
 - Generate only after prompt firewall passes.
 
 Current project:
 `J:\PigeonYang\cover-style-distiller\cover-projects\20260526-ai-flywheel-builder-cover`
 
-Progress: real article source has been saved, three differentiated WeChat cover
-directions have been produced, Direction 2 has been approved, exact cover copy is
-`这是内容飞轮`, execution packet and final prompt have been written, and prompt
-firewall has passed.
+Progress: real article source has been saved, but the previous direction
+approval was based on text-only directions instead of child-skill recommendation
+cards and is no longer valid. The old exact
+copy `这是内容飞轮` remains useful input, but the workflow must reroute the article
+through child-skill recommendation before any v002 final prompt.
 
 ## Task 2: Output Verification
 Status: iteration needed 2026-05-27
@@ -28,9 +29,9 @@ Progress: `cover-v001-rejected.png` was generated and copied to the private
 project. Ratio verification passed, exact target canvas failed (`1923x818` vs
 `2350x1000`). User rejected the cover aesthetics.
 
-Next: generate three visual direction references with explicit target canvas and
-safe-area requirements before revising v002. The previous text-only direction
-approval is insufficient.
+Next: generate a skill recommendation packet with explicit target canvas,
+safe-area requirements, recommended child skill, design scheme, and risk before
+revising v002. The previous text-only direction approval is insufficient.
 
 ## Task 3: Metrics Capture
 Status: blocked 2026-05-26
@@ -59,8 +60,8 @@ Status: started 2026-05-27
 
 Observed friction: text-only direction approval caused a bad visual choice, and
 direction prompts did not explicitly carry canvas requirements. Patch direction
-workflow so approval requires three visual references with explicit platform,
-ratio, target canvas, and safe-area rules.
+workflow so approval requires child-skill recommendation cards with explicit
+platform, ratio, target canvas, safe-area rules, and router reasons.
 
 Additional friction: generic PigeonYang product workflow bypassed the distilled
 child-skill visual engines. Patch workflow so direction references use child

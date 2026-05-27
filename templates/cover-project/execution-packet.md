@@ -27,3 +27,9 @@ Project: `{{PROJECT_ID}}`
 - Reference handling:
 - Identity firewall:
 - Drift risk:
+
+## Post-Generation Dimension Check
+- Required preset:
+- Exact target canvas:
+- Ratio-only preview policy:
+- Finalization rule:

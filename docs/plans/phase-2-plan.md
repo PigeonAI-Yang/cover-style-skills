@@ -8,8 +8,8 @@ feedback plus publish metrics into concrete product improvements.
 Run 3-5 real WeChat article cover projects end to end:
 
 1. create a private project,
-2. produce three directions,
-3. approve one direction and exact copy,
+2. produce a child-skill recommendation packet with preview plus reason,
+3. approve one child skill and exact copy,
 4. generate with GPT Image 2,
 5. verify dimensions and identity,
 6. record post-publish metrics,
@@ -26,8 +26,8 @@ Run 3-5 real WeChat article cover projects end to end:
 
 ## Acceptance
 - At least 3 private projects exist under the private project root.
-- Each project has directions, approval, execution packet, final prompt, metrics,
-  and review notes.
+- Each project has a child-skill recommendation packet, approval, execution packet,
+  final prompt, metrics, and review notes.
 - At least one project includes a generated output with verified dimensions.
 - No private project content is committed to the product repo.
 - Product changes are based on observed friction, not speculative features.

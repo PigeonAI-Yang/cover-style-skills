@@ -1,137 +1,3 @@
----
-name: pigeonyang-cover-style-mrbeast
-description: "PigeonYang-branded skill that uses the distilled MrBeast video cover and thumbnail design pattern to write GPT Image 2-ready prompts for original user covers. Trigger when the user asks for a cover in MrBeast's style, references MrBeast thumbnails, or asks to apply this creator cover formula."
----
-
-# PigeonYang MrBeast Cover Style
-
-## Role
-
-Use this distilled creator-cover pattern to write original, GPT Image 2-ready cover prompts for the user's video.
-
-Do not copy existing MrBeast thumbnails. Apply the transferable design strategy to the user's own topic, brand, face, product, and constraints.
-
-## Identity And Final Prompt Firewall
-
-The distilled creator name is an internal routing and analysis label only.
-
-Never put `MrBeast`, `MrBeast-inspired`, `in the style of MrBeast`, `like MrBeast`, or equivalent creator-name shortcuts in the final GPT Image 2 generation prompt. Rewrite the pattern into concrete design rules: subject role, story moment, proof object, composition, typography, color, lighting, and negative constraints.
-
-If the user supplies a portrait/reference image, that reference controls identity. Preserve the user's face, hair, glasses, clothing cues, body type, and other supplied identity traits. Redesign only the pose/action for the thumbnail hook unless the user explicitly asks to preserve the original pose. The final generation prompt must say the subject must not resemble any public creator, without naming MrBeast.
-
-## Required User Inputs
-
-Ask the publishing platform first, then ask only for missing production fields.
-
-Platform guidance:
-
-| Platform | Recommended cover ratio | Target canvas | Notes |
-|---|---:|---:|---|
-| YouTube long video | 16:9 | 1280x720 | Best fit for wide comparison, crowd, and spectacle layouts. |
-| Bilibili native upload | 1146:717, approx 16:10 | 1146x717 | Use when the cover is Bilibili-only; keep face/text in a 16:9 and 4:3 safe center area. |
-| Bilibili cross-platform | 16:9 | 1920x1080 | Use when reusing with YouTube or wide feeds; preserve Bilibili-safe center crop. |
-| Bilibili 4:3-safe | 4:3 | 1440x1080 | Use when the user cares about Bilibili card/homepage crop safety. |
-| Douyin horizontal video | 4:3 | 1440x1080 | Compress wide logic; avoid critical side-edge text. |
-| Douyin vertical video | 3:4 | 1080x1440 | Use portrait cover composition; keep face/text central and avoid edge-critical details. |
-| Xiaohongshu | 3:4 | 1080x1440 | Use note/card style portrait composition. |
-| Xiaohongshu square | 1:1 | 1080x1080 | Use central subject plus two contrast cues. |
-| TikTok / Reels / Shorts | 9:16 | 1080x1920 | Use vertical poster logic; avoid YouTube-style split-screen. |
-| WeChat video account | 6:7 or 3:4 | 1080x1260 or 1080x1440 | Ask for account preference if uncertain. |
-
-Missing fields:
-
-- video topic or title
-- exact on-cover text, if any
-- target platform, orientation, aspect ratio, and target canvas
-- user's own portrait/reference image, if identity matters
-- whether the reference pose should be preserved; default to redesigning the pose for the thumbnail hook
-- must-include elements
-- must-avoid elements
-- brand or legal constraints
-
-## Prompt Workflow
-
-1. Extract the relevant design rules from the distilled research below.
-2. Use the cover generation engine and topic translation rules to convert the user's raw topic into this creator's cover logic before choosing visual style.
-3. Build a one-frame cover storyboard: visible conflict, subject action, proof object, emotional beat, viewer question, and forbidden static-poster failure mode.
-4. Build a design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, and forbidden layouts.
-5. Build a copy hierarchy: main title, subtitle if any, state labels if any, object/zone binding, isolation rules, forbidden adjacency, and text removal rule.
-6. Select the platform ratio and target canvas, then adapt the layout before writing the visual concept.
-7. If a reference image is provided, split it into identity traits to preserve and pose/action traits to ignore unless the user explicitly asks to preserve them.
-8. If the exact on-cover text is not supplied, or if the user's title is shortened or rewritten, run the Copy Approval Gate and wait for explicit approval of the exact on-cover text.
-9. Produce an Execution Design Packet with copy approval, topic translation, cover storyboard, design layout brief, copy hierarchy, reference handling, identity and final-prompt firewall, and pre-generation self-check.
-10. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
-11. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the engine.
-12. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
-13. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `MrBeast` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
-14. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
-15. Register any generated output, verify dimensions, and mark final only through the workflow gate.
-
-## Execution Gate
-
-Do not write the final GPT Image 2 prompt, and do not generate an image, unless the current turn contains a concrete Execution Design Packet.
-
-Required packet fields:
-
-- Copy approval: exact approved on-cover text, or "no text". If the user's title was shortened or rewritten, include the approved candidate. Permission to shorten is not approval of a specific title.
-- Topic translation: raw topic, creator-engine translation, click promise, visible stake, proof object, and forbidden drift.
-- Cover storyboard: story moment, conflict, subject action, proof object, emotional beat, viewer question, and why it is not a static poster.
-- Design layout brief: first-read, second-read, third-read, layout zones, visual weight, reading path, negative space, platform safe area, and forbidden layouts.
-- Copy hierarchy: main title, subtitle if any, labels if any, object/zone binding, isolation rules, forbidden adjacency, and removal rule.
-- Reference handling: identity traits to preserve, pose/action traits to ignore, and new hook-driven action.
-- Identity and final-prompt firewall: who the subject must look like, which reference controls identity, which creator/style words are forbidden in the final prompt, how the creator pattern is rewritten without naming the creator, and the exact `verify_prompt_firewall.py` command that must pass before generation.
-- Pre-generation self-check: engine match, story clarity, flat design hierarchy, copy isolation, platform safe area, reference handling, and drift risk.
-- Post-generation dimension check: after image generation, verify actual pixel dimensions against the requested target canvas or aspect ratio before reporting success. Use the mother skill's `scripts/verify_image_dimensions.py` when a local generated file is available.
-
-If the packet is weak, fix the packet first. Do not compensate by adding more visual adjectives to the final prompt.
-
-## Copy Approval Gate
-
-If changing the user's title, stop before final prompt writing and provide:
-
-- 3-5 candidate on-cover titles
-- the semantic meaning each candidate preserves
-- the meaning each candidate drops or weakens
-- one recommendation
-
-Continue only after the user approves one exact title or provides replacement text.
-
-## Output Format
-
-```markdown
-## Execution Design Packet
-Copy approval:
-Topic translation:
-Cover storyboard:
-Design layout brief:
-Copy hierarchy:
-Reference handling:
-Identity and final-prompt firewall:
-Pre-generation self-check:
-
-## Cover Prompt
-<final GPT Image 2 prompt>
-
-## Generation Settings
-model: gpt-image-2
-platform:
-aspect_ratio:
-target_canvas:
-quality:
-post_generation_check:
-
-## Negative Constraints
-<constraints>
-
-## Iteration Plan
-<2-3 likely improvements after first image>
-
-Generation gate:
-<generate directly if preflight passes; otherwise prompt_only with blocker>
-```
-
-## Design Standard
-
 # PigeonYang Cover Design Standard: MrBeast
 
 ## Scope
@@ -144,10 +10,10 @@ Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, lo
 
 ## Evidence Summary
 
-- Cover samples: 12 public MrBeast thumbnails archived in `<USER_RESEARCH_WORKSPACE>\mrbeast\20260524-203206\covers`.
-- Process sources: 5 source notes archived in `<USER_RESEARCH_WORKSPACE>\mrbeast\20260524-203206\sources`.
-- Research run: `<USER_RESEARCH_WORKSPACE>\mrbeast\20260524-203206`.
-- Full research: `<USER_RESEARCH_WORKSPACE>\mrbeast\20260524-203206\distillation\research.md`.
+- Cover samples: 12 public MrBeast thumbnails archived in `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206\covers`.
+- Process sources: 5 source notes archived in `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206\sources`.
+- Research run: `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206`.
+- Full research: `J:\PigeonYang\cover-style-distiller\research-runs\mrbeast\20260524-203206\distillation\research.md`.
 - Confidence: high for Stakes Engine, topic-to-physical-event translation, price ladder, survival/endurance, group competition, and prize fantasy. Medium for Bilibili adaptation because source evidence is YouTube-native.
 
 ## Core Design DNA
@@ -232,14 +98,14 @@ Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, lo
 
 - Use when: the topic can become cheap vs expensive, manual vs automated, tiny vs massive, weak vs absurdly powerful.
 - Composition: two extremes only. Left side shows failure/cheap/dirty/small; right side shows luxury/power/output/scale. Host bridges or reacts.
-- Text: numeric scale labels such as `$1`, `$1M`, `0`, `100`, `1澶?00鏉.
+- Text: numeric scale labels such as `$1`, `$1M`, `0`, `100`, `1天100条`.
 - Avoid: many intermediate steps or abstract feature comparisons.
 
 ### Pattern 2: Survival / Endurance
 
 - Use when: time, pressure, persistence, isolation, or failure risk is the hook.
 - Composition: host/subject visibly under pressure inside a physical condition: platform, room, circle, storm, bunker, vehicle, cage.
-- Text: one progress label such as `DAY 30`, `50灏忔椂`, or `鏈€鍚?澶ー.
+- Text: one progress label such as `DAY 30`, `50小时`, or `最后1天`.
 - Avoid: generic dramatic background without a rule.
 
 ### Pattern 3: Rule-Bound Challenge
@@ -276,17 +142,9 @@ Do not use it for exact recreation of MrBeast thumbnails, MrBeast's likeness, lo
 - Preserve user identity traits: face structure, hair, glasses, clothing, silhouette, recognizable accessories, brand colors.
 - Do not copy the reference pose, hand gesture, expression, camera angle, character-sheet layout, or static mood unless explicitly requested.
 - If the reference is calm or thoughtful, override it with event-driven action.
-- The final image subject must resemble the user's supplied reference and must not resemble any public creator.
 - Prompt wording must include both:
   - `Preserve identity traits from the reference image: ...`
   - `Do not copy the reference pose; use this new hook-driven action: ...`
-
-## Identity And Final Prompt Firewall
-
-- Internal skill routing may name MrBeast, but the final GPT Image 2 prompt must not contain `MrBeast`, `MrBeast-inspired`, `in the style of MrBeast`, `like MrBeast`, or any equivalent creator-name shortcut.
-- Express the pattern through concrete cover mechanics: extreme visible stakes, physical proof, strong subject action, readable labels, practical set lighting, and high-contrast composition.
-- If a portrait reference is supplied, identity preservation outranks all creator-pattern rules. The subject must preserve the user's face, hair, glasses, clothing cues, body type, and supplied identity traits.
-- Add a negative constraint that the generated subject must not resemble any public creator, without naming MrBeast in the final prompt.
 
 ## Text Rules
 
@@ -415,3 +273,4 @@ Ask in this order:
 - Is the on-image text short and readable at phone size?
 - Does every text block have a protected readable zone or backing?
 - Did the output avoid copying MrBeast's identity or a specific existing thumbnail?
+

@@ -16,6 +16,12 @@ Thumbs.db
 *.temp
 *.log
 
+# Generated package metadata.
+src/*.egg-info/
+
+# Raw research runs live in ../research-runs after distillation.
+/research/
+
 # Keep private production runs outside the product repo.
 /projects/
 /cover-projects/

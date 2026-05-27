@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pigeonyang.local/schemas/generation-backends.schema.json",
+  "title": "PigeonYang Generation Backends",
+  "type": "object",
+  "required": ["schema_version", "backends"],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "backends": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "display_name",
+          "kind",
+          "reference_image_support",
+          "default_reference_image_mode",
+          "accepted_reference_evidence",
+          "explicit_prompt_markers",
+          "notes"
+        ],
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference_image_support": {
+            "type": "string",
+            "enum": ["explicit", "conditional", "none", "unknown"]
+          },
+          "default_reference_image_mode": {
+            "type": "string",
+            "enum": ["explicit", "text_only", "unknown"]
+          },
+          "accepted_reference_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "explicit_prompt_markers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

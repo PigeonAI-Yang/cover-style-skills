@@ -12,6 +12,7 @@ from typing import Any
 
 PRODUCT_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = PRODUCT_ROOT / "scripts" / "manage_cover_project.py"
+COVERCTL = PRODUCT_ROOT / "scripts" / "coverctl.py"
 
 PLATFORM_CANVAS = {
     "wechat-article-main": {
@@ -58,6 +59,7 @@ TOOLS = [
                     "type": "string",
                     "enum": [
                         "source",
+                        "engine-routing",
                         "directions",
                         "approved-direction",
                         "execution-packet",
@@ -78,6 +80,7 @@ TOOLS = [
             "properties": {
                 "project_path": {"type": "string"},
                 "direction_id": {"type": "string"},
+                "child_skill": {"type": "string"},
                 "approved_copy": {"type": "string"},
                 "notes": {"type": "string"},
             },
@@ -125,12 +128,170 @@ TOOLS = [
             },
         },
     },
+    {
+        "name": "get_project_state",
+        "description": "Return computed workflow state and blocking reasons.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["project_path"],
+            "properties": {"project_path": {"type": "string"}},
+        },
+    },
+    {
+        "name": "list_generation_backends",
+        "description": "List configured image generation backends and reference-image capability rules.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {},
+        },
+    },
+    {
+        "name": "save_engine_routing",
+        "description": "Save validated engine routing before recommendation cards.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["project_path", "text"],
+            "properties": {
+                "project_path": {"type": "string"},
+                "text": {"type": "string"},
+            },
+        },
+    },
+    {
+        "name": "save_skill_recommendations",
+        "description": "Save validated child-skill recommendation packet.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["project_path", "text"],
+            "properties": {
+                "project_path": {"type": "string"},
+                "text": {"type": "string"},
+            },
+        },
+    },
+    {
+        "name": "save_execution_packet",
+        "description": "Save validated execution design packet after child-skill approval.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["project_path", "text"],
+            "properties": {
+                "project_path": {"type": "string"},
+                "text": {"type": "string"},
+            },
+        },
+    },
+    {
+        "name": "save_final_prompt",
+        "description": "Save validated final image prompt after execution packet.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["project_path", "text"],
+            "properties": {
+                "project_path": {"type": "string"},
+                "text": {"type": "string"},
+            },
+        },
+    },
+    {
+        "name": "verify_prompt_firewall",
+        "description": "Run final prompt firewall and persist firewall-result.json.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["project_path"],
+            "properties": {
+                "project_path": {"type": "string"},
+                "forbid": {"type": "array", "items": {"type": "string"}},
+                "require_identity_reference": {"type": "boolean"},
+            },
+        },
+    },
+    {
+        "name": "preflight_generation",
+        "description": "Check whether final generation is allowed or prompt-only blocked.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["project_path", "generation_backend"],
+            "properties": {
+                "project_path": {"type": "string"},
+                "generation_backend": {"type": "string"},
+                "reference_image_mode": {
+                    "type": "string",
+                    "enum": ["auto", "explicit", "text_only", "unknown"],
+                },
+                "reference_evidence": {"type": "array", "items": {"type": "string"}},
+            },
+        },
+    },
+    {
+        "name": "record_generation_output",
+        "description": "Copy a generated image into outputs and persist generation-manifest.json.",
+        "inputSchema": {
+            "type": "object",
+            "required": [
+                "project_path",
+                "source_image",
+                "generation_backend",
+                "reference_image_mode",
+            ],
+            "properties": {
+                "project_path": {"type": "string"},
+                "source_image": {"type": "string"},
+                "output_name": {"type": "string"},
+                "generation_backend": {"type": "string"},
+                "reference_image_mode": {
+                    "type": "string",
+                    "enum": ["auto", "explicit", "text_only", "unknown"],
+                },
+            },
+        },
+    },
+    {
+        "name": "verify_image_dimensions",
+        "description": "Run image dimension verification and persist dimension-check.json.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["project_path", "image"],
+            "properties": {
+                "project_path": {"type": "string"},
+                "image": {"type": "string"},
+                "preset": {"type": "string"},
+                "ratio_only": {"type": "boolean"},
+            },
+        },
+    },
+    {
+        "name": "mark_final",
+        "description": "Mark a generated output final after manifest and exact dimension pass.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["project_path"],
+            "properties": {
+                "project_path": {"type": "string"},
+                "output": {"type": "string"},
+                "notes": {"type": "string"},
+            },
+        },
+    },
 ]
 
 
 def run_script(args: list[str]) -> str:
     result = subprocess.run(
         [sys.executable, str(SCRIPT), *args],
+        check=False,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    if result.returncode != 0:
+        raise RuntimeError((result.stderr or result.stdout).strip())
+    return result.stdout.strip()
+
+
+def run_coverctl(args: list[str]) -> str:
+    result = subprocess.run(
+        [sys.executable, str(COVERCTL), *args, "--json"],
         check=False,
         capture_output=True,
         text=True,
@@ -155,13 +316,34 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         return text_result(run_script(args))
 
     if name == "save_artifact":
+        artifact = str(arguments["artifact"])
+        gated_commands = {
+            "engine-routing": "save-engine-routing",
+            "directions": "save-skill-recommendations",
+            "execution-packet": "save-execution-packet",
+            "prompt-final": "save-final-prompt",
+        }
+        if artifact in gated_commands:
+            return text_result(
+                run_coverctl(
+                    [
+                        gated_commands[artifact],
+                        "--project-path",
+                        str(arguments["project_path"]),
+                        "--text",
+                        str(arguments["text"]),
+                    ]
+                )
+            )
+        if artifact == "approved-direction":
+            raise RuntimeError("use set_approved_direction so the child-skill gate can validate approval")
         output = run_script(
             [
                 "save-artifact",
                 "--project-path",
                 str(arguments["project_path"]),
                 "--artifact",
-                str(arguments["artifact"]),
+                artifact,
                 "--text",
                 str(arguments["text"]),
             ]
@@ -178,8 +360,9 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
             "--approved-copy",
             str(arguments["approved_copy"]),
         ]
+        optional_arg(args, "--child-skill", arguments.get("child_skill"))
         optional_arg(args, "--notes", arguments.get("notes"))
-        return text_result(run_script(args))
+        return text_result(run_coverctl(args))
 
     if name == "update_metrics":
         args = ["update-metrics", "--project-path", str(arguments["project_path"])]
@@ -212,6 +395,121 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         if cover_mode not in PLATFORM_CANVAS:
             raise RuntimeError(f"unsupported cover mode: {cover_mode}")
         return text_result(json.dumps(PLATFORM_CANVAS[cover_mode], ensure_ascii=False, indent=2))
+
+    if name == "get_project_state":
+        return text_result(
+            run_coverctl(["get-state", "--project-path", str(arguments["project_path"])])
+        )
+
+    if name == "list_generation_backends":
+        return text_result(run_coverctl(["list-generation-backends"]))
+
+    if name == "save_engine_routing":
+        return text_result(
+            run_coverctl(
+                [
+                    "save-engine-routing",
+                    "--project-path",
+                    str(arguments["project_path"]),
+                    "--text",
+                    str(arguments["text"]),
+                ]
+            )
+        )
+
+    if name == "save_skill_recommendations":
+        return text_result(
+            run_coverctl(
+                [
+                    "save-skill-recommendations",
+                    "--project-path",
+                    str(arguments["project_path"]),
+                    "--text",
+                    str(arguments["text"]),
+                ]
+            )
+        )
+
+    if name == "save_execution_packet":
+        return text_result(
+            run_coverctl(
+                [
+                    "save-execution-packet",
+                    "--project-path",
+                    str(arguments["project_path"]),
+                    "--text",
+                    str(arguments["text"]),
+                ]
+            )
+        )
+
+    if name == "save_final_prompt":
+        return text_result(
+            run_coverctl(
+                [
+                    "save-final-prompt",
+                    "--project-path",
+                    str(arguments["project_path"]),
+                    "--text",
+                    str(arguments["text"]),
+                ]
+            )
+        )
+
+    if name == "verify_prompt_firewall":
+        args = ["verify-prompt-firewall", "--project-path", str(arguments["project_path"])]
+        for term in arguments.get("forbid") or []:
+            args.extend(["--forbid", str(term)])
+        if arguments.get("require_identity_reference"):
+            args.append("--require-identity-reference")
+        return text_result(run_coverctl(args))
+
+    if name == "preflight_generation":
+        args = [
+            "preflight-generation",
+            "--project-path",
+            str(arguments["project_path"]),
+            "--generation-backend",
+            str(arguments["generation_backend"]),
+        ]
+        optional_arg(args, "--reference-image-mode", arguments.get("reference_image_mode"))
+        for evidence in arguments.get("reference_evidence") or []:
+            args.extend(["--reference-evidence", str(evidence)])
+        return text_result(run_coverctl(args))
+
+    if name == "record_generation_output":
+        args = [
+            "record-generation-output",
+            "--project-path",
+            str(arguments["project_path"]),
+            "--source-image",
+            str(arguments["source_image"]),
+            "--generation-backend",
+            str(arguments["generation_backend"]),
+            "--reference-image-mode",
+            str(arguments["reference_image_mode"]),
+        ]
+        optional_arg(args, "--output-name", arguments.get("output_name"))
+        return text_result(run_coverctl(args))
+
+    if name == "verify_image_dimensions":
+        args = [
+            "verify-image-dimensions",
+            "--project-path",
+            str(arguments["project_path"]),
+            "--image",
+            str(arguments["image"]),
+        ]
+        optional_arg(args, "--preset", arguments.get("preset"))
+        if arguments.get("ratio_only"):
+            args.append("--ratio-only")
+        return text_result(run_coverctl(args))
+
+    if name == "mark_final":
+        args = ["mark-final", "--project-path", str(arguments["project_path"])]
+        optional_arg(args, "--output", arguments.get("output"))
+        optional_arg(args, "--notes", arguments.get("notes"))
+        return text_result(run_coverctl(args))
 
     raise RuntimeError(f"unknown tool: {name}")
 

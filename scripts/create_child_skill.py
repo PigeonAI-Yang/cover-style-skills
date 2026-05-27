@@ -128,9 +128,9 @@ Missing fields:
 10. If any self-check item fails, revise the Execution Design Packet before writing the final image prompt.
 11. Map the approved storyboard and layout brief to one clear cover concept and choose the subject role/action required by the engine.
 12. Write a GPT Image 2 prompt packet with platform adaptation, reference handling, identity preservation, composition, subject, typography layout system, lighting, readability, and negative constraints.
-13. Save the exact final generation prompt to a prompt file and run the mother skill's `scripts/verify_prompt_firewall.py` with `{creator_name}` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, pass `--require-identity-reference`. Do not generate if the script fails.
-14. Ask whether the user wants direct generation.
-15. Generate only after confirmation and only after the prompt firewall has passed.
+13. Save the exact final generation prompt through the mother skill's workflow gate, preferably `scripts/coverctl.py save-final-prompt`, then run `scripts/coverctl.py verify-prompt-firewall` with `{creator_name}` and common aliases passed as `--forbid`. If a portrait/reference image is supplied, require identity-reference handling. Do not generate if the firewall fails.
+14. Run `scripts/coverctl.py preflight-generation`. If it returns `generate`, generate directly without asking for another approval. If it returns `prompt_only`, output the exact final prompt and the missing generation condition.
+15. Register any generated output, verify dimensions, and mark final only through the workflow gate.
 
 ## Execution Gate
 
@@ -191,7 +191,8 @@ post_generation_check:
 ## Iteration Plan
 <2-3 likely improvements after first image>
 
-是否需要我直接生成？
+## Generation Gate
+<generate directly if preflight passes; otherwise output prompt_only with blocker>
 ```
 
 ## Design Standard

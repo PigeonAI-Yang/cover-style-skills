@@ -1,9 +1,9 @@
 ---
 name: pigeonyang-cover-style-distiller
-description: PigeonYang-branded mother skill for researching creator cover patterns, distilling reusable child skills, and running PigeonYang's Agent-native cover workflows for WeChat public account article covers, video covers, Xiaohongshu note covers, and GPT Image 2-ready prompts. Use when the user asks for a cover in a creator's style, wants to distill a YouTube/Bilibili/Xiaohongshu/TikTok creator's thumbnail formula, wants reusable PigeonYang prompt skills for creator-specific cover design patterns, or wants a PigeonYang-branded WeChat article cover workflow.
+description: Creator Cover Paradigm Distiller mother skill for researching creator cover patterns, distilling reusable child skills, routing user articles or videos to suitable cover design engines, and producing GPT Image 2-ready prompts. PigeonYang WeChat article covers are the first private application workflow, not the product center.
 ---
 
-# PigeonYang Cover Style Distiller
+# Creator Cover Paradigm Distiller
 
 ## Purpose
 
@@ -11,12 +11,22 @@ Turn a creator's public thumbnail practice into a reusable cover-prompt skill.
 
 Do not write a one-off imitation prompt from memory. First research real cover samples and creator/team commentary, then distill the creator's cover generation engine, create a top-level child skill, and only then write GPT Image 2 prompts.
 
-For PigeonYang's own WeChat public account article covers, do not force a creator-style imitation workflow. Use the product workflow in `PigeonYang WeChat Article Cover Workflow`: extract the article hook, route the draft to suitable distilled child-skill design engines, propose three visual direction references, get copy and direction approval, preserve the fixed PigeonYang anime identity, and save production artifacts outside the product git repo.
+For user articles or videos, route the draft to a distilled creator-cover child
+skill before writing final prompts. The product intelligence is the library of
+creator-cover paradigms and the router that chooses the right one.
+
+For PigeonYang's own WeChat public account article covers, use the private
+application workflow in `PigeonYang WeChat Article Cover Workflow`: extract the
+article hook, recommend the most suitable distilled blogger/creator child
+skills first, explain the design scheme each recommended skill would use, get
+child-skill and copy approval, preserve the fixed PigeonYang anime identity, and
+save production artifacts outside the product git repo. This workflow is an
+application of the distiller, not the product center.
 
 Do not confuse "not imitating a creator" with "not using child skills." The
 child skills contain distilled visual decision engines. For PigeonYang WeChat
-covers, use child skills as internal design engines when producing visual
-directions, while keeping the final output PigeonYang-branded and firewall-safe.
+covers, the router must recommend a child skill before producing final visual
+execution, while keeping the final output PigeonYang-branded and firewall-safe.
 
 ## Non-Negotiables
 
@@ -47,17 +57,31 @@ directions, while keeping the final output PigeonYang-branded and firewall-safe.
 - Do not generate from only a raw topic, title, or user requirements. If the `Execution Design Packet` is missing or fails the self-check, revise the packet first instead of generating.
 - Treat on-cover copy as user-approved product language, not a free assistant rewrite. If the user allows shortening, that permission only allows copy proposals; it does not approve a final title. When changing the user's title, show 3-5 candidate titles with semantic tradeoffs and wait for explicit user approval before final prompt writing or generation.
 - Select both an aspect ratio and a target pixel canvas from `references/platform-cover-standards.md`. Prompts must include the target canvas, and generated outputs must be dimension-checked before delivery.
-- Default to prompt writing only. Ask whether the user wants direct generation after showing the prompt packet.
+- After the user approves the child skill and exact on-cover copy, do not ask
+  again whether to generate. If the current runtime has a direct image-generation
+  backend that can satisfy all required inputs, including required identity
+  reference images, generate directly after the prompt firewall passes. If the
+  runtime cannot satisfy required inputs, output the exact final prompt and state
+  the missing generation condition.
 - For PigeonYang WeChat article covers, the first-generation target is open rate, not style mimicry. Use high-click knowledge-media cover logic with medium brand consistency.
 - For PigeonYang WeChat article covers, always use the private identity reference unless the user explicitly overrides it: `J:\PigeonYang\cover-style-distiller\cover-projects\_identity\pigeonyang-character-reference.png`.
 - For PigeonYang WeChat article covers, production project files must be written under `J:\PigeonYang\cover-style-distiller\cover-projects`, never under the product repo.
+- For PigeonYang WeChat article covers, use the local workflow gate when it is
+  available: `scripts/coverctl.py` or the equivalent MCP tools. State-changing
+  artifacts must go through the gate: `engine-routing.md`, `directions.md`,
+  `approved-direction.md`, `execution-packet.md`, `prompt-final.txt`,
+  `firewall-result.json`, `generation-preflight.json`,
+  `generation-manifest.json`, `dimension-check.json`, and final marking.
+- Do not call image generation or mark an output final from chat memory alone.
+  If `coverctl.py preflight-generation` returns `prompt_only`, deliver the exact
+  final prompt and state the missing generation condition instead of generating.
 - For PigeonYang WeChat article covers, always write `engine-routing.md` before `directions.md`. The router must recommend suitable child skills and explain fit, risk, and rejected engines.
-- For PigeonYang WeChat article covers, produce three differentiated directions and three visual direction references before final prompt writing. Each direction must vary hook, copy, visual strategy, and visible composition.
-- For PigeonYang WeChat article covers, route each visual direction through an explicit internal design engine. Prefer existing child skills such as `pigeonyang-cover-style-dan-koe`, `pigeonyang-cover-style-he-tongxue`, `pigeonyang-cover-style-yingshijufeng`, or `pigeonyang-cover-style-mrbeast` when their cover generation engine fits the article.
-- Do not ask Yang to choose from text-only directions. Text is only an explanation layer; the approval gate must be based on visual references or low-fidelity direction previews.
+- For PigeonYang WeChat article covers, produce a child-skill recommendation packet before final prompt writing. Each card must start with the recommended child skill and include fit score, reason, proposed design scheme, proposed copy, risk, and visible composition.
+- For PigeonYang WeChat article covers, the approval object is the child skill, not an abstract direction label. Prefer existing child skills such as `pigeonyang-cover-style-dan-koe`, `pigeonyang-cover-style-he-tongxue`, `pigeonyang-cover-style-yingshijufeng`, or `pigeonyang-cover-style-mrbeast` when their cover generation engine fits the article.
+- Do not ask Yang to choose from generic visual directions. Recommend the child skill directly from the article diagnosis. Low-fidelity mock images are not required for approval and should not be used by default.
 - Do not rely on the model remembering dimensions. Every direction reference prompt and every final prompt must explicitly state `WeChat public account article main cover`, `2.35:1`, `target canvas 2350x1000 pixels`, and central square-safe zone `x=675..1675`.
 - Child skill names are internal routing labels only. Do not put public creator names, `inspired by`, or `in the style of` wording in generated image prompts. Translate each child skill engine into concrete visual rules.
-- For PigeonYang WeChat article covers, do not generate until the user approves one direction and the exact on-cover text.
+- For PigeonYang WeChat article covers, do not generate until the user approves one child skill and the exact on-cover text.
 
 ## Workflow
 
@@ -238,8 +262,11 @@ When the user asks for a cover in a distilled creator style:
 9. If any self-check item fails, revise the packet before writing the final image prompt.
 10. Write a GPT Image 2 prompt packet using `references/gpt-image-2-cover-prompts.md`; include the exact target canvas in pixels. Before generation, remove the distilled creator's name and any style/inspired-by wording from the final prompt.
 11. Save the exact final prompt text to a prompt file and run `scripts/verify_prompt_firewall.py`. Use `--forbid` for the distilled creator display name and common aliases; use `--require-identity-reference` when the user supplied a portrait/reference image. Do not continue if the script fails.
-12. Show the prompt packet and ask whether to generate.
-13. If the user confirms and the prompt firewall passed, use the available image generation backend. Prefer a runtime-native image tool; if using `baoyu-imagine`, use provider `openai` and model `gpt-image-2` when configured.
+12. After the prompt firewall passes, do not ask for another generation
+    confirmation. If the runtime has an image-generation backend that can satisfy
+    all required inputs, including identity references, generate directly.
+13. If the runtime cannot satisfy required inputs, output the exact final prompt
+    instead of generating and clearly state the missing generation condition.
 14. After generation, verify the output dimensions with `scripts/verify_image_dimensions.py`. If the result does not match the requested ratio/canvas, do not report it as complete; regenerate or ask whether to crop/resize.
 
 ### 6. PigeonYang WeChat Article Cover Workflow
@@ -334,7 +361,7 @@ python J:\PigeonYang\cover-style-distiller\product\scripts\manage_cover_project.
   --project-path J:\PigeonYang\cover-style-distiller\cover-projects\<project-id>
 ```
 
-#### 6.5 Direction Generation
+#### 6.5 Child Skill Recommendation
 
 First write `engine-routing.md`:
 
@@ -347,10 +374,12 @@ First write `engine-routing.md`:
 - rejected engines and why
 - recommendation
 
-Before final prompt writing, produce three candidate directions and three visual reference images. Each direction must include:
+Before final prompt writing, produce candidate child-skill recommendation cards.
+Each card must include:
 
-- internal design engine used
-- visual reference image path
+- recommended child skill
+- fit score
+- why this child skill is recommended for this article
 - hook angle
 - proposed on-cover copy
 - visual premise
@@ -360,29 +389,33 @@ Before final prompt writing, produce three candidate directions and three visual
 - why it may improve open rate
 - risk or possible misread
 
-The three options should not be minor style variants. They should differ in hook, copy, and visual strategy.
+The options should not be minor style variants under one generic design
+direction. They should represent different child skills and explain what each
+skill would do with the same article. Recommend the best skill clearly; do not
+force Yang to choose among equals when one route is stronger.
 
-Use child skills as the default source of visual strategy:
+Rank child skills as the default routing decision:
 
 - `pigeonyang-cover-style-dan-koe`: best for thesis, warning, identity reframe, high-authority text+face covers.
 - `pigeonyang-cover-style-he-tongxue`: best for AI tools, workflows, prototypes, proof objects, maker-demonstrator covers.
 - `pigeonyang-cover-style-yingshijufeng`: best for documentary proof, hidden mechanism, real scene, serious tech/social investigation covers.
 - `pigeonyang-cover-style-mrbeast`: use sparingly for extreme stakes, visible output, challenge, scale, or absurd physicalized premise.
 
-Pick the engines by article need, not by creator popularity. The same article can
-produce three visual references from three engines. This is a direction-selection
+Pick child skills by article need, not by creator popularity. The same article
+can produce three previews from three child skills. This is a skill-selection
 tool, not a style-copying instruction.
 
-The three visual references are decision artifacts, not final covers. They can be
-low-fidelity, but they must make composition, visual metaphor, text treatment,
-and overall taste visible enough for Yang to choose. Save them under:
+Optional visual previews are not the default gate. Generate them only if Yang
+asks to compare visuals or after one child skill is approved and a high-quality
+draft is needed. Save optional previews under:
 
 ```text
 outputs\direction-references\
 ```
 
-Do not proceed to approval from prose alone. If only text directions exist,
-generate direction references first.
+Do not proceed from generic prose directions. Proceed from a concrete child-skill
+recommendation: child skill, fit reason, design scheme, copy, and risk. Do not
+generate low-fidelity previews unless Yang asks for them.
 
 Every visual reference prompt must explicitly include:
 
@@ -399,8 +432,8 @@ python J:\PigeonYang\cover-style-distiller\product\scripts\verify_image_dimensio
   --ratio-only
 ```
 
-If a reference image fails exact `2350x1000`, keep it only as a direction
-reference and record the failure. Final accepted covers must pass exact canvas
+If an optional preview image fails exact `2350x1000`, keep it only as a preview
+and record the failure. Final accepted covers must pass exact canvas
 verification.
 
 Recommended hook families:
@@ -424,13 +457,13 @@ For WeChat main covers:
 - keep first-read Chinese text short, preferably 4-10 characters and no more than 14 characters across 1-2 lines
 - avoid more than two independent text blocks
 
-If the user has not seen visual direction references, stop and generate the
-references before asking for approval. If the user has not approved exact text,
-stop at the visual direction packet and ask for approval.
+If the user has not approved a child skill, stop at the skill recommendation
+packet and ask for approval. If the user has not approved exact text, stop at the
+same packet and ask for approval.
 
 #### 6.7 Execution Packet
 
-After the user approves one direction, produce an `Execution Design Packet` with:
+After the user approves one child skill, produce an `Execution Design Packet` with:
 
 - approved copy
 - article hook translation
@@ -457,6 +490,15 @@ The final GPT Image 2 prompt must:
 - forbid small unreadable text, crowded subtitles, and text over the face or glasses
 
 Before generation, save the exact final prompt to `prompt-final.txt` in the private project folder and run `scripts/verify_prompt_firewall.py`. Use `--require-identity-reference`.
+
+After the final prompt passes the firewall:
+
+- If the current runtime can generate with the required PigeonYang identity
+  reference image, generate directly. Do not ask Yang for another confirmation
+  after child-skill and copy approval.
+- If the current runtime cannot attach or honor the required identity reference
+  image, do not generate a weaker image. Output the exact final prompt so Yang
+  can run it in a generation environment that supports the reference.
 
 #### 6.9 Output And Metrics
 
@@ -529,7 +571,8 @@ post_generation_check:
 ## Iteration Plan
 <2-3 likely fixes after first image>
 
-是否需要我直接生成？
+## Generation Gate
+<generate directly if preflight passes; otherwise output prompt_only with blocker>
 ```
 
 For child-skill creation, return:

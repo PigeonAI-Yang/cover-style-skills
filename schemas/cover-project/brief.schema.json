@@ -89,6 +89,16 @@
       "type": "string",
       "enum": [
         "brief_created",
+        "routing_completed",
+        "child_skill_approved",
+        "execution_packet_saved",
+        "final_prompt_saved",
+        "prompt_firewall_passed",
+        "generation_preflight_passed",
+        "prompt_only_blocked",
+        "generation_output_recorded",
+        "dimension_verified",
+        "final_marked",
         "directions_ready",
         "direction_approved",
         "prompt_ready",
@@ -101,6 +111,9 @@
       "type": "object",
       "properties": {
         "direction_id": {
+          "type": ["string", "null"]
+        },
+        "approved_child_skill": {
           "type": ["string", "null"]
         },
         "approved_copy": {

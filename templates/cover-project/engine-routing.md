@@ -19,6 +19,7 @@ Target: `{{TARGET_CANVAS}}`
 - Why it fits:
 - What visual promise it creates:
 - Risk:
+- User-facing recommendation reason:
 - Direction reference prompt:
 
 ### Candidate 2
@@ -27,6 +28,7 @@ Target: `{{TARGET_CANVAS}}`
 - Why it fits:
 - What visual promise it creates:
 - Risk:
+- User-facing recommendation reason:
 - Direction reference prompt:
 
 ### Candidate 3
@@ -35,6 +37,7 @@ Target: `{{TARGET_CANVAS}}`
 - Why it fits:
 - What visual promise it creates:
 - Risk:
+- User-facing recommendation reason:
 - Direction reference prompt:
 
 ## Rejected Engines
@@ -42,6 +45,10 @@ Target: `{{TARGET_CANVAS}}`
 - Why rejected:
 
 ## Recommendation
+
+Present the user-facing decision as child-skill recommendation cards in
+`directions.md`: child skill first, then reason, design scheme, copy, and risk.
+Do not ask Yang to choose from this internal routing record alone.
 
 ## Firewall Note
 Child skill names and public creator names are internal routing notes only.
